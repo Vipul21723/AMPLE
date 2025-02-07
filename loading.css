@@ -1,0 +1,344 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+@media (prefers-color-scheme: dark) {  
+    @media (orientation : landscape) {   
+        body{
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container{
+            width: 30%;
+            height: 20%;
+            background-color: rgb(0, 0, 0);
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        
+        .container>.box{
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: black;
+            animation: colour 2.1s infinite;
+            filter: drop-shadow(0px 0px 7px rgb(255, 255, 255));
+            filter: none;
+            border: none;
+        }
+        
+        .container>.box1{
+            animation-delay: 0s;
+        }
+        .container>.box2{
+            animation-delay: 0.3s;
+        }
+        .container>.box3{
+            animation-delay: 0.6s;
+        }
+        .container>.box4{
+            animation-delay: 0.9s;
+        }
+        .container>.box5{
+            animation-delay: 1.2s;
+        }
+        .container>.box6{
+            animation-delay: 1.5s;
+        }
+        .container>.box7{
+            animation-delay: 1.8s;
+        }
+        @keyframes colour{
+            100%{
+                background-color: red;
+                filter: drop-shadow(0px , 0px , 7px red);
+            }
+            14.28%{
+                background-color: orangered;
+                filter: drop-shadow(0px , 0px , 7px orangered);
+            }
+            28.56%{
+                background-color: yellow;
+                filter: drop-shadow(0px , 0px , 7px yellow);
+            }
+            42.84%{
+                background-color: rgb(0,255,0);
+                filter: drop-shadow(0px , 0px , 7px rgb(0,255,0));
+            }
+            57.12%{
+                background-color: blue;
+                filter: drop-shadow(0px , 0px , 7px blue);
+            }
+            71.40%{
+                background-color: indigo;
+                filter: drop-shadow(0px , 0px , 7px indigo);
+            }
+            85.68%{
+                background-color: rgb(255, 0, 255);
+                filter: drop-shadow(0px , 0px , 7px rgb(255, 0, 255));
+            }
+            
+        }
+        }
+    @media (orientation : portrait){
+        body{
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container{
+            width: 60%;
+            height: 20%;
+            background-color: rgb(0, 0, 0);
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        
+        .container>.box{
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: black;
+            animation: colour 2.1s infinite;
+            filter: drop-shadow(0px 0px 7px rgb(255, 255, 255));
+            filter: none;
+            border: none;
+        }
+        
+        .container>.box1{
+            animation-delay: 0s;
+        }
+        .container>.box2{
+            animation-delay: 0.3s;
+        }
+        .container>.box3{
+            animation-delay: 0.6s;
+        }
+        .container>.box4{
+            animation-delay: 0.9s;
+        }
+        .container>.box5{
+            animation-delay: 1.2s;
+        }
+        .container>.box6{
+            animation-delay: 1.5s;
+        }
+        .container>.box7{
+            animation-delay: 1.8s;
+        }
+        @keyframes colour{
+            14.28%{
+                background-color: orangered;
+                filter: drop-shadow(0px , 0px , 7px orangered);
+            }
+            28.56%{
+                background-color: yellow;
+                filter: drop-shadow(0px , 0px , 7px yellow);
+            }
+            42.84%{
+                background-color: rgb(0,255,0);
+                filter: drop-shadow(0px , 0px , 7px rgb(0,255,0));
+            }
+            57.12%{
+                background-color: blue;
+                filter: drop-shadow(0px , 0px , 7px blue);
+            }
+            71.40%{
+                background-color: indigo;
+                filter: drop-shadow(0px , 0px , 7px indigo);
+            }
+            85.68%{
+                background-color: rgb(255, 0, 255);
+                filter: drop-shadow(0px , 0px , 7px rgb(255, 0, 255));
+            }
+            100%{
+                background-color: red;
+                filter: drop-shadow(0px , 0px , 7px red);
+            }
+            
+        }
+        }
+    }
+
+
+@media (prefers-color-scheme: light) {  
+    @media (orientation : landscape) {
+        body{
+            width: 100vw;
+            height: 100vh;
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container{
+            width: 30%;
+            height: 20%;
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        
+        .container>.box{
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: rgb(255, 255, 255);
+            animation: colour 2.1s infinite;
+            filter: drop-shadow(0px 0px 7px rgb(255, 255, 255));
+            filter: none;
+            border: none;
+        }
+        
+        .container>.box1{
+            animation-delay: 0s;
+        }
+        .container>.box2{
+            animation-delay: 0.3s;
+        }
+        .container>.box3{
+            animation-delay: 0.6s;
+        }
+        .container>.box4{
+            animation-delay: 0.9s;
+        }
+        .container>.box5{
+            animation-delay: 1.2s;
+        }
+        .container>.box6{
+            animation-delay: 1.5s;
+        }
+        .container>.box7{
+            animation-delay: 1.8s;
+        }
+        @keyframes colour{
+            100%{
+                background-color: red;
+                filter: drop-shadow(0px , 0px , 7px red);
+            }
+            14.28%{
+                background-color: orangered;
+                filter: drop-shadow(0px , 0px , 7px orangered);
+            }
+            28.56%{
+                background-color: yellow;
+                filter: drop-shadow(0px , 0px , 7px yellow);
+            }
+            42.84%{
+                background-color: rgb(0,255,0);
+                filter: drop-shadow(0px , 0px , 7px rgb(0,255,0));
+            }
+            57.12%{
+                background-color: blue;
+                filter: drop-shadow(0px , 0px , 7px blue);
+            }
+            71.40%{
+                background-color: indigo;
+                filter: drop-shadow(0px , 0px , 7px indigo);
+            }
+            85.68%{
+                background-color: rgb(255, 0, 255);
+                filter: drop-shadow(0px , 0px , 7px rgb(255, 0, 255));
+            }
+            
+        }
+        }
+    @media (orientation : portrait){
+        body{
+            width: 100vw;
+            height: 100vh;
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container{
+            width: 60%;
+            height: 20%;
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        
+        .container>.box{
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: rgb(255, 255, 255);
+            animation: colour 2.1s infinite;
+            filter: drop-shadow(0px 0px 7px rgb(255, 255, 255));
+            filter: none;
+            border: none;
+        }
+        
+        .container>.box1{
+            animation-delay: 0s;
+        }
+        .container>.box2{
+            animation-delay: 0.3s;
+        }
+        .container>.box3{
+            animation-delay: 0.6s;
+        }
+        .container>.box4{
+            animation-delay: 0.9s;
+        }
+        .container>.box5{
+            animation-delay: 1.2s;
+        }
+        .container>.box6{
+            animation-delay: 1.5s;
+        }
+        .container>.box7{
+            animation-delay: 1.8s;
+        }
+        @keyframes colour{
+            14.28%{
+                background-color: orangered;
+                filter: drop-shadow(0px , 0px , 7px orangered);
+            }
+            28.56%{
+                background-color: yellow;
+                filter: drop-shadow(0px , 0px , 7px yellow);
+            }
+            42.84%{
+                background-color: rgb(0,255,0);
+                filter: drop-shadow(0px , 0px , 7px rgb(0,255,0));
+            }
+            57.12%{
+                background-color: blue;
+                filter: drop-shadow(0px , 0px , 7px blue);
+            }
+            71.40%{
+                background-color: indigo;
+                filter: drop-shadow(0px , 0px , 7px indigo);
+            }
+            85.68%{
+                background-color: rgb(255, 0, 255);
+                filter: drop-shadow(0px , 0px , 7px rgb(255, 0, 255));
+            }
+            100%{
+                background-color: red;
+                filter: drop-shadow(0px , 0px , 7px red);
+            }
+            
+        }
+        }
+}

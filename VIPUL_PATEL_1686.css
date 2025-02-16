@@ -1,0 +1,689 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+} 
+
+@media(orientation: landscape){
+    header{
+        background: conic-gradient(red, orange, yellow, rgb(0, 255, 0), blue, indigo, violet, red);
+        width: 100%;
+        height: 12%;
+        display: flex;
+        justify-content: center;
+        align-items: initial;
+        animation: anime 2s linear infinite;
+        position: fixed;
+        top: 0;
+        z-index: 1;
+    }
+    header>.sub-header{
+        background-color: rgb(0, 0, 0);
+        width: 100%;
+        height: 98%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    header > .sub-header > .logo {
+        width: 30%;
+        height: 100%;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    
+    
+    header > .sub-header > .logo > img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        filter: drop-shadow(0px 0px 4px gold);
+    }
+    
+    main{
+        width: 95%;
+        height: auto;
+        background-color: rgba(35, 35, 35, 0.311);
+        position: absolute;
+        top: 15vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 10px;
+        padding: 10px;
+    }
+    
+    main>.profile_header{
+        background-color: rgba(158, 158, 158, 0.096);
+        width: 98%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 10px;
+        padding: 10px;
+    }
+    
+    main>.profile_header>.image{
+        width: 100%;
+        height: 25vh;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: transparent;
+        border-radius: 10px;
+    
+    }
+    
+    main>.profile_header>.image>.main_image{
+        width: 12%;
+        height: 90%;
+        background-image: url("vipulpatel.jpeg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 50%;
+        filter: drop-shadow(0px 0px 4px white);
+    }
+    
+    main>.profile_header>.image>.side_image>img{
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-image: url("AMPLEbg.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 50%;
+        filter: drop-shadow(0px 0px 4px white);
+    }
+    
+    main>.profile_header>.image>.side_image{
+        width: 80%;
+        height: 90%;
+        background-color: transparent;
+        border-radius: 500px;
+        filter: drop-shadow(0px 0px 7px white);
+        background-image: url("VIPUL_PATEL_1686\ bg.jpeg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: drop-shadow(0px 0px 4px white);
+    }
+    
+    
+    main>.profile_header>hr{
+        width: 97%;
+        height: 5px;
+        background-color: rgba(156, 156, 156, 0.13);
+        border: none;
+        border-radius: 500px;
+    }
+    
+    main>.profile_header>.info{
+        background-color: transparent;
+        padding: 10px;
+        width: 95%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    
+    main>.profile_header>.info>.data{
+        width: 100%;
+        height: auto;
+        margin: 5px;
+        display: flex;
+        align-items: center;
+        background-color: transparent;
+    }
+    
+    main>.profile_header>.info>.data>img{
+        background-color: transparent;
+        margin-right: 15px;
+        filter: drop-shadow(0px 0px 4px silver);
+    }
+    main>.profile_header>.info>.data>p{
+        color: white;
+        font-family: "Merriweather", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 1.4rem;
+    }
+    main>.profile_header>.info>.description{
+        display: flex;
+        justify-content: start;
+        align-items: start;
+    }
+    
+    main>.profile_header>.info>.description>.text>p{
+        color: white;
+        font-family: "Merriweather", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 1.4rem;
+    }
+    
+    
+    main>.profile_header>.info>.name>p{
+        color: white;
+        font-family: "Merriweather", serif;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 1.5rem;
+    }
+    
+    main>.profile_header>.info>.extra-links{
+        display: flex;
+        align-items: start;
+        overflow: hidden;
+    }
+    main>.profile_header>.info>.extra-links>.links{
+        display: flex;
+        flex-direction: column;
+        background-color: transparent;
+    }
+    main>.profile_header>.info>.extra-links>.links>.link{
+        display: flex;
+        align-items: center;
+    }
+    
+    main>.profile_header>.info>.extra-links>.links>.link>a{
+        display: flex;
+        align-items: center;
+        margin: 5px;
+        color: blue;
+        text-decoration: none;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 1.2rem;
+        font-weight: 300;
+    }
+    
+    @keyframes anime{
+        14%{
+            background: conic-gradient(red, orange, yellow, rgb(0, 255, 0), blue, indigo, violet, red);
+        }
+        28%{
+            background: conic-gradient(orange, yellow, rgb(0,255,0), blue, indigo, violet, red, orange);
+        }
+        42%{
+            background: conic-gradient( yellow, rgb(0,255,0), blue, indigo, violet, red, orange, yellow);
+        }
+        56%{
+            background: conic-gradient( rgb(0,255,0), blue, indigo, violet, red, orange, yellow, rgb(0, 255, 0));
+        }
+        70%{
+            background: conic-gradient(blue, indigo, violet, red, orange, yellow, rgb(0,255,0) ,blue);
+        }
+        84%{
+            background: conic-gradient(indigo, violet, red, orange, yellow, rgb(0,255,0) ,blue,indigo);
+        }
+        100%{
+            background: conic-gradient( violet, red,  orange, yellow, rgb(0,255,0),blue,indigo,violet);
+        }
+    }
+    
+    tag{
+        background: linear-gradient(135deg, red, orange,yellow,rgb(0, 255, 0),blue,indigo,rgb(255, 0, 255));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none;
+    }
+    
+    main>hr{
+        width: 98%;
+        height: 5px;
+        background-color: rgba(156, 156, 156, 0.13);
+        border: none;
+        border-radius: 500px;
+        margin: 10px;
+    }
+    
+    main>.profile_data{
+        background-color: rgba(35, 35, 35, 0.311);
+        width: 98%;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        border-radius: 10px;
+        padding: 10px;
+    }
+    
+    main>.profile_data>.update{
+        margin: 5px;
+        width: 30%;
+        height: auto;
+        background-color: rgba(70, 70, 70, 0.18);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px;
+    
+    
+    }
+    
+    main>.profile_data>.update>.time{
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        padding: 2px;
+    }
+    main>.profile_data>.update>.time>p{
+        background-color: transparent;
+        margin-left: 5px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 1rem;
+        font-weight: 500;
+        color: silver;
+    }
+    
+    main>.profile_data>.update>.post-data{
+        width: 100%;
+        height: auto;
+        background-color: transparent;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    main>.profile_data>.update>.post-data>.data{
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: white;
+    }
+    
+    main > .profile_data > .update > .post-data > .source {
+        width: 100%;
+        height: 40vh;
+        background-color: black;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        margin-top: 5px;
+    }
+    
+    main > .profile_data > .update > .post-data > .source > img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+    }
+    main > .profile_data > .update > .post-data > .source > video {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+    }
+}
+
+@media(orientation: portrait){
+    header{
+        background: conic-gradient(red, orange, yellow, rgb(0, 255, 0), blue, indigo, violet, red);
+        width: 100%;
+        height: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: initial;
+        animation: anime 2s linear infinite;
+        position: fixed;
+        top: 0;
+        z-index: 1;
+    }
+    header>.sub-header{
+        background-color: rgb(0, 0, 0);
+        width: 100%;
+        height: 98%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    header > .sub-header > .logo {
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    
+    header > .sub-header > .logo > img {
+        max-height: 100%;
+        max-width: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        filter: drop-shadow(0px 0px 4px gold);
+    }
+    
+    main{
+        width: 90%;
+        height: auto;
+        background-color: rgba(35, 35, 35, 0.311);
+        position: absolute;
+        top: 10%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 10px;
+        padding: 10px;
+    }
+    
+    main>.profile_header{
+        background-color: rgba(158, 158, 158, 0.096);
+        width: 98%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 10px;
+        padding: 10px;
+    }
+    
+    main>.profile_header>.image{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        background-color: transparent;
+        border-radius: 10px;
+    
+    }
+    
+    main>.profile_header>.image>.main_image{
+        width: 50vw;
+        height: 25vh;
+        background-image: url("vipulpatel.jpeg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 50%;
+        filter: drop-shadow(0px 0px 4px white);
+    }
+    
+    main>.profile_header>.image>.side_image>img{
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-image: url("AMPLEbg.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 50%;
+        filter: drop-shadow(0px 0px 4px white);
+        display: none;
+    }
+    
+    main>.profile_header>.image>.side_image{
+        width: 80%;
+        height: 90%;
+        background-color: transparent;
+        border-radius: 500px;
+        filter: drop-shadow(0px 0px 7px white);
+        background-image: url("VIPUL_PATEL_1686\ bg.jpeg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: drop-shadow(0px 0px 4px white);
+        display: none;
+    }
+    
+    
+    main>.profile_header>hr{
+        width: 97%;
+        height: 5px;
+        background-color: rgba(156, 156, 156, 0.13);
+        border: none;
+        border-radius: 500px;
+        margin-top: 10px;
+    }
+    
+    main>.profile_header>.info{
+        background-color: transparent;
+        padding: 10px;
+        width: 95%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    
+    main>.profile_header>.info>.data{
+        width: 100%;
+        height: auto;
+        margin: 5px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        background-color: transparent;
+    }
+    
+    main>.profile_header>.info>.data>img{
+        background-color: transparent;
+        margin-right: 15px;
+        filter: drop-shadow(0px 0px 4px silver);
+    }
+    main>.profile_header>.info>.data>p{
+        color: white;
+        font-family: "Merriweather", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 1.2rem;
+    }
+    main>.profile_header>.info>.description{
+        display: flex;
+        justify-content: start;
+        align-items: start;
+    }
+    main>.profile_header>.info>.data{
+        display: flex;
+        justify-content: start;
+        align-items: start;
+    }
+    
+    main>.profile_header>.info>.description>.text>p{
+        color: white;
+        font-family: "Merriweather", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 1.4rem;
+    }
+    
+    
+    main>.profile_header>.info>.name>p{
+        color: white;
+        font-family: "Merriweather", serif;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 1.5rem;
+    }
+    
+    main>.profile_header>.info>.extra-links{
+        display: flex;
+        align-items: start;
+        overflow: hidden;
+    }
+    main>.profile_header>.info>.extra-links>.links{
+        display: flex;
+        flex-direction: column;
+        background-color: transparent;
+    }
+    main>.profile_header>.info>.extra-links>.links>.link{
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+
+    }
+    
+    main>.profile_header>.info>.extra-links>.links>.link>a{
+        display: flex;
+        align-items: center;
+        margin: 5px;
+        color: blue;
+        text-decoration: none;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 1rem;
+        font-weight: 300;
+    }
+    
+    @keyframes anime{
+        14%{
+            background: conic-gradient(red, orange, yellow, rgb(0, 255, 0), blue, indigo, violet, red);
+        }
+        28%{
+            background: conic-gradient(orange, yellow, rgb(0,255,0), blue, indigo, violet, red, orange);
+        }
+        42%{
+            background: conic-gradient( yellow, rgb(0,255,0), blue, indigo, violet, red, orange, yellow);
+        }
+        56%{
+            background: conic-gradient( rgb(0,255,0), blue, indigo, violet, red, orange, yellow, rgb(0, 255, 0));
+        }
+        70%{
+            background: conic-gradient(blue, indigo, violet, red, orange, yellow, rgb(0,255,0) ,blue);
+        }
+        84%{
+            background: conic-gradient(indigo, violet, red, orange, yellow, rgb(0,255,0) ,blue,indigo);
+        }
+        100%{
+            background: conic-gradient( violet, red,  orange, yellow, rgb(0,255,0),blue,indigo,violet);
+        }
+    }
+    
+    tag{
+        background: linear-gradient(135deg, red, orange,yellow,rgb(0, 255, 0),blue,indigo,rgb(255, 0, 255));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none;
+    }
+    
+    main>hr{
+        width: 98%;
+        height: 5px;
+        background-color: rgba(156, 156, 156, 0.13);
+        border: none;
+        border-radius: 500px;
+        margin: 10px;
+    }
+    
+    main>.profile_data{
+        background-color: rgba(35, 35, 35, 0.311);
+        width: 98%;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        padding: 10px;
+    }
+    
+    main>.profile_data>.update{
+        margin: 5px;
+        width: 90%;
+        height: auto;
+        background-color: rgba(70, 70, 70, 0.18);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px;
+    
+    
+    }
+    
+    main>.profile_data>.update>.time{
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        padding: 2px;
+    }
+    main>.profile_data>.update>.time>p{
+        background-color: transparent;
+        margin-left: 5px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 1rem;
+        font-weight: 500;
+        color: silver;
+    }
+    
+    main>.profile_data>.update>.post-data{
+        width: 100%;
+        height: auto;
+        background-color: transparent;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    main>.profile_data>.update>.post-data>.data{
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: white;
+    }
+    
+    main > .profile_data > .update > .post-data > .source {
+        width: 100%;
+        height: 30vh;
+        background-color: black;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        margin-top: 5px;
+    }
+    
+    main > .profile_data > .update > .post-data > .source > img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+    }
+    main > .profile_data > .update > .post-data > .source > video {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+    }
+}

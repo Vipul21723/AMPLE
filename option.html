@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post with Options</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .post {
+            position: relative;
+            width: 300px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .post-image {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .options-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Options Menu */
+        .options-menu {
+            position: absolute;
+            top: 40px;
+            right: 10px;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: none;
+            flex-direction: column;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        /* Show Menu Animation */
+        .options-menu.show {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Menu Buttons */
+        .options-menu button {
+            background: none;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            transition: background 0.2s ease-in-out;
+        }
+
+        .options-menu button:hover {
+            background: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="post">
+        <img src="post-image.jpg" alt="Post Image" class="post-image" id="postImage">
+
+        <!-- Options Button -->
+        <button class="options-btn" onclick="toggleOptionsMenu(event)">⋮</button>
+
+        <!-- Options Menu -->
+        <div class="options-menu" id="optionsMenu">
+            <button onclick="downloadImage()">📥 Download Media</button>
+            <button onclick="printPost()">🖨 Print Post</button>
+            <button onclick="sharePost()">🔗 Share</button>
+            <button onclick="viewProfile()">👤 View Profile</button>
+            <button onclick="viewFullScreen()">🔍 View Fullscreen</button>
+            <button onclick="hideTemporary()">🚫 Hide Temporarily</button>
+        </div>
+    </div>
+
+    <script>
+        // Toggle options menu visibility with animation
+        function toggleOptionsMenu(event) {
+            let menu = document.getElementById("optionsMenu");
+            event.stopPropagation(); // Prevent menu from closing immediately
+            
+            if (menu.classList.contains("show")) {
+                menu.style.opacity = "0";
+                menu.style.transform = "translateY(-10px)";
+                setTimeout(() => {
+                    menu.classList.remove("show");
+                }, 300);
+            } else {
+                menu.classList.add("show");
+                setTimeout(() => {
+                    menu.style.opacity = "1";
+                    menu.style.transform = "translateY(0)";
+                }, 10);
+            }
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener("click", function(event) {
+            let menu = document.getElementById("optionsMenu");
+            if (!menu.contains(event.target) && !event.target.closest(".options-btn")) {
+                menu.style.opacity = "0";
+                menu.style.transform = "translateY(-10px)";
+                setTimeout(() => {
+                    menu.classList.remove("show");
+                }, 300);
+            }
+        });
+
+        // Download Image Function
+        function downloadImage() {
+            let imgSrc = document.getElementById("postImage").src;
+            let link = document.createElement("a");
+            link.href = imgSrc;
+            link.download = "downloaded-image.jpg";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Print Post Function
+        function printPost() {
+            let printWindow = window.open('', '_blank');
+            printWindow.document.write('<html><head><title>Print Post</title></head><body>');
+            printWindow.document.write('<img src="' + document.getElementById("postImage").src + '" style="width:100%;">');
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        }
+
+        // Share Post Function
+        function sharePost() {
+            let postUrl = window.location.href;
+            navigator.clipboard.writeText(postUrl).then(() => {
+                alert("Post link copied to clipboard!");
+            });
+        }
+
+        // View Profile Function
+        function viewProfile() {
+            window.location.href = "/user-profile"; // Change to actual profile URL
+        }
+
+        // View Fullscreen Function
+        function viewFullScreen() {
+            let img = document.getElementById("postImage");
+            if (img.requestFullscreen) {
+                img.requestFullscreen();
+            } else if (img.mozRequestFullScreen) {
+                img.mozRequestFullScreen();
+            } else if (img.webkitRequestFullscreen) {
+                img.webkitRequestFullscreen();
+            } else if (img.msRequestFullscreen) {
+                img.msRequestFullscreen();
+            }
+        }
+
+        // Hide Temporary Function
+        function hideTemporary() {
+            let post = document.querySelector(".post");
+            post.style.display = "none";
+            setTimeout(() => {
+                post.style.display = "block";
+            }, 5000); // Reappear after 5 seconds
+        }
+    </script>
+
+</body>
+</html>

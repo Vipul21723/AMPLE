@@ -1,3 +1,3 @@
 setTimeout(function() {
-    window.location.href = 'update.html';
+    window.location.href = 'next.html';
 }, 3000);

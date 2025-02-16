@@ -3,9 +3,232 @@
     padding: 0;
 }
 
-
-@media (prefers-color-scheme: dark) {  
-    @media (orientation : landscape) {   
+@media (orientation : landscape) {   
+    body{
+        background-color: #000000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    } 
+    header{
+        background: conic-gradient(red, orange, yellow, rgb(0, 255, 0), blue, indigo, violet, red);
+        width: 100vw;
+        height: 15vh;
+        display: flex;
+        justify-content: center;
+        align-items: initial;
+        animation: anime 2s linear infinite;
+        position: fixed;
+        top: 0;
+    }
+    
+    
+    
+    header>.logo{
+        background-color: rgb(0, 0, 0);
+        width: 100%;
+        height: 98%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    header>.logo>img{
+        width: fit-content;
+        height: 200%;
+        filter: drop-shadow(0px 0px 4px rgb(255, 200, 0));
+    }
+    
+    footer{
+        background: rgba(56, 55, 55, 0.132);
+        width: 100vw;
+        height: 7vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        box-shadow: 0px 0px 7px aqua;
+    }
+    
+    footer>p{
+        color: rgb(255, 255, 255);
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        text-align: center;
+        font-weight: 400;
+        filter: drop-shadow(0px 0px 10px white);
+    }
+    
+    
+    @keyframes anime{
+        14%{
+            background: conic-gradient(red, orange, yellow, rgb(0, 255, 0), blue, indigo, violet, red);
+        }
+        28%{
+            background: conic-gradient(orange, yellow, rgb(0,255,0), blue, indigo, violet, red, orange);
+        }
+        42%{
+            background: conic-gradient( yellow, rgb(0,255,0), blue, indigo, violet, red, orange, yellow);
+        }
+        56%{
+            background: conic-gradient( rgb(0,255,0), blue, indigo, violet, red, orange, yellow, rgb(0, 255, 0));
+        }
+        70%{
+            background: conic-gradient(blue, indigo, violet, red, orange, yellow, rgb(0,255,0) ,blue);
+        }
+        84%{
+            background: conic-gradient(indigo, violet, red, orange, yellow, rgb(0,255,0) ,blue,indigo);
+        }
+        100%{
+            background: conic-gradient( violet, red,  orange, yellow, rgb(0,255,0),blue,indigo,violet);
+        }
+    }
+    
+    
+    
+    main{
+        width: 100vw;
+        height: 78vh;
+        background-color: rgb(0, 0, 0);
+        display: flex;
+        position: absolute;
+        top: 15vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    main>.welcome-box{
+        width: 50%;
+        height: 75%;
+        background-color: rgb(0, 0, 0);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        filter: drop-shadow(0px 0px 5px rgb(69, 69, 69));
+    }
+    
+    main>.welcome-box>.slogan{
+        width: 98%;
+        height: 70%;
+        color: rgb(254, 254, 254);
+        background-color: rgb(0, 0, 0);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    
+    main>.welcome-box>.slogan>h3{
+        font-size: 1.1rem;
+        font-weight: 500;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: red;
+        filter: drop-shadow(0px 0px 7px red);
+    }
+    
+    main>.welcome-box>.slogan>.and{
+        font-size: 1rem;
+        font-weight: 100;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: blue;
+        filter: drop-shadow(0px 0px 7px blue);
+    }
+    main>.welcome-box>.slogan>.text{
+        font-size: 1.10rem;
+        font-weight: 900;
+        font-family: Georgia, 'Times New Roman', Times, serif, Geneva, Tahoma, sans-serif;
+        color: gold;
+        filter: drop-shadow(0px 0px 7px gold);
+    }
+    main>.welcome-box>button{
+        width: 40%;
+        height: 20%;
+        color: red;
+        font-size: 1.5rem;
+        font-weight: 900;
+        border: none;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(0, 255, 0);
+        filter: drop-shadow(0px 0px 2px rgb(0, 255, 0));
+    }
+    
+    main>.welcome-box>button:hover{
+        transition: 0.5s;
+        filter: drop-shadow(0px 0px  7px rgb(0, 255, 0));
+    }
+    main>.welcome-box>button:active{
+        border: none;
+        filter: none;
+        filter: drop-shadow(0px 0px 10px aqua);
+        background-color: rgb(0, 255, 0);
+    }
+    
+    main>.welcome-box>button>.ignite{
+        color: navy;
+        filter: drop-shadow(0px 0px 7px blue);
+        transition: none;
+    }
+    
+    main>.welcome-box>button>p{
+        color: rgb(0, 0, 0);
+    }
+    main>.welcome-box>button>.A{
+        animation: 2.5s TEXT infinite;
+        transition: 0s;
+        animation-delay: 0;
+    }
+    main>.welcome-box>button>.M{
+        animation: 2.5s TEXT infinite;
+        transition: 0s;
+        animation-delay: 0.5S;
+    }
+    main>.welcome-box>button>.P{
+        animation: 2.5s TEXT infinite;
+        transition: 0s;
+        animation-delay: 1S;
+    }
+    main>.welcome-box>button>.L{
+        animation: 2.5s TEXT infinite;
+        transition: 0s;
+        animation-delay: 1.5S;
+    }
+    main>.welcome-box>button>.E{
+        animation: 2.5s TEXT infinite;
+        transition: 0s;
+        animation-delay: 2S;
+    }
+    
+    @keyframes TEXT {
+        20%{
+            color: red;
+            filter: drop-shadow(0px 0px 7px red);
+        }
+        40%{
+            color: orange;
+            filter: drop-shadow(0px 0px 7px orange);
+        }
+        60%{
+            color: blue;
+            filter: drop-shadow(0px 0px 7px blue);
+        }
+        80%{
+            color: indigo;
+            filter: drop-shadow(0px 0px 7px indigo);
+        }
+        100%{
+            color: rgb(255, 0, 255);
+            filter: drop-shadow(0px 0px 7px rgb(255, 0, 255));
+        }
+        
+    }
+}  
+    @media (orientation : portrait){
         body{
             background-color: #000000;
             display: flex;
@@ -15,7 +238,7 @@
         header{
             background: conic-gradient(red, orange, yellow, rgb(0, 255, 0), blue, indigo, violet, red);
             width: 100vw;
-            height: 15vh;
+            height: 10vh;
             display: flex;
             justify-content: center;
             align-items: initial;
@@ -94,15 +317,15 @@
             background-color: rgb(0, 0, 0);
             display: flex;
             position: absolute;
-            top: 15vh;
+            top: 10vh;
             display: flex;
             justify-content: center;
             align-items: center;
         }
         
         main>.welcome-box{
-            width: 70%;
-            height: 75%;
+            width: 95%;
+            height: 50%;
             background-color: rgb(0, 0, 0);
             border-radius: 10px;
             display: flex;
@@ -124,7 +347,7 @@
         }
         
         main>.welcome-box>.slogan>h3{
-            font-size: 1.1rem;
+            font-size: 1.5rem;
             font-weight: 500;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             color: red;
@@ -132,476 +355,22 @@
         }
         
         main>.welcome-box>.slogan>.and{
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 100;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             color: blue;
             filter: drop-shadow(0px 0px 7px blue);
         }
         main>.welcome-box>.slogan>.text{
-            font-size: 1.10rem;
+            font-size: 1.4rem;
             font-weight: 900;
             font-family: Georgia, 'Times New Roman', Times, serif, Geneva, Tahoma, sans-serif;
             color: gold;
             filter: drop-shadow(0px 0px 7px gold);
-        }
-        main>.welcome-box>button{
-            width: 40%;
-            height: 20%;
-            color: red;
-            font-size: 1.5rem;
-            font-weight: 900;
-            border: none;
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: rgb(0, 0, 0);
-            filter: drop-shadow(0px 0px 2px rgba(89, 88, 88, 0.595));
-        }
-        
-        main>.welcome-box>button:hover{
-            transition: 0.5s;
-            filter: drop-shadow(0px 0px  7px rgb(0, 255, 0));
-        }
-        main>.welcome-box>button:active{
-            border: none;
-            filter: none;
-            filter: drop-shadow(0px 0px 10px aqua);
-            background-color: rgb(0, 255, 0);
-        }
-        
-        main>.welcome-box>button>.ignite{
-            color: navy;
-            filter: drop-shadow(0px 0px 7px blue);
-            transition: none;
-        }
-        
-        main>.welcome-box>button>p{
-            color: rgb(0, 0, 0);
-        }
-        main>.welcome-box>button>.A{
-            animation: 2.5s TEXT infinite;
-            transition: 0s;
-            animation-delay: 0;
-        }
-        main>.welcome-box>button>.M{
-            animation: 2.5s TEXT infinite;
-            transition: 0s;
-            animation-delay: 0.5S;
-        }
-        main>.welcome-box>button>.P{
-            animation: 2.5s TEXT infinite;
-            transition: 0s;
-            animation-delay: 1S;
-        }
-        main>.welcome-box>button>.L{
-            animation: 2.5s TEXT infinite;
-            transition: 0s;
-            animation-delay: 1.5S;
-        }
-        main>.welcome-box>button>.E{
-            animation: 2.5s TEXT infinite;
-            transition: 0s;
-            animation-delay: 2S;
-        }
-        
-        @keyframes TEXT {
-            20%{
-                color: red;
-                filter: drop-shadow(0px 0px 7px red);
-            }
-            40%{
-                color: orange;
-                filter: drop-shadow(0px 0px 7px orange);
-            }
-            60%{
-                color: blue;
-                filter: drop-shadow(0px 0px 7px blue);
-            }
-            80%{
-                color: indigo;
-                filter: drop-shadow(0px 0px 7px indigo);
-            }
-            100%{
-                color: rgb(255, 0, 255);
-                filter: drop-shadow(0px 0px 7px rgb(255, 0, 255));
-            }
-            
-        }
-    }  
-        @media (orientation : portrait){
-            body{
-                background-color: #000000;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            } 
-            header{
-                background: conic-gradient(red, orange, yellow, rgb(0, 255, 0), blue, indigo, violet, red);
-                width: 100vw;
-                height: 10vh;
-                display: flex;
-                justify-content: center;
-                align-items: initial;
-                animation: anime 2s linear infinite;
-                position: fixed;
-                top: 0;
-            }
-            
-            
-            
-            header>.logo{
-                background-color: rgb(0, 0, 0);
-                width: 100%;
-                height: 98%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-            
-            header>.logo>img{
-                width: fit-content;
-                height: 200%;
-                filter: drop-shadow(0px 0px 4px rgb(255, 200, 0));
-            }
-            
-            footer{
-                background: rgba(56, 55, 55, 0.132);
-                width: 100vw;
-                height: 7vh;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                position: fixed;
-                bottom: 0;
-                box-shadow: 0px 0px 7px aqua;
-            }
-            
-            footer>p{
-                color: rgb(255, 255, 255);
-                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-                text-align: center;
-                font-weight: 400;
-                filter: drop-shadow(0px 0px 10px white);
-            }
-            
-            
-            @keyframes anime{
-                14%{
-                    background: conic-gradient(red, orange, yellow, rgb(0, 255, 0), blue, indigo, violet, red);
-                }
-                28%{
-                    background: conic-gradient(orange, yellow, rgb(0,255,0), blue, indigo, violet, red, orange);
-                }
-                42%{
-                    background: conic-gradient( yellow, rgb(0,255,0), blue, indigo, violet, red, orange, yellow);
-                }
-                56%{
-                    background: conic-gradient( rgb(0,255,0), blue, indigo, violet, red, orange, yellow, rgb(0, 255, 0));
-                }
-                70%{
-                    background: conic-gradient(blue, indigo, violet, red, orange, yellow, rgb(0,255,0) ,blue);
-                }
-                84%{
-                    background: conic-gradient(indigo, violet, red, orange, yellow, rgb(0,255,0) ,blue,indigo);
-                }
-                100%{
-                    background: conic-gradient( violet, red,  orange, yellow, rgb(0,255,0),blue,indigo,violet);
-                }
-            }
-            
-            
-            
-            main{
-                width: 100vw;
-                height: 78vh;
-                background-color: rgb(0, 0, 0);
-                display: flex;
-                position: absolute;
-                top: 10vh;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-            
-            main>.welcome-box{
-                width: 95%;
-                height: 50%;
-                background-color: rgb(0, 0, 0);
-                border-radius: 10px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-evenly;
-                align-items: center;
-                filter: drop-shadow(0px 0px 5px rgb(69, 69, 69));
-            }
-            
-            main>.welcome-box>.slogan{
-                width: 98%;
-                height: 70%;
-                color: rgb(254, 254, 254);
-                background-color: rgb(0, 0, 0);
-                display: flex;
-                flex-direction: column;
-                justify-content: space-evenly;
-                align-items: center;
-            }
-            
-            main>.welcome-box>.slogan>h3{
-                font-size: 1.5rem;
-                font-weight: 500;
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                color: red;
-                filter: drop-shadow(0px 0px 7px red);
-            }
-            
-            main>.welcome-box>.slogan>.and{
-                font-size: 1.1rem;
-                font-weight: 100;
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                color: blue;
-                filter: drop-shadow(0px 0px 7px blue);
-            }
-            main>.welcome-box>.slogan>.text{
-                font-size: 1.4rem;
-                font-weight: 900;
-                font-family: Georgia, 'Times New Roman', Times, serif, Geneva, Tahoma, sans-serif;
-                color: gold;
-                filter: drop-shadow(0px 0px 7px gold);
-                text-align: center;
-            }
-            main>.welcome-box>button{
-                width: 60%;
-                height: 20%;
-                color: red;
-                font-size: 1.5rem;
-                font-weight: 900;
-                border: none;
-                border-radius: 10px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: rgb(0, 0, 0);
-                filter: drop-shadow(0px 0px 2px rgba(89, 88, 88, 0.595));
-            }
-            
-            main>.welcome-box>button:hover{
-                transition: 0.5s;
-                filter: drop-shadow(0px 0px  7px rgb(0, 255, 0));
-            }
-            main>.welcome-box>button:active{
-                border: none;
-                filter: none;
-                filter: drop-shadow(0px 0px 10px aqua);
-                background-color: rgb(0, 255, 0);
-            }
-            
-            main>.welcome-box>button>.ignite{
-                color: navy;
-                filter: drop-shadow(0px 0px 7px blue);
-                transition: none;
-            }
-            
-            main>.welcome-box>button>p{
-                color: rgb(0, 0, 0);
-            }
-            main>.welcome-box>button>.A{
-                animation: 2.5s TEXT infinite;
-                transition: 0s;
-                animation-delay: 0;
-            }
-            main>.welcome-box>button>.M{
-                animation: 2.5s TEXT infinite;
-                transition: 0s;
-                animation-delay: 0.5S;
-            }
-            main>.welcome-box>button>.P{
-                animation: 2.5s TEXT infinite;
-                transition: 0s;
-                animation-delay: 1S;
-            }
-            main>.welcome-box>button>.L{
-                animation: 2.5s TEXT infinite;
-                transition: 0s;
-                animation-delay: 1.5S;
-            }
-            main>.welcome-box>button>.E{
-                animation: 2.5s TEXT infinite;
-                transition: 0s;
-                animation-delay: 2S;
-            }
-            
-            @keyframes TEXT {
-                20%{
-                    color: red;
-                    filter: drop-shadow(0px 0px 7px red);
-                }
-                40%{
-                    color: orange;
-                    filter: drop-shadow(0px 0px 7px orange);
-                }
-                60%{
-                    color: blue;
-                    filter: drop-shadow(0px 0px 7px blue);
-                }
-                80%{
-                    color: indigo;
-                    filter: drop-shadow(0px 0px 7px indigo);
-                }
-                100%{
-                    color: rgb(255, 0, 255);
-                    filter: drop-shadow(0px 0px 7px rgb(255, 0, 255));
-                }
-                
-            }
-    }
-}
-
-
-@media (prefers-color-scheme: light) {  
-    @media (orientation : landscape) {   
-        body{
-            background-color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        } 
-        header{
-            background: conic-gradient(red, orange, yellow, rgb(0, 255, 0), blue, indigo, violet, red);
-            width: 100vw;
-            height: 15vh;
-            display: flex;
-            justify-content: center;
-            align-items: initial;
-            animation: anime 2s linear infinite;
-            position: fixed;
-            top: 0;
-        }
-        
-        
-        
-        header>.logo{
-            background-color: rgb(255, 255, 255);
-            width: 100%;
-            height: 98%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        header>.logo>img{
-            width: fit-content;
-            height: 200%;
-            filter: drop-shadow(0px 0px 4px rgb(255, 200, 0));
-        }
-        
-        footer{
-            background: rgba(195, 190, 190, 0.132);
-            width: 100vw;
-            height: 7vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: fixed;
-            bottom: 0;
-            box-shadow: 0px 0px 7px aqua;
-        }
-        
-        footer>p{
-            color: rgb(0, 0, 0);
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             text-align: center;
-            font-weight: 400;
-            filter: drop-shadow(0px 0px 10px rgb(0, 0, 0));
-        }
-        
-        
-        @keyframes anime{
-            14%{
-                background: conic-gradient(red, orange, yellow, rgb(0, 255, 0), blue, indigo, violet, red);
-            }
-            28%{
-                background: conic-gradient(orange, yellow, rgb(0,255,0), blue, indigo, violet, red, orange);
-            }
-            42%{
-                background: conic-gradient( yellow, rgb(0,255,0), blue, indigo, violet, red, orange, yellow);
-            }
-            56%{
-                background: conic-gradient( rgb(0,255,0), blue, indigo, violet, red, orange, yellow, rgb(0, 255, 0));
-            }
-            70%{
-                background: conic-gradient(blue, indigo, violet, red, orange, yellow, rgb(0,255,0) ,blue);
-            }
-            84%{
-                background: conic-gradient(indigo, violet, red, orange, yellow, rgb(0,255,0) ,blue,indigo);
-            }
-            100%{
-                background: conic-gradient( violet, red,  orange, yellow, rgb(0,255,0),blue,indigo,violet);
-            }
-        }
-        
-        
-        
-        main{
-            width: 100vw;
-            height: 78vh;
-            background-color: rgb(255, 255, 255);
-            display: flex;
-            position: absolute;
-            top: 15vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        main>.welcome-box{
-            width: 70%;
-            height: 75%;
-            background-color: rgb(255, 255, 255);
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            align-items: center;
-            filter: drop-shadow(0px 0px 5px rgb(69, 69, 69));
-        }
-        
-        main>.welcome-box>.slogan{
-            width: 98%;
-            height: 70%;
-            color: rgb(0, 0, 0);
-            background-color: rgb(255, 255, 255);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            align-items: center;
-        }
-        
-        main>.welcome-box>.slogan>h3{
-            font-size: 1.1rem;
-            font-weight: 500;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            color: red;
-            filter: drop-shadow(0px 0px 7px red);
-        }
-        
-        main>.welcome-box>.slogan>.and{
-            font-size: 1rem;
-            font-weight: 100;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            color: blue;
-            filter: drop-shadow(0px 0px 7px blue);
-        }
-        main>.welcome-box>.slogan>.text{
-            font-size: 1.10rem;
-            font-weight: 900;
-            font-family: Georgia, 'Times New Roman', Times, serif, Geneva, Tahoma, sans-serif;
-            color: gold;
-            filter: drop-shadow(0px 0px 7px gold);
         }
         main>.welcome-box>button{
-            width: 40%;
+            width: 60%;
             height: 20%;
             color: red;
             font-size: 1.5rem;
@@ -611,8 +380,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: rgb(255, 255, 255);
-            filter: drop-shadow(0px 0px 2px rgba(89, 88, 88, 0.595));
+            background-color: rgb(0, 255, 0);
+            filter: drop-shadow(0px 0px 2px rgb(0, 255, 0));
         }
         
         main>.welcome-box>button:hover{
@@ -622,7 +391,7 @@
         main>.welcome-box>button:active{
             border: none;
             filter: none;
-            filter: drop-shadow(0px 0px 10px aqua);
+            filter: drop-shadow(0px 0px 10px rgb(0, 255, 0));
             background-color: rgb(0, 255, 0);
         }
         
@@ -684,234 +453,4 @@
             }
             
         }
-    }  
-        @media (orientation : portrait){
-            @media (orientation : portrait){
-                body{
-                    background-color: #ffffff;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                } 
-                header{
-                    background: conic-gradient(red, orange, yellow, rgb(0, 255, 0), blue, indigo, violet, red);
-                    width: 100vw;
-                    height: 10vh;
-                    display: flex;
-                    justify-content: center;
-                    align-items: initial;
-                    animation: anime 2s linear infinite;
-                    position: fixed;
-                    top: 0;
-                }
-                
-                
-                
-                header>.logo{
-                    background-color: rgb(255, 255, 255);
-                    width: 100%;
-                    height: 98%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
-                
-                header>.logo>img{
-                    width: fit-content;
-                    height: 200%;
-                    filter: drop-shadow(0px 0px 4px rgb(255, 200, 0));
-                }
-                
-                footer{
-                    background: rgba(193, 189, 189, 0.132);
-                    width: 100vw;
-                    height: 7vh;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    position: fixed;
-                    bottom: 0;
-                    box-shadow: 0px 0px 7px aqua;
-                    z-index: 9;
-                }
-                
-                footer>p{
-                    color: rgb(0, 0, 0);
-                    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-                    text-align: center;
-                    font-weight: 400;
-                    filter: drop-shadow(0px 0px 10px white);
-                }
-                
-                
-                @keyframes anime{
-                    14%{
-                        background: conic-gradient(red, orange, yellow, rgb(0, 255, 0), blue, indigo, violet, red);
-                    }
-                    28%{
-                        background: conic-gradient(orange, yellow, rgb(0,255,0), blue, indigo, violet, red, orange);
-                    }
-                    42%{
-                        background: conic-gradient( yellow, rgb(0,255,0), blue, indigo, violet, red, orange, yellow);
-                    }
-                    56%{
-                        background: conic-gradient( rgb(0,255,0), blue, indigo, violet, red, orange, yellow, rgb(0, 255, 0));
-                    }
-                    70%{
-                        background: conic-gradient(blue, indigo, violet, red, orange, yellow, rgb(0,255,0) ,blue);
-                    }
-                    84%{
-                        background: conic-gradient(indigo, violet, red, orange, yellow, rgb(0,255,0) ,blue,indigo);
-                    }
-                    100%{
-                        background: conic-gradient( violet, red,  orange, yellow, rgb(0,255,0),blue,indigo,violet);
-                    }
-                }
-                
-                
-                
-                main{
-                    width: 100vw;
-                    height: 78vh;
-                    background-color: rgb(255, 255, 255);
-                    display: flex;
-                    position: absolute;
-                    top: 10vh;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
-                
-                main>.welcome-box{
-                    width: 95%;
-                    height: 50%;
-                    background-color: rgb(255, 255, 255);
-                    border-radius: 10px;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-evenly;
-                    align-items: center;
-                    filter: drop-shadow(0px 0px 5px rgb(69, 69, 69));
-                }
-                
-                main>.welcome-box>.slogan{
-                    width: 98%;
-                    height: 70%;
-                    color: rgb(0, 0, 0);
-                    background-color: rgb(255, 255, 255);
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-evenly;
-                    align-items: center;
-                }
-                
-                main>.welcome-box>.slogan>h3{
-                    font-size: 1.5rem;
-                    font-weight: 500;
-                    font-family: Verdana, Geneva, Tahoma, sans-serif;
-                    color: red;
-                    filter: drop-shadow(0px 0px 7px red);
-                }
-                
-                main>.welcome-box>.slogan>.and{
-                    font-size: 1.1rem;
-                    font-weight: 100;
-                    font-family: Verdana, Geneva, Tahoma, sans-serif;
-                    color: blue;
-                    filter: drop-shadow(0px 0px 7px blue);
-                }
-                main>.welcome-box>.slogan>.text{
-                    font-size: 1.4rem;
-                    font-weight: 900;
-                    font-family: Georgia, 'Times New Roman', Times, serif, Geneva, Tahoma, sans-serif;
-                    color: gold;
-                    filter: drop-shadow(0px 0px 7px gold);
-                    text-align: center;
-                }
-                main>.welcome-box>button{
-                    width: 60%;
-                    height: 20%;
-                    color: red;
-                    font-size: 1.5rem;
-                    font-weight: 900;
-                    border: none;
-                    border-radius: 10px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    background-color: rgb(255, 255, 255);
-                    filter: drop-shadow(0px 0px 2px rgba(89, 88, 88, 0.595));
-                }
-                
-                main>.welcome-box>button:hover{
-                    transition: 0.5s;
-                    filter: drop-shadow(0px 0px  7px rgb(0, 255, 0));
-                }
-                main>.welcome-box>button:active{
-                    border: none;
-                    filter: none;
-                    filter: drop-shadow(0px 0px 10px aqua);
-                    background-color: rgb(0, 255, 0);
-                }
-                
-                main>.welcome-box>button>.ignite{
-                    color: navy;
-                    filter: drop-shadow(0px 0px 7px blue);
-                    transition: none;
-                }
-                
-                main>.welcome-box>button>p{
-                    color: rgb(0, 0, 0);
-                }
-                main>.welcome-box>button>.A{
-                    animation: 2.5s TEXT infinite;
-                    transition: 0s;
-                    animation-delay: 0;
-                }
-                main>.welcome-box>button>.M{
-                    animation: 2.5s TEXT infinite;
-                    transition: 0s;
-                    animation-delay: 0.5S;
-                }
-                main>.welcome-box>button>.P{
-                    animation: 2.5s TEXT infinite;
-                    transition: 0s;
-                    animation-delay: 1S;
-                }
-                main>.welcome-box>button>.L{
-                    animation: 2.5s TEXT infinite;
-                    transition: 0s;
-                    animation-delay: 1.5S;
-                }
-                main>.welcome-box>button>.E{
-                    animation: 2.5s TEXT infinite;
-                    transition: 0s;
-                    animation-delay: 2S;
-                }
-                
-                @keyframes TEXT {
-                    20%{
-                        color: red;
-                        filter: drop-shadow(0px 0px 7px red);
-                    }
-                    40%{
-                        color: orange;
-                        filter: drop-shadow(0px 0px 7px orange);
-                    }
-                    60%{
-                        color: blue;
-                        filter: drop-shadow(0px 0px 7px blue);
-                    }
-                    80%{
-                        color: indigo;
-                        filter: drop-shadow(0px 0px 7px indigo);
-                    }
-                    100%{
-                        color: rgb(255, 0, 255);
-                        filter: drop-shadow(0px 0px 7px rgb(255, 0, 255));
-                    }
-                    
-                }
-        }
-    }
 }

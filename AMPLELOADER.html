@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #wifi-loader {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #wifi-loader svg {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            fill: none; /* Important: Prevents the circles from being filled */
+        }
+
+        #wifi-loader svg circle {
+            stroke-width: 6px;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transform-origin: center;
+        }
+
+        /* Rainbow Colors */
+        .red { stroke: red; }
+        .orange { stroke: orange; }
+        .yellow { stroke: yellow; }
+        .green { stroke: green; }
+        .blue { stroke: blue; }
+        .indigo { stroke: indigo; }
+        .violet { stroke: violet; }
+
+        /* Animation Styles */
+        #wifi-loader svg.circle-1 {
+            height: 86px;
+            width: 86px;
+            stroke-dasharray: 62.75 188.25;
+            animation: circle-outer135 1.8s ease infinite 0.3s;
+        }
+        #wifi-loader svg.circle-2 {
+            height: 74px;
+            width: 74px;
+            stroke-dasharray: 52 156;
+            animation: circle-middle6123 1.8s ease infinite 0.25s;
+        }
+        #wifi-loader svg.circle-3 {
+            height: 62px;
+            width: 62px;
+            stroke-dasharray: 41.5 124.5;
+            animation: circle-inner162 1.8s ease infinite 0.2s;
+        }
+        #wifi-loader svg.circle-4 {
+            height: 50px;
+            width: 50px;
+            stroke-dasharray: 31 93;
+            animation: circle-outer135 1.8s ease infinite 0.15s;
+        }
+        #wifi-loader svg.circle-5 {
+            height: 38px;
+            width: 38px;
+            stroke-dasharray: 20.5 61.5;
+            animation: circle-middle6123 1.8s ease infinite 0.1s;
+        }
+        #wifi-loader svg.circle-6 {
+            height: 26px;
+            width: 26px;
+            stroke-dasharray: 10 30;
+            animation: circle-inner162 1.8s ease infinite 0.05s;
+        }
+        #wifi-loader svg.circle-7 {
+            height: 14px;
+            width: 14px;
+            stroke-dasharray: 5 15;
+            animation: circle-outer135 1.8s ease infinite 0s;
+        }
+
+        /* ... (text styles and keyframes remain the same) */
+    </style>
+</head>
+<body>
+    <div id="wifi-loader">
+        <svg class="circle-1 red" viewBox="0 0 86 86"><circle cx="43" cy="43" r="40"></circle></svg>
+        <svg class="circle-2 orange" viewBox="0 0 74 74"><circle cx="37" cy="37" r="34"></circle></svg>
+        <svg class="circle-3 yellow" viewBox="0 0 62 62"><circle cx="31" cy="31" r="28"></circle></svg>
+        <svg class="circle-4 green" viewBox="0 0 50 50"><circle cx="25" cy="25" r="22"></circle></svg>
+        <svg class="circle-5 blue" viewBox="0 0 38 38"><circle cx="19" cy="19" r="16"></circle></svg>
+        <svg class="circle-6 indigo" viewBox="0 0 26 26"><circle cx="13" cy="13" r="10"></circle></svg>
+        <svg class="circle-7 violet" viewBox="0 0 14 14"><circle cx="7" cy="7" r="4"></circle></svg>
+        <div class="text" data-text="Searching"></div>
+    </div>
+</body>
+</html>

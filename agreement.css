@@ -1,0 +1,361 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+@media(orientation: landscape){
+    body{
+        background-color: black;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .agreement{
+        width: 40vw;
+        height: 90vh;
+        position: fixed;
+        top: 2.5vh;
+        bottom: 2.5vh;
+        z-index: 16;
+        background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+        /* padding: 20px; */
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        text-align: center;
+        backdrop-filter: blur(10px); /* Blurred background effect */
+        -webkit-backdrop-filter: blur(10px); /* For Safari support */
+        border: 1px solid rgba(255, 255, 255, 0.3); /* Optional border */
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center;
+        align-items: center; */
+        transition: 0.5s;
+    }
+    
+    .agreement>.agreement-header{
+        width: 100%;
+        height: 10%;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: safe;
+        border-bottom: 2px solid rgb(89, 89, 89);
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+    
+    }
+    .agreement>.agreement-header>img{
+        width: auto;
+        height: 100%;
+        filter: drop-shadow(0px 0px 5px gold);
+    }
+    
+    .agreement>.agreement-main{
+        width: 100%;
+        height: 80%;
+        background-color: transparent;
+        /* overflow-y: scroll; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    
+    
+    .agreement>.agreement-main>a{
+        width: 90%;
+        height: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        background-color: rgba(0, 0, 0, 0.658);
+        border-radius: 10px;
+        user-select: none;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+    .agreement>.agreement-main>a:hover{
+        box-shadow: 0px 0px 7px rgb(0, 0, 0);
+    }
+    .agreement>.agreement-main>a>.icon{
+        width: 30%;
+        height: 100%;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .agreement>.agreement-main>a>.name{
+        width: 70%;
+        height: 100%; 
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+    }
+    .agreement>.agreement-main>a>.icon>img{
+        width: auto;
+        height: 90%;
+        filter: drop-shadow(0px 0px 5px rgb(0, 0, 0));
+    }
+    .agreement>.agreement-main>a>.name>p{
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 1.4rem;
+        font-weight: 900;
+        color: rgb(255, 255, 255);
+        /* filter: drop-shadow(0px 0px 10px rgb(0, 0, 0)); */
+    }
+    .agreement>.agreement-main>.NOTICE{
+        width: 85%;
+        height: 30%;
+        background : linear-gradient(135deg, red , orange, yellow , rgb(0, 255, 0) , blue , indigo , rgb(255, 0, 255));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        /* bottom: 0; */
+        border-radius: 10px;
+    }
+    
+    .agreement > .agreement-main > .NOTICE > .NOTE {
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.742); /* Transparent White */
+        border-radius: 10px;
+        backdrop-filter: blur(10px); /* Glass Effect */
+        -webkit-backdrop-filter: blur(10px); /* For Safari */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        color: white; /* Text color for better visibility */
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    
+    
+    
+    
+    .agreement>.agreement-footer{
+        width: 100%;
+        height: 10%;
+        background-color: transparent;
+        border-top: 2px solid rgb(89, 89, 89);
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .agreement>.agreement-footer>button{
+        border: none;
+        width: 60%;
+        height: 75%;
+        border-radius: 10px;
+        background-color: rgb(0,255,0);
+        filter: drop-shadow(0px 0px 3px rgb(0, 255, 0));
+    }
+    
+    .agreement>.agreement-footer>button:hover{
+        filter: drop-shadow(0px 0px 7px rgb(0, 255, 0));
+    }
+    
+    .agreement>.agreement-footer>button>p{
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: rgb(0, 0, 0);
+        filter: drop-shadow(0px 0px 7px rgb(0, 0, 0));
+    }
+    tag{
+        background: linear-gradient(135deg, red, orange,yellow,rgb(0, 255, 0),blue,indigo,rgb(255, 0, 255));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none;
+    }
+}
+@media(orientation: portrait){
+    body{
+        background-color: black;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .agreement{
+        width: 95vw;
+        height: 85vh;
+        position: fixed;
+        top: 2.5vh;
+        bottom: 2.5vh;
+        z-index: 16;
+        background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+        /* padding: 20px; */
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        text-align: center;
+        backdrop-filter: blur(10px); /* Blurred background effect */
+        -webkit-backdrop-filter: blur(10px); /* For Safari support */
+        border: 1px solid rgba(255, 255, 255, 0.3); /* Optional border */
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center;
+        align-items: center; */
+        transition: 0.5s;
+    }
+    
+    .agreement>.agreement-header{
+        width: 100%;
+        height: 10%;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: safe;
+        border-bottom: 2px solid rgb(89, 89, 89);
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+    
+    }
+    .agreement>.agreement-header>img{
+        width: auto;
+        height: 100%;
+        filter: drop-shadow(0px 0px 5px gold);
+    }
+    
+    .agreement>.agreement-main{
+        width: 100%;
+        height: 80%;
+        background-color: transparent;
+        /* overflow-y: scroll; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    
+    
+    .agreement>.agreement-main>a{
+        width: 90%;
+        height: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        background-color: rgba(0, 0, 0, 0.658);
+        border-radius: 10px;
+        user-select: none;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+    .agreement>.agreement-main>a:hover{
+        box-shadow: 0px 0px 7px rgb(0, 0, 0);
+    }
+    .agreement>.agreement-main>a>.icon{
+        width: 30%;
+        height: 100%;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .agreement>.agreement-main>a>.name{
+        width: 70%;
+        height: 100%; 
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+    }
+    .agreement>.agreement-main>a>.icon>img{
+        width: auto;
+        height: 90%;
+        filter: drop-shadow(0px 0px 5px rgb(0, 0, 0));
+    }
+    .agreement>.agreement-main>a>.name>p{
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 1.4rem;
+        font-weight: 900;
+        color: white;
+        /* filter: drop-shadow(0px 0px 7px silver); */
+    }
+    .agreement>.agreement-main>.NOTICE{
+        width: 85%;
+        height: 30%;
+        background : linear-gradient(135deg, red , orange, yellow , rgb(0, 255, 0) , blue , indigo , rgb(255, 0, 255));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        /* bottom: 0; */
+        border-radius: 10px;
+    }
+    
+    .agreement > .agreement-main > .NOTICE > .NOTE {
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.742); /* Transparent White */
+        border-radius: 10px;
+        backdrop-filter: blur(10px); /* Glass Effect */
+        -webkit-backdrop-filter: blur(10px); /* For Safari */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        color: white; /* Text color for better visibility */
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    
+    
+    
+    
+    .agreement>.agreement-footer{
+        width: 100%;
+        height: 10%;
+        background-color: transparent;
+        border-top: 2px solid rgb(89, 89, 89);
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .agreement>.agreement-footer>button{
+        border: none;
+        width: 60%;
+        height: 75%;
+        border-radius: 10px;
+        background-color: rgb(0,255,0);
+        filter: drop-shadow(0px 0px 3px rgb(0, 255, 0));
+    }
+    
+    .agreement>.agreement-footer>button:hover{
+        filter: drop-shadow(0px 0px 7px rgb(0, 255, 0));
+    }
+    
+    .agreement>.agreement-footer>button>p{
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: rgb(0, 0, 0);
+        filter: drop-shadow(0px 0px 7px rgb(0, 0, 0));
+    }
+    tag{
+        background: linear-gradient(135deg, red, orange,yellow,rgb(0, 255, 0),blue,indigo,rgb(255, 0, 255));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none;
+    }
+}

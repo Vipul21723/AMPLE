@@ -1,0 +1,100 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function showCustomAlert() {
+          document.getElementById("customAlert").style.display = "block";
+        }
+      
+        function closeCustomAlert() {
+          document.getElementById("customAlert").style.display = "none";
+        }
+      </script>
+      
+      <div id="customAlert" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; background: #222; color: white; border-radius: 10px;">
+        <p><b>AMPLE</b></p>
+        <p>© 2025 AMPLE. All Rights Reserved.<br>AMPLE™ | Register Soon</p>
+        <button onclick="closeCustomAlert()">OK</button>
+      </div>
+      
+      <button onclick="showCustomAlert()">Show Alert</button>
+      
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glassmorphic Alert</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: white;
+            text-align: center;
+        }
+
+        /* Glassmorphic Alert Box */
+        .custom-alert {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1); /* Transparent White */
+            border-radius: 15px;
+            backdrop-filter: blur(10px); /* Glass Effect */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Close Button */
+        .close-btn {
+            margin-top: 10px;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="showCustomAlert()">Show Alert</button>
+
+    <!-- Custom Glassmorphic Alert -->
+    <div id="customAlert" class="custom-alert">
+        <h3>AMPLE</h3>
+        <p>© 2025 AMPLE. All Rights Reserved.</p>
+        <p>AMPLE™ | Register Soon</p>
+        <button class="close-btn" onclick="closeCustomAlert()">OK</button>
+    </div>
+
+    <script>
+        function showCustomAlert() {
+            document.getElementById("customAlert").style.display = "block";
+        }
+
+        function closeCustomAlert() {
+            document.getElementById("customAlert").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>

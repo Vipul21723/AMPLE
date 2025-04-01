@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Base styles (apply to all devices) */
+        .message-alert {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("Expo.gif");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 10px;
+            position: fixed;
+            top: 5vh;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            width: 90%; /* Default width */
+            height: 90%; /* Default height */
+            animation: opacity_box 0.5s ease-in-out forwards;
+        }
+
+        @keyframes opacity_box {
+            from { opacity: 0%; }
+            to { opacity: 100%; }
+        }
+
+        .message-alert > .message {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(0.5px);
+            -webkit-backdrop-filter: blur(1px);
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .message-alert > .message > .box {
+            width: 90%;
+            height: 90%;
+            background-color: rgba(68, 68, 68, 0.263);
+            background-color: transparent;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .message-alert > .message > .box > h1 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: rgb(255, 255, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .message-alert > .message > .box > p {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: rgb(255, 255, 255);
+            filter: drop-shadow(0px 0px 7px white);
+        }
+
+        .message-alert > .message > img {
+            background-color: rgba(0, 0, 0, 0.201);
+            filter: drop-shadow(0px 0px 5px red);
+            border: 2px solid red;
+            border-radius: 10px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px; /* Added size */
+            height: 30px;
+            cursor: pointer;
+        }
+
+        .message-alert > .message > .box > .Explorar {
+            width: 100%;
+            height: 25%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .message-alert > .message > .box > .Explorar > .folder-header {
+            width: 100%;
+            height: 100%;
+        }
+
+        .message-alert > .message > .box > .Explorar > .folder-header > img {
+            width: auto;
+            height: auto;
+            max-width: 30%;
+            max-height: 20%;
+        }
+
+        /* Landscape (laptop) adjustments */
+        @media (orientation: landscape) {
+            .message-alert {
+                width: 40%;
+                height: 90%;
+            }
+
+            .message-alert > .message > .box > h1 {
+                font-size: 3rem;
+            }
+
+            .message-alert > .message > .box > p {
+                font-size: 1.4rem;
+            }
+            .folder-header {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            #Expo_Icon {
+                width: auto;
+                height: auto;
+                max-width: 100%;
+                max-height: 100%;
+                filter: drop-shadow(0px 0px 75px white);
+            }
+        }
+
+        /* Portrait (mobile) adjustments */
+        @media (orientation: portrait) {
+            .message-alert {
+                width: 90%;
+                height: 90%;
+            }
+
+            .message-alert > .message > .box {
+                width: 95%;
+                height: 85%;
+            }
+
+            .message-alert > .message > .box > h1 {
+                font-size: 2.5rem;
+            }
+
+            .message-alert > .message > .box > p {
+                font-size: 1rem;
+            }
+            .folder-header {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            #Expo_Icon {
+                width: auto;
+                height: auto;
+                max-width: 100%;
+                max-height: 100%;
+                filter: drop-shadow(0px 0px 40px white);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="message-alert">
+        <div class="message">
+            <div class="box">
+                <div class="Explorar">
+                    <div class="folder-header gradient-button">
+                        <img src="Expo.png" alt="Explore Expo Logo" id="Expo_Icon">
+                    </div>
+                </div>
+                <h1>Explore Expo</h1>
+                <p>Try the New "Expo" Feature!</p>
+                <p>Explore Expo – a LibAMPLE Explorer with Directory Path! 🚀 Find your content faster with smooth navigation and organized directories.</p>
+                <p>We’re improving things all the time, so if you spot any glitches, we’re on it. Thanks for being with us! 🙌</p>
+            </div>
+            <img src="x-lg.svg" alt="Close" onclick="cancel()">
+        </div>
+    </div>
+    <script>
+        function cancel() { // Fixed typo
+            document.querySelector('.message-alert').style.display = "none";
+        }
+    </script>
+</body>
+</html>

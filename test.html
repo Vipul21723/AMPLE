@@ -3,22 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMPLE | Empowering the Future</title>
-    <link rel="stylesheet" href="test.css">
+    <title>AMPLE1686 - Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .glass-box {
+            width: 350px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            color: white;
+        }
+
+        .glass-box h2 {
+            margin-bottom: 20px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .input-field::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.3);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer {
+            margin-top: 10px;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-    <!-- From Uiverse.io by mobinkakei --> 
-<div id="wifi-loader">
-    <svg class="circle-outer" viewBox="0 0 86 86">
-        <circle class="front" cx="43" cy="43" r="40"></circle>
-    </svg>
-    <svg class="circle-middle" viewBox="0 0 60 60">
-        <circle class="front" cx="30" cy="30" r="27"></circle>
-    </svg>
-    <svg class="circle-inner" viewBox="0 0 34 34">
-        <circle class="front" cx="17" cy="17" r="14"></circle>
-    </svg>
-    <div class="text" data-text="Searching"></div>
-</div>
+
+    <div class="glass-box">
+        <h2>Login to AMPLE1686</h2>
+        <input type="text" class="input-field" placeholder="Enter AUID (e.g. David_999~AMPLER.V)">
+        <input type="password" class="input-field" placeholder="Enter Password">
+        <button class="btn">Login</button>
+        <p class="footer">Don't have an account? <a href="#">Sign up</a></p>
+    </div>
+
 </body>
 </html>
+

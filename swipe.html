@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="pulse.css">
+    <style>
+        /* Basic styles for the left and right sections */
+        .left, .right {
+            width: 25%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            background-color: #f4f4f4;
+            transform: translateX(-100%); /* Initially hidden */
+            transition: transform 0.5s ease-in-out;
+            z-index: -1; /* Make them invisible initially */
+        }
+
+        .right {
+            right: 0;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        /* Show the section when the 'show' class is added */
+        .left.show, .right.show {
+            transform: translateX(0);
+            z-index: 1;
+        }
+
+        /* Style the buttons */
+        button {
+            position: absolute;
+            bottom: 20px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Loader spinner for PDF */
+        .loader {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -25px;
+            margin-left: -25px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="sub-header">
+            <div class="logo">
+                <img src="Ample.png" alt="">
+            </div>
+            <div class="service">
+                <div class="service_box">
+                    <div class="icon">
+                        <img src="newspaper.png" alt="">
+                    </div>
+                    <div class="name">
+                        <p class="service-name">AMPLE Pulse</p>
+                        <p class="service-meaning">News & Updates</p>
+                    </div>
+                </div>
+            </div>
+            <div class="calender">
+                <img src="calendar-month-fill.svg" alt="">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="left HighPulse" id="left-section">
+            <div class="header">HeadPulse</div>
+            <div class="container">
+                <div class="hp hp1">Deadly Typhoon Leaves 50 Missing in Philippines</div>
+                <hr>
+                <div class="hp hp2">Fed Hints at Interest Rate Cut as Inflation Cools</div>
+                <!-- Other content here -->
+            </div>
+        </div>
+        <div id="pdf-container">
+            <div class="loader" id="loading-spinner"></div>
+        </div>
+        <div class="right Trending" id="right-section">
+            <div class="header">Trending</div>
+            <div class="container">
+                <div class="trending trending1">Cyberattack Hits Banks</div>
+                <hr>
+                <div class="trending trending2">Kohli’s IPL Century</div>
+                <!-- Other content here -->
+            </div>
+        </div>
+    </main>
+    <footer>
+        26 March 2025 (Wednesday)
+    </footer>
+    
+    <!-- Add buttons to show sections -->
+    <button id="left-button">Show Left</button>
+    <button id="right-button">Show Right</button>
+
+    <script src="pulse.js"></script>
+    <script>
+        // Select buttons and sections
+        const leftButton = document.getElementById('left-button');
+        const rightButton = document.getElementById('right-button');
+        const leftSection = document.getElementById('left-section');
+        const rightSection = document.getElementById('right-section');
+
+        // Function to show the section for 2 seconds
+        function showSectionFor2Seconds(section) {
+            section.classList.add('show');
+
+            // Hide the section after 2 seconds
+            setTimeout(() => {
+                section.classList.remove('show');
+            }, 2000); // Hides after 2 seconds
+        }
+
+        // Event listeners for the buttons
+        leftButton.addEventListener('click', function() {
+            showSectionFor2Seconds(leftSection);
+        });
+
+        rightButton.addEventListener('click', function() {
+            showSectionFor2Seconds(rightSection);
+        });
+    </script>
+</body>
+</html>

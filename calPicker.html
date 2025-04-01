@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Picker Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+        }
+        #dateInput {
+            margin-left: 10px;
+            padding: 5px;
+            font-size: 16px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="openDateInput">Select Date</button>
+    <input type="date" id="dateInput">
+
+    <script>
+        const dateInput = document.getElementById('dateInput');
+        const openButton = document.getElementById('openDateInput');
+
+        // Show the selected date
+        dateInput.addEventListener('change', function() {
+            alert('Selected date: ' + dateInput.value);
+        });
+
+        // Open the date picker
+        openButton.addEventListener('click', function() {
+            dateInput.showPicker(); // Directly use showPicker, supported in Chrome 134
+        });
+    </script>
+</body>
+</html>

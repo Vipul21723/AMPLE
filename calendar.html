@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily News PDF Viewer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+      margin: 0;
+    }
+
+    .container {
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      width: 70%;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    #pdf-canvas {
+      width: 100%;
+      height: 600px;
+      border: 1px solid #ddd;
+      margin-top: 20px;
+    }
+
+    .navigation {
+      margin-top: 20px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn:disabled {
+      background-color: #ccc;
+    }
+  </style>
+  <!-- Link to PDF.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Daily News PDF Viewer</h1>
+
+    <!-- Date Picker -->
+    <input type="date" id="date-picker" onchange="loadPDFForSelectedDate()">
+    
+    <canvas id="pdf-canvas"></canvas>
+    
+    <div class="navigation">
+      <button id="prev-btn" class="btn" onclick="changePage(-1)">Previous Page</button>
+      <button id="next-btn" class="btn" onclick="changePage(1)">Next Page</button>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript object to hold the PDF filenames for each date (without URLs)
+    const newsPDFs = {
+      "2025-03-25": 'OOP1_GTU.pdf',  // Example filename for March 25th, 2025
+      "2025-03-24": 'OS_GTU.pdf',  // Example filename for March 24th, 2025
+      // Add more PDFs for different dates here (e.g., "2025-03-26": "27March2025.pdf")
+    };
+
+    // JavaScript object to manage the PDF viewing
+    const pdfViewer = {
+      pdfDoc: null,
+      currentPage: 1,
+      totalPages: 0,
+      canvas: document.getElementById('pdf-canvas'),
+      ctx: null,
+
+      // Initialize PDF Viewer
+      init: function(pdfUrl) {
+        this.ctx = this.canvas.getContext('2d');
+        this.loadPdf(pdfUrl);
+      },
+
+      // Load PDF document
+      loadPdf: function(pdfUrl) {
+        const loadingTask = pdfjsLib.getDocument(pdfUrl);
+        loadingTask.promise.then((pdfDoc_) => {
+          this.pdfDoc = pdfDoc_;
+          this.totalPages = pdfDoc_.numPages;
+          this.renderPage(this.currentPage);
+        }).catch((error) => {
+          console.error('Error loading PDF: ', error);
+        });
+      },
+
+      // Render a specific page from the PDF
+      renderPage: function(pageNum) {
+        this.pdfDoc.getPage(pageNum).then((page) => {
+          const viewport = page.getViewport({ scale: 1 });
+          this.canvas.height = viewport.height;
+          this.canvas.width = viewport.width;
+
+          const renderContext = {
+            canvasContext: this.ctx,
+            viewport: viewport
+          };
+
+          page.render(renderContext);
+        });
+      },
+
+      // Change page (next or previous)
+      changePage: function(direction) {
+        const newPage = this.currentPage + direction;
+
+        if (newPage >= 1 && newPage <= this.totalPages) {
+          this.currentPage = newPage;
+          this.renderPage(this.currentPage);
+        }
+
+        // Update button visibility
+        document.getElementById('prev-btn').disabled = this.currentPage === 1;
+        document.getElementById('next-btn').disabled = this.currentPage === this.totalPages;
+      }
+    };
+
+    // Function to load the PDF for the selected date
+    function loadPDFForSelectedDate() {
+      const selectedDate = document.getElementById('date-picker').value;
+
+      // Check if the selected date has a PDF filename associated with it
+      const pdfFilename = newsPDFs[selectedDate];
+
+      if (pdfFilename) {
+        const pdfUrl = 'path_to_your_pdfs/' + pdfFilename;  // Update this with the correct directory path where PDFs are stored
+        pdfViewer.init(pdfUrl);
+
+        // Reset page navigation buttons
+        pdfViewer.currentPage = 1;
+        document.getElementById('prev-btn').disabled = true;
+        document.getElementById('next-btn').disabled = false;
+      } else {
+        alert('No news PDF available for this date.');
+      }
+    }
+
+    // Change page using buttons
+    function changePage(direction) {
+      pdfViewer.changePage(direction);
+    }
+
+    // Initialize with today's PDF by default
+    document.addEventListener('DOMContentLoaded', () => {
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('date-picker').value = today;
+
+      // Load today's PDF by default
+      if (newsPDFs[today]) {
+        const pdfUrl = 'path_to_your_pdfs/' + newsPDFs[today];  // Update this with the correct directory path
+        pdfViewer.init(pdfUrl);
+      }
+    });
+
+  </script>
+
+</body>
+</html>

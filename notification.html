@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="pulse.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="sub-header">
+            <div class="logo">
+                <img src="Ample.png" alt="">
+            </div>
+            <div class="service">
+                <div class="service_box">
+                    <div class="icon">
+                        <img src="newspaper.png" alt="">
+                    </div>
+                    <div class="name">
+                        <p class="service-name">AMPLE Pulse</p>
+                        <p class="service-meaning">News & Updates</p>
+                    </div>
+                </div>
+            </div>
+            <div class="calender">
+                <input type="date" class="dateInput" id="date-picker">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <button id="notifyBtn">Notify Me</button>
+        <div id="pdf-container"></div>
+    </main>
+
+    <footer>
+        <marquee id="footer-message" behavior="scroll" direction="left" scrollamount="5">
+        <span id="message">🛑 Some features on our platform 🖥️ may be temporarily limited as we work 🛠️ to enhance your experience. We recommend enabling notifications 🔔 to stay informed about the latest updates and improvements. We apologize 🙇 for any inconvenience caused by technical glitches—our team is actively addressing 👨‍💻 them to ensure seamless access to your news 📰🗞️. Thank you 🙏 for your patience and support! 🛑</span>
+        </marquee>
+    </footer>
+
+    <script>
+        // Ensure that pdf.js worker is available
+pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.worker.min.js";
+
+// Your existing PDF data
+const newsPdfs = {
+    "26032025": "26March2025.pdf",  // March 26, 2025
+    "27032025": "PEM_PYQ.pdf",  // March 27, 2025
+    "27032025": "PEM_PYQ.pdf",  // March 27, 2025
+    "28032025": "bash_cheatCode (1).pdf",  // March 28, 2025
+    "29032025": "PEM_PYQ.pdf" // March 29, 2025
+};
+
+// Function to get the scale factor based on screen size
+function getScaleFactor() {
+    let scaleFactor = 3;  // Set a higher default scale factor for better resolution
+
+    // Adjust scaling factor for different devices (high quality for desktop, and balanced for mobile)
+    if (window.innerWidth <= 768) {
+        scaleFactor = 2.5;  // For mobile devices, slightly reduce the scale
+    } else {
+        scaleFactor = 3.5;  // For larger screens, increase scale for higher quality
+    }
+    return scaleFactor;
+}
+
+// Function to render the PDF based on the selected date
+function renderPDF(selectedDate) {
+    const container = document.getElementById('pdf-container');
+    const loadingSpinner = document.getElementById('loading-spinner');
+    
+    loadingSpinner.style.display = 'flex';  // Show the loading spinner
+    container.innerHTML = '';
+
+    const pdfUrl = newsPdfs[selectedDate];
+    if (!pdfUrl) {
+        loadingSpinner.style.display = 'none';  // Hide the spinner
+        container.style.backgroundImage = 'url("News_Pdf_Not_Found.png")';  // Set the background image
+        container.style.backgroundRepeat = 'no-repeat';
+        container.style.backgroundSize = 'contain';
+        container.style.backgroundPosition = 'center';
+        container.style.backgroundClip = 'content-box';
+        return;
+    }
+
+    const scaleFactor = getScaleFactor();  // Get the scale factor for better quality
+
+    pdfjsLib.getDocument(pdfUrl).promise.then(function(pdf) {
+        const totalPages = pdf.numPages;
+
+        function renderPageSequentially(pageNum) {
+            return pdf.getPage(pageNum).then(function(page) {
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d');
+                const viewport = page.getViewport({ scale: scaleFactor });
+
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+
+                return page.render({ canvasContext: context, viewport: viewport }).promise.then(function() {
+                    container.appendChild(canvas);
+                    if (pageNum < totalPages) {
+                        renderPageSequentially(pageNum + 1);
+                    }
+                });
+            });
+        }
+
+        renderPageSequentially(1);
+        loadingSpinner.style.display = 'none';  // Hide the spinner after the PDF is rendered
+    }).catch(function(error) {
+        loadingSpinner.style.display = 'none';
+        console.error('Error loading PDF:', error);
+        container.innerHTML = '<h1>Unable to load PDF. Please try again later.</h1>';
+    });
+}
+
+// Function to handle Notify button click
+function handleNotifyButtonClick() {
+    const userName = prompt("Please enter your name to receive notifications:");
+    if (userName) {
+        // Store the name in a cookie
+        document.cookie = `username=${userName}; max-age=31536000`; // cookie expires in 1 year
+    }
+    requestNotificationPermission();
+}
+
+// Function to request notification permission
+function requestNotificationPermission() {
+    if (Notification.permission !== "granted") {
+        Notification.requestPermission().then(function(permission) {
+            if (permission === "granted") {
+                notifyUser("New News Arrived!");
+            }
+        });
+    }
+}
+
+// Function to send a notification to the user
+function notifyUser(message) {
+    const username = getCookie("username");
+    if (username && Notification.permission === "granted") {
+        const notification = new Notification(`Hey, ${username}!`, {
+            body: message,
+            icon: "Ample.png"
+        });
+
+        // Handle click event of notification
+        notification.onclick = function() {
+            window.focus();
+        };
+    }
+}
+
+// Helper function to get the value of a cookie by name
+function getCookie(name) {
+    const cookieArr = document.cookie.split(";");
+
+    for (let i = 0; i < cookieArr.length; i++) {
+        const cookie = cookieArr[i].trim();
+        if (cookie.startsWith(name + "=")) {
+            return cookie.substring(name.length + 1);
+        }
+    }
+    return "";
+}
+
+// Event listener for the Notify button
+document.getElementById("notifyBtn").addEventListener("click", handleNotifyButtonClick);
+
+// Simulating a new PDF update by calling the notifyUser function when a new PDF is available
+setTimeout(function() {
+    notifyUser("New PDF news has arrived! Check it out.");
+}, 5000);  // Notify after 5 seconds (simulating new content)
+
+// Function to show an interactive notification with a dialogue-like style
+function showInteractiveNotification(userName) {
+    const currentDate = new Date();
+    const yesterdayDate = new Date();
+    yesterdayDate.setDate(currentDate.getDate() - 1); // Get yesterday's date
+
+    // Format the date with the day of the week
+    const formattedDate = formatDateWithDayOfWeek(yesterdayDate);
+
+    // Simulate a news preview based on the date (for example purposes)
+    const newsPreview = getNewsPreview(formattedDate);  // You can customize this to show real news
+
+    // Construct the interactive dialogue notification message
+    const title = `Hey ${userName}, got a minute? 👀`;
+    const body = `🌟 "Guess what, [Your Name]? The latest news for **${formattedDate}** is out! 📢\n\nHere’s a sneak peek: \n📰 ${newsPreview}\n\nYou don’t want to miss it—click here to catch up!" 🌟`;
+
+    // Show notification if permission granted
+    if (Notification.permission === "granted") {
+        new Notification(title, {
+            body: body,
+            icon: 'icon.png',  // Optional: You can add an icon for the notification
+            requireInteraction: true, // Keep the notification visible until user clicks
+        });
+    }
+}
+
+// Helper function to format the date as "26 March 2025, Wednesday"
+function formatDateWithDayOfWeek(date) {
+    const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const day = date.getDate();
+    const month = date.getMonth();
+    const year = date.getFullYear();
+    const dayOfWeek = daysOfWeek[date.getDay()];
+
+    const months = [
+        "January", "February", "March", "April", "May", "June", "July", 
+        "August", "September", "October", "November", "December"
+    ];
+
+    return `${day} ${months[month]} ${year}, ${dayOfWeek}`;
+}
+
+// Simulating getting news based on the date
+function getNewsPreview(date) {
+    const news = {
+        "26 March 2025, Wednesday": "Major stock markets are bouncing back today after a huge dip! 📉📈",
+        "27 March 2025, Thursday": "Scientists discover a groundbreaking renewable energy source! 🌍⚡",
+    };
+    
+    return news[date] || "Exciting updates are happening today. You won’t want to miss it! 🚀";
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMPLE</title>
+    <link rel="stylesheet" href="newUpdate.css">
+</head>
+<body>
+    <div class="main-container">
+        <input type="checkbox" class="checkbox">
+        <div class="head">
+            <div class="logo">
+                <img src="logo-light-mode.svg" alt="">
+                <p>AMPLE</p>
+            </div>
+            <div class="search">
+                <img src="search.svg" alt="">
+            </div>
+        </div>
+        <div class="side-bar">
+            <div class="option">
+                <img src="house-fill.svg" alt="">
+                <p>Home</p>
+            </div>
+            <div class="option">
+                <img src="bell-fill.svg" alt="">
+                <p>Notifications</p>
+            </div>
+            <div class="option" onclick="openMessage()">
+                <img src="chat-dots-fill.svg" alt="">
+                <p>Messages</p>
+            </div>
+            <div class="option">
+                <img src="person-fill.svg" alt="">
+                <p>Profile</p>
+            </div>
+        </div>
+        <div class="message-alert">
+            <div class="message">
+                <div class="message-logo">
+                    <img src="logo-light-mode.svg" alt="">
+                    <p>AMPLE</p>
+                </div>
+                <div class="message-data">
+                    <p>Welcome to AMPLE Platform</p>
+                </div>
+            </div>
+            <img src="x-lg.svg" alt="" onclick="cancel()">
+        </div>
+        <div class="update">
+            <div class="main">
+                <div class="update-post">
+                    <div class="time">
+                        <img src="clock-history.svg" alt="">
+                        <p>04:30 AM, 07 February 2025</p>
+                    </div>
+                    <div class="post">
+                        <div class="post-data">
+                            <p class="data">What a phenomenal moment for <tag>~ElonMusk</tag> ! Seeing him address the nation after Trump’s inauguration was unreal—history in the making.</p>
+                            <div class="source">
+                                <video class="video" src="Elon_Musk_delivers_speech_after_Trump_Inauguration(720p).mp4"></video>
+                                <div class="video_control">
+                                    <div class="progress_bar">
+                                        <div class="box"></div>
+                                        <div class="time">
+                                            <div class="continue_time">0:00</div>
+                                            <div class="finish_time">0:00</div>
+                                        </div>
+                                    </div>
+                                    <div class="video_control_buttons">
+                                        <div class="button play_pause">
+                                            <img src="play-fill.svg" alt="" class="play_pause_icon">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="neUpdate.js"></script>
+</body>
+</html>

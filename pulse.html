@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="pulse.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="sub-header">
+            <div class="logo">
+                <img src="Ample.png" alt="">
+            </div>
+            <div class="service">
+                <div class="service_box">
+                    <div class="icon">
+                        <img src="newspaper.png" alt="">
+                    </div>
+                    <div class="name">
+                        <p class="service-name">AMPLE Pulse</p>
+                        <p class="service-meaning">News & Updates</p>
+                    </div>
+                </div>
+            </div>
+            <div class="calender">
+                <!-- <img src="calendar-month-fill.svg" alt="" id="openDateInput"> -->
+                <input type="date" class="dateInput" id="date-picker" >
+                <!-- <input type="date" id="date-picker" onchange="loadPDFForSelectedDate()" > -->
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- <div class="left HighPulse">
+            <div class="header">HeadPulse</div>
+            <div class="container">
+                <div class="hp hp1">Deadly Typhoon Leaves 50 Missing in Philippines</div>
+                <hr>
+                <div class="hp hp2">Fed Hints at Interest Rate Cut as Inflation Cools</div>
+                <hr>
+                <div class="hp hp3">IPL 2025: Mumbai Indians Crush Chennai Super Kings</div>
+                <hr>
+                <div class="hp hp4">UK Unveils £10 Billion Green Energy Fund</div>
+                <hr>
+                <div class="hp hp5">Tesla Stock Soars After Record Q1 Deliveries</div>
+                <hr>
+                <div class="hp hp6">Brazil Drought Sparks Amazon Wildfire Crisis</div>
+                <hr>
+                <div class="hp hp7">EU Bans Single-Use Plastics Starting 2026</div>
+                <hr>
+                <div class="hp hp8">NASA Delays Artemis Moon Mission to 2027</div>
+                <hr>
+                <div class="hp hp9">Ransomware Attack Hits Major U.S. Hospital Chain</div>
+                <hr>
+                <div class="hp hp10">India’s GDP Growth Slows to 6.8% in Q1 2025</div>
+                <hr>
+                <div class="hp hp11">Protests Erupt in Paris Over Pension Reforms</div>
+                <hr>
+                <div class="hp hp12">Breakthrough Alzheimer’s Drug Approved by FDA</div>
+                <hr>
+                <div class="hp hp13">Russia Claims Gains in Eastern Ukraine Conflict</div>
+                <hr>
+                <div class="hp hp14">Apple Launches Foldable iPhone in Surprise Reveal</div>
+                <hr>
+                <div class="hp hp15">Antarctic Ice Melt Hits Record High, Study Warns</div>
+                <hr>
+                <div class="hp hp16">Egypt Unveils New Pyramid Discovery Near Giza</div>
+            </div>
+        </div> -->
+        <div class="loader" id="loading-spinner"></div>
+        <div id="pdf-container"></div>
+        <!-- <div class="right Trending">
+            <div class="header">Trending</div>
+            <div class="container">
+                <div class="trending trending1">Cyberattack Hits Banks</div>
+                <hr>
+                <div class="trending trending2">Kohli’s IPL Century</div>
+                <hr>
+                <div class="trending trending3">U.S. Midwest Freezes</div>
+                <hr>
+                <div class="trending trending4">Stranger Things Trailer Out</div>
+                <hr>
+                <div class="trending trending5">Iran Shows New Missile</div>
+                <hr>
+                <div class="trending trending6">Wall Street Peaks</div>
+                <hr>
+                <div class="trending trending7">Reef Bleaching Worsens</div>
+                <hr>
+                <div class="trending trending8">BTS Concert Sells Out</div>
+                <hr>
+                <div class="trending trending9">UK PM Faces Vote</div>
+                <hr>
+                <div class="trending trending10">SpaceX Rocket Fails</div>
+                <hr>
+                <div class="trending trending11">Vietnam Floods Kill</div>
+                <hr>
+                <div class="trending trending12">Robot Wins Chess Title</div>
+                <hr>
+                <div class="trending trending13">India Lands in Australia</div>
+                <hr>
+                <div class="trending trending14">Facebook Revamps Privacy</div>
+                <hr>
+                <div class="trending trending15">Solar Flare Hits Satellites</div>
+                <hr>
+                <div class="trending trending16">Paris Protests Erupt</div>
+            </div>
+        </div> -->
+    </main>
+    <footer>
+        <marquee id="footer-message" behavior="scroll" direction="left" scrollamount="5">
+        <span id="message">🛑 Some features on our platform 🖥️ may be temporarily limited as we work 🛠️ to enhance your experience. We recommend enabling notifications 🔔 to stay informed about the latest updates and improvements. We apologize 🙇 for any inconvenience caused by technical glitches—our team is actively addressing 👨‍💻 them to ensure seamless access to your news 📰🗞️. Thank you 🙏 for your patience and support! 🛑</span>
+    </marquee>
+    </footer>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script> -->
+    <script src="pulse.js"></script>
+</body>
+</html>

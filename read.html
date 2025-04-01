@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read More / Read Less</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+        .read-more-container {
+            background-color: red;
+            padding: 10px;
+            max-width: 400px;
+            text-align: left;
+            font-size: 18px;
+            overflow: hidden;
+            max-height: 120px;
+            transition: max-height 0.8s ease-in-out;
+        }
+        .expanded {
+            max-height: 500px;
+        }
+        .text-content {
+            margin: 0;
+            transition: opacity 0.6s ease-in-out;
+        }
+        .full-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out; /* Added for smooth fade */
+        }
+        .short-text {
+            opacity: 1;
+            transition: opacity 0.6s ease-in-out; /* Added for smooth fade */
+        }
+        .read-more-btn {
+            color: yellow;
+            cursor: pointer;
+            text-decoration: underline;
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="read-more-container">
+        <p class="text-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const maxLength = 100;
+            let container = document.querySelector(".read-more-container");
+            let textElement = container.querySelector(".text-content");
+            const fullText = textElement.textContent.trim(); // Get the full text as a string
+            
+            let shortText = fullText.substring(0, maxLength).trim();
+            let lastSpace = shortText.lastIndexOf(" ");
+            if (lastSpace > 0) {
+                shortText = shortText.substring(0, lastSpace);
+            }
+
+            textElement.innerHTML = `
+                <span class="short-text">${shortText}</span>
+                <span class="full-content">${fullText}</span>
+                <span class="read-more-btn" onclick="toggleText(this)">...Read More</span>
+            `;
+        });
+
+        function toggleText(button) {
+            let container = button.closest(".read-more-container");
+            let textElement = container.querySelector(".text-content");
+            let shortText = textElement.querySelector(".short-text");
+            let fullText = textElement.querySelector(".full-content");
+
+            if (fullText.style.display === "none" || fullText.style.display === "") {
+                // Expanding
+                fullText.style.display = "inline";
+                fullText.style.opacity = "0";
+                shortText.style.opacity = "0";
+                
+                setTimeout(() => {
+                    shortText.style.display = "none";
+                    fullText.style.opacity = "1";
+                }, 10); // Small delay to allow transition to start
+                
+                container.classList.add("expanded");
+                button.textContent = " Read Less";
+            } else {
+                // Collapsing
+                fullText.style.opacity = "0";
+                
+                setTimeout(() => {
+                    fullText.style.display = "none";
+                    shortText.style.display = "inline";
+                    shortText.style.opacity = "0"; // Start faded out
+                    setTimeout(() => {
+                        shortText.style.opacity = "1"; // Fade in
+                    }, 10);
+                    container.classList.remove("expanded");
+                    button.textContent = "...Read More";
+                }, 600); // Matches opacity transition duration
+            }
+        }
+    </script>
+
+</body>
+</html>

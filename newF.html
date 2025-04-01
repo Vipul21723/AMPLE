@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <style>
+        /* Basic styling for the container and spinner */
+        body{
+            background-color: black;
+        }
+        #pdf-container {
+            width: 100%;
+            overflow: auto;
+            height: 600px;
+        }
+        #loading-spinner {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            /*transform: translate(-50%, -50%);*/
+            z-index: 1000;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>PDF Viewer</h1>
+    <input type="date" id="date-picker" />
+    <div id="loading-spinner">Loading...</div>
+    <div id="pdf-container"></div>
+
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.worker.min.js";
+
+        const newsPdfs = {
+            "26032025": "26March2025.pdf",  // March 26, 2025
+            "27032025": "Operating System.pdf",  // March 27, 2025
+            "28032025": "bash_cheatCode (1).pdf",  // March 28, 2025
+            "29032025": "PEM_PYQ.pdf" // March 29, 2025
+        };
+        
+        // Function to get scale factor based on the screen size
+        function getScaleFactor() {
+            let scaleFactor = 2;  // Increase the default scale factor for better resolution
+        
+            if (window.innerWidth <= 768) {
+                const mobileHeight = window.innerHeight;
+                const mobileWidth = window.innerWidth;
+                const idealHeight = 900;
+                const scaleHeight = mobileHeight / idealHeight;
+                scaleFactor = Math.min(scaleHeight, mobileWidth / 600);
+            }
+        
+            return scaleFactor;
+        }
+        
+        // Function to load and render the PDF based on the selected date
+        function renderPDF(selectedDate) {
+            const container = document.getElementById('pdf-container');
+            const loadingSpinner = document.getElementById('loading-spinner');
+            
+            loadingSpinner.style.display = 'flex';
+        
+            // Clear previous PDF content before rendering the new one
+            container.innerHTML = '';
+        
+            // Check if the selected date exists in the newsPdfs object
+            const pdfUrl = newsPdfs[selectedDate];
+            if (!pdfUrl) {
+                loadingSpinner.style.display = 'none';
+                alert('No PDF found for the selected date.');
+                return;
+            }
+        
+            const scaleFactor = getScaleFactor();  // Get the scale factor for better quality
+        
+            pdfjsLib.getDocument(pdfUrl).promise.then(function(pdf) {
+                const totalPages = pdf.numPages;
+        
+                // Function to render pages sequentially
+                function renderPageSequentially(pageNum) {
+                    return pdf.getPage(pageNum).then(function(page) {
+                        const canvas = document.createElement('canvas');
+                        const context = canvas.getContext('2d');
+                        const viewport = page.getViewport({ scale: scaleFactor });
+        
+                        // Set canvas dimensions based on the viewport with the desired resolution
+                        canvas.width = viewport.width;
+                        canvas.height = viewport.height;
+        
+                        return page.render({ canvasContext: context, viewport: viewport }).promise.then(function() {
+                            container.appendChild(canvas); 
+                            if (pageNum < totalPages) {
+                                renderPageSequentially(pageNum + 1);  // Render next page after current one is done
+                            }
+                        });
+                    });
+                }
+        
+                // Start rendering from the first page
+                renderPageSequentially(1);
+        
+                // Hide the loading spinner when all pages are rendered
+                loadingSpinner.style.display = 'none';
+            }).catch(function(error) {
+                loadingSpinner.style.display = 'none';
+                console.error('Error loading PDF:', error);
+            });
+        }
+        
+        // Function to handle date selection from calendar input
+        function handleDateSelection(event) {
+            const selectedDate = formatDate(event.target.value);  // Format the date as DDMMYYYY
+            renderPDF(selectedDate);
+        }
+        
+        // Helper function to format the date as DDMMYYYY
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const day = ("0" + date.getDate()).slice(-2); // Add leading zero to single digit dates
+            const month = ("0" + (date.getMonth() + 1)).slice(-2); // Add leading zero to months
+            const year = date.getFullYear();
+            return `${day}${month}${year}`;  // Format as DDMMYYYY
+        }
+        
+        // Set up the calendar input to trigger date selection
+        document.getElementById('date-picker').addEventListener('change', handleDateSelection);
+        
+        // Initial PDF load (optional): Load today's PDF by default when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            const today = new Date();
+            const todayFormatted = formatDate(today.toISOString().split('T')[0]); // Get today's date in DDMMYYYY format
+            renderPDF(todayFormatted);
+        });
+        
+    </script>
+</body>
+</html>

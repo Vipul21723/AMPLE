@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer with Notification</title>
+</head>
+<body>
+    <h1>Welcome to the PDF Viewer</h1>
+
+    <script>
+        // Function to get a cookie by name
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        // Function to set a cookie
+        function setCookie(name, value, days) {
+            const d = new Date();
+            d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + d.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        }
+
+        // Function to request notification permission
+        function requestNotificationPermission() {
+            if (Notification.permission !== "granted" && Notification.permission !== "denied") {
+                Notification.requestPermission().then(function(permission) {
+                    // Store in cookies the user’s permission choice
+                    setCookie('notification_permission', permission, 365);
+                });
+            }
+        }
+
+        // Function to trigger a notification
+        function triggerNotification() {
+            // Check if user has granted notification permission using cookies
+            const notificationPermission = getCookie('notification_permission');
+            if (notificationPermission === 'granted') {
+                const notification = new Notification("New News PDF Uploaded!", {
+                    body: "Click here to view the latest PDF!",
+                    icon: "icon.png", // Optional icon for the notification
+                    tag: "new-pdf-notification"
+                });
+
+                notification.onclick = function() {
+                    // Define the action to take when the user clicks the notification
+                    window.open('26March2025.pdf'); // Open the PDF
+                };
+            }
+        }
+
+        // When the page is loaded, check if the user has granted permission and set it in a cookie
+        window.onload = function() {
+            const notificationPermission = getCookie('notification_permission');
+
+            // If user has not decided about notification permission, request permission
+            if (!notificationPermission) {
+                requestNotificationPermission();
+            }
+
+            // Simulate uploading a new PDF after a few seconds (for testing)
+            setTimeout(function() {
+                triggerNotification(); // Trigger notification for the new PDF
+            }, 5000); // Notify after 5 seconds (adjust this based on your requirements)
+        };
+    </script>
+</body>
+</html>

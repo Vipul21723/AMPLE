@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer Based on Date Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #pdf-container {
+            width: 100%;
+            height: 80vh;
+            overflow-y: scroll;
+            margin-top: 20px;
+        }
+
+        canvas {
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        select, input[type="date"] {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            width: 200px;
+            cursor: pointer;
+        }
+
+        label {
+            font-size: 18px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+</head>
+<body>
+
+    <label for="pdf-date">Select a date to view the news PDF:</label>
+    <input type="date" id="pdf-date">
+
+    <div id="pdf-container"></div>
+
+    <script>
+        // JavaScript Object to map dates to PDF URLs
+        const pdfData = {
+            "2025-03-26": "26March2025.pdf",
+            "2025-03-25": "25March2025.pdf",
+            "2025-03-24": "24March2025.pdf",
+            "2025-03-23": "23March2025.pdf",
+            // Add more dates and corresponding PDFs here
+        };
+
+        const pdfContainer = document.getElementById('pdf-container');
+        const dateInput = document.getElementById('pdf-date');
+
+        // Function to render PDF based on date selection
+        function renderPDF(pdfURL) {
+            // Clear the previous PDF content
+            pdfContainer.innerHTML = '';
+
+            // Asynchronously download the PDF
+            pdfjsLib.getDocument(pdfURL).promise.then(function (pdf) {
+                const totalPages = pdf.numPages;
+
+                // Render each page of the PDF
+                for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
+                    pdf.getPage(pageNum).then(function (page) {
+                        const canvas = document.createElement('canvas');
+                        const context = canvas.getContext('2d');
+                        const viewport = page.getViewport({ scale: 1 });
+
+                        // Set canvas size to match the PDF page
+                        canvas.width = viewport.width;
+                        canvas.height = viewport.height;
+
+                        // Render the PDF page to the canvas
+                        page.render({ canvasContext: context, viewport: viewport }).promise.then(function () {
+                            pdfContainer.appendChild(canvas);
+                        });
+                    });
+                }
+            }).catch(function (error) {
+                console.error('Error loading PDF: ' + error);
+            });
+        }
+
+        // Event listener to change PDF based on the selected date
+        dateInput.addEventListener('change', function () {
+            const selectedDate = dateInput.value;
+
+            // Check if the selected date exists in the pdfData object
+            if (pdfData[selectedDate]) {
+                // If the PDF exists for the selected date, render it
+                renderPDF(pdfData[selectedDate]);
+            } else {
+                pdfContainer.innerHTML = '<p>No news available for the selected date.</p>';
+            }
+        });
+    </script>
+
+</body>
+</html>

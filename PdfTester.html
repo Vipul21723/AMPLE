@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+        }
+        
+        header {
+            background: linear-gradient(90deg, #1a1a2e, #16213e);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4fc3f7;
+        }
+        
+        .back-btn {
+            background: #4fc3f7;
+            color: #121212;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            display: none;
+        }
+        
+        .back-btn:hover {
+            background: #3da8d8;
+        }
+        
+        .main-container {
+            display: flex;
+            min-height: calc(100vh - 60px);
+        }
+        
+        .pdf-list {
+            width: 300px;
+            background: #1e1e1e;
+            padding: 20px;
+            border-right: 1px solid #333;
+        }
+        
+        .pdf-item {
+            padding: 12px;
+            margin-bottom: 10px;
+            background: #252525;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .pdf-item:hover {
+            background: #333;
+        }
+        
+        .pdf-viewer-container {
+            flex: 1;
+            padding: 20px;
+            display: none;
+        }
+        
+        #pdf-container {
+            width: 100%;
+            height: calc(100vh - 100px);
+            overflow-y: auto;
+            background: #252525;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        
+        canvas {
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        
+        #loading-spinner {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+        }
+        
+        .loader {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #4fc3f7;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">AMPLE Magazine</div>
+        <button class="back-btn" id="backBtn">← Back to List</button>
+    </header>
+    
+    <div class="main-container">
+        <div class="pdf-list">
+            <div class="pdf-item" data-pdf="26March2025.pdf">PDF Document 1</div>
+            <div class="pdf-item" data-pdf="PEM_PYQ.pdf">PDF Document 2</div>
+            <div class="pdf-item" data-pdf="bash_cheatCode (1).pdf">PDF Document 3</div>
+        </div>
+        
+        <div class="pdf-viewer-container" id="pdfViewerContainer">
+            <div id="pdf-container"></div>
+        </div>
+    </div>
+    
+    <div id="loading-spinner">
+        <div class="loader"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <script>
+        // Set PDF.js worker path
+        pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.worker.min.js";
+        
+        // DOM elements
+        const pdfItems = document.querySelectorAll('.pdf-item');
+        const pdfViewerContainer = document.getElementById('pdfViewerContainer');
+        const pdfContainer = document.getElementById('pdf-container');
+        const backBtn = document.getElementById('backBtn');
+        const loadingSpinner = document.getElementById('loading-spinner');
+        
+        // Function to get scale factor based on screen size
+        function getScaleFactor() {
+            return window.innerWidth <= 768 ? 1.5 : 2.5;
+        }
+        
+        // Function to render PDF
+        async function renderPDF(pdfUrl) {
+            // Show loading spinner
+            loadingSpinner.style.display = 'block';
+            pdfContainer.innerHTML = '';
+            
+            try {
+                // Load the PDF document
+                const pdf = await pdfjsLib.getDocument(pdfUrl).promise;
+                
+                // Render each page
+                for (let i = 1; i <= pdf.numPages; i++) {
+                    const page = await pdf.getPage(i);
+                    const viewport = page.getViewport({ scale: getScaleFactor() });
+                    
+                    // Create canvas for the page
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+                    
+                    // Render PDF page into canvas context
+                    await page.render({
+                        canvasContext: context,
+                        viewport: viewport
+                    }).promise;
+                    
+                    pdfContainer.appendChild(canvas);
+                }
+                
+                // Show PDF viewer and hide list
+                document.querySelector('.pdf-list').style.display = 'none';
+                pdfViewerContainer.style.display = 'block';
+                backBtn.style.display = 'block';
+                
+            } catch (error) {
+                console.error('Error loading PDF:', error);
+                pdfContainer.innerHTML = '<div style="color: white; text-align: center; padding: 20px;">Error loading PDF. Please try again.</div>';
+            } finally {
+                loadingSpinner.style.display = 'none';
+            }
+        }
+        
+        // Event listeners
+        pdfItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const pdfFile = item.getAttribute('data-pdf');
+                renderPDF(pdfFile);
+            });
+        });
+        
+        backBtn.addEventListener('click', () => {
+            // Show list and hide viewer
+            document.querySelector('.pdf-list').style.display = 'block';
+            pdfViewerContainer.style.display = 'none';
+            backBtn.style.display = 'none';
+            pdfContainer.innerHTML = '';
+        });
+    </script>
+</body>
+</html>

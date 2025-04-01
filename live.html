@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JioCinema-Inspired Webpage with Expo</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #141414; color: #fff; }
+    .expo-intro { padding: 40px; text-align: center; background: #1e1e1e; }
+    .expo-intro h1 { font-size: 2.5em; margin: 0; }
+    .expo-nav { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
+    .expo-nav a { color: #00d4ff; text-decoration: none; font-size: 1.2em; }
+    .live-stream { height: 400px; overflow-y: auto; padding: 20px; }
+    .stream-item { background: #2a2a2a; padding: 15px; margin-bottom: 10px; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <!-- Expo Intro Section -->
+  <section class="expo-intro">
+    <h1>Explore Expo – Your Content Gateway 🚀</h1>
+    <p>Find what’s new faster with smooth navigation and organized directories.</p>
+    <div class="expo-nav">
+      <a href="#whats-new">What's New</a>
+      <a href="#live">Live Streams</a>
+      <a href="#explore">Explore More</a>
+    </div>
+  </section>
+
+  <!-- Auto-Scrolling Live Stream Section -->
+  <section class="live-stream" id="whats-new">
+    <div class="stream-item">New Update: Feature X launched today!</div>
+    <div class="stream-item">Live Now: Event Y streaming in real-time.</div>
+    <div class="stream-item">Coming Soon: Big reveal on April 5th.</div>
+    <!-- More items will be dynamically added -->
+  </section>
+
+  <script>
+    // Auto-scroll functionality
+    const streamContainer = document.querySelector('.live-stream');
+    let scrollSpeed = 1; // Adjust speed as needed
+
+    function autoScroll() {
+      streamContainer.scrollTop += scrollSpeed;
+      if (streamContainer.scrollTop >= streamContainer.scrollHeight - streamContainer.clientHeight) {
+        streamContainer.scrollTop = 0; // Loop back to top
+      }
+    }
+
+    setInterval(autoScroll, 50); // Smooth scrolling every 50ms
+  </script>
+</body>
+</html>

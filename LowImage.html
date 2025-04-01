@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Quality Enhancement</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        img { max-width: 80%; transition: filter 0.3s ease; }
+        select { margin-top: 10px; padding: 10px; font-size: 16px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Image Quality Enhancement</h2>
+    <img id="image" src="elon-musk.jpg" alt="Image">
+    <br>
+    <select id="qualitySelect" onchange="changeQuality()">
+        <option value="auto">Auto</option>
+        <option value="144">144p</option>
+        <option value="240">240p</option>
+        <option value="360">360p</option>
+        <option value="480">480p</option>
+        <option value="576">576p</option>
+        <option value="600">600p</option>
+        <option value="720">720p</option>
+        <option value="1080">1080p</option>
+        <option value="1440">1440p</option>
+        <option value="1536">1536p</option>
+        <option value="2160">2160p (4K)</option>
+        <option value="2880">2880p (5K)</option>
+        <option value="4320">4320p (8K)</option>
+        <option value="HDR10">HDR10</option>
+        <option value="HDR10+">HDR10+</option>
+        <option value="DolbyVision">Dolby Vision</option>
+    </select>
+    
+    <script>
+        function changeQuality() {
+            const img = document.getElementById("image");
+            const quality = document.getElementById("qualitySelect").value;
+            
+            switch (quality) {
+                case "144": img.style.filter = "blur(5px) grayscale(100%)"; break;
+                case "240": img.style.filter = "blur(4px) grayscale(80%) contrast(0.9)"; break;
+                case "360": img.style.filter = "blur(3px) grayscale(50%) contrast(0.95)"; break;
+                case "480": img.style.filter = "blur(2px) contrast(1.0)"; break;
+                case "576": img.style.filter = "blur(1px) contrast(1.1)"; break;
+                case "600": img.style.filter = "contrast(1.15) brightness(1.05)"; break;
+                case "720": img.style.filter = "contrast(1.2) brightness(1.1) saturate(1.1)"; break;
+                case "1080": img.style.filter = "contrast(1.3) brightness(1.15) saturate(1.2)"; break;
+                case "1440": img.style.filter = "contrast(1.4) brightness(1.2) saturate(1.3)"; break;
+                case "1536": img.style.filter = "contrast(1.5) brightness(1.25) saturate(1.35)"; break;
+                case "2160": img.style.filter = "contrast(1.6) brightness(1.3) saturate(1.4)"; break;
+                case "2880": img.style.filter = "contrast(1.7) brightness(1.35) saturate(1.5)"; break;
+                case "4320": img.style.filter = "contrast(1.8) brightness(1.4) saturate(1.6)"; break;
+                case "HDR10": img.style.filter = "contrast(2.0) brightness(1.5) saturate(1.7) hue-rotate(10deg)"; break;
+                case "HDR10+": img.style.filter = "contrast(2.2) brightness(1.6) saturate(1.8) hue-rotate(15deg)"; break;
+                case "DolbyVision": img.style.filter = "contrast(2.5) brightness(1.7) saturate(2) hue-rotate(20deg)"; break;
+                default: img.style.filter = "none";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -3,21 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ample</title>
-    <link rel="stylesheet" href="loading.css">
-    <link rel="shortcut icon" href="ample1686.ico" type="image/x-icon">
+    <title>PDF Viewer with Loading Indicator</title>
+    <style>
+        #pdf-container {
+            position: relative;
+        }
+        #loading-spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: #000;
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="box box1"></div>
-        <div class="box box2"></div>
-        <div class="box box3"></div>
-        <div class="box box4"></div>
-        <div class="box box5"></div>
-        <div class="box box6"></div>
-        <div class="box box7"></div>
-    </div>
 
-    <script src="loading.js"></script>
+<div id="pdf-container">
+    <!-- Loading spinner -->
+    <div id="loading-spinner">Loading...</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+<script>
+const url = '26March2025.pdf';  // Path to your PDF file
+
+// Function to determine the scale factor dynamically
+function getScaleFactor() {
+    let scaleFactor = 1; // Default scale factor for desktop
+    if (window.innerWidth <= 768) {
+        // Mobile scale factor: calculate dynamically based on the height of the screen
+        const mobileHeight = window.innerHeight;
+        const mobileWidth = window.innerWidth;
+        const idealHeight = 900; // Ideal height for PDF rendering (you can tweak this)
+        const scaleHeight = mobileHeight / idealHeight; // Scale based on height
+        scaleFactor = Math.min(scaleHeight, mobileWidth / 600); // Adjust based on both height and width
+    }
+    return scaleFactor;
+}
+
+// Function to load and render the PDF
+function renderPDF() {
+    const container = document.getElementById('pdf-container');
+    const loadingSpinner = document.getElementById('loading-spinner');
+    
+    // Show loading spinner
+    loadingSpinner.style.display = 'block';
+
+    const scaleFactor = getScaleFactor();  // Calculate the new scale factor
+
+    pdfjsLib.getDocument(url).promise.then(function(pdf) {
+        const totalPages = pdf.numPages;
+
+        // Function to render all pages in order
+        function renderPage(pageNum) {
+            return pdf.getPage(pageNum).then(function(page) {
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d');
+                const viewport = page.getViewport({ scale: scaleFactor });
+
+                // Set canvas size to match the PDF page with the scale factor
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+
+                // Render the PDF page on the canvas
+                return page.render({ canvasContext: context, viewport: viewport }).promise.then(function() {
+                    container.appendChild(canvas); // Add each canvas to the container
+                });
+            });
+        }
+
+        // Render pages sequentially (in order)
+        let pagePromises = [];
+        for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
+            pagePromises.push(renderPage(pageNum));
+        }
+
+        // Wait for all pages to be rendered
+        Promise.all(pagePromises).then(function() {
+            // Hide the loading spinner once all pages are rendered
+            loadingSpinner.style.display = 'none';
+        }).catch(function(error) {
+            // Hide loading spinner if there was an error
+            loadingSpinner.style.display = 'none';
+            console.error('Error rendering pages:', error);
+        });
+    }).catch(function(error) {
+        // Hide loading spinner if there was an error loading the PDF
+        loadingSpinner.style.display = 'none';
+        console.error('Error loading PDF:', error);
+    });
+}
+
+// Initially load and render the PDF
+renderPDF();
+
+// Handle window resize to adjust scale factor dynamically (e.g., for mobile devices)
+window.addEventListener('resize', function() {
+    renderPDF(); // Re-render the PDF with updated scale factor
+});
+</script>
+
 </body>
 </html>

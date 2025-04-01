@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMPLE</title>
+    <link rel="stylesheet" href="LibAMPLE.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Phudu:wght@300..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Phudu:wght@300..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- <header>
+        <div class="sub-header">
+            <div class="ample-logo">
+                <img src="Ample.png" alt="" onclick="window.location.href='https://www.ample1686.space/'">
+            </div>
+            <div class="box">
+                <div class="img">
+                    <img src="ebook-svgrepo-com.svg" alt="">
+                </div>
+                <div class="text">
+                    <p>LibAMPLE</p>
+                </div>
+            </div>
+            <div class="Explorar folder-container" id="folder-container"></div>
+
+            </div>
+        </div>
+    </header> -->
+
+    <!-- <header>
+        <div class="sub-header">
+            <div class="ample-logo">
+                <img src="Ample.png" alt="" onclick="window.location.href='https://www.ample1686.space/'">
+            </div>
+            <div class="box">
+                <div class="img">
+                    <img src="ebook-svgrepo-com.svg" alt="">
+                </div>
+                <div class="text">
+                    <p>LibAMPLE</p>
+                </div>
+            </div>
+            <div class="Explorar">
+                <div class="folder-container" id="folder-container"></div>
+            </div>
+        </div>
+    </header> -->
+    <!-- <header>
+        <div class="sub-header">
+            <div class="ample-logo">
+                <img src="Ample.png" alt="" onclick="window.location.href='https://www.ample1686.space/'">
+            </div>
+            <div class="box">
+                <div class="img">
+                    <img src="ebook-svgrepo-com.svg" alt="">
+                </div>
+                <div class="text">
+                    <p>LibAMPLE</p>
+                </div>
+            </div>
+            <div class="Explorar">
+                <div class="folder-header">Explorar</div>
+                <div class="folder-container" id="folder-container"></div>
+            </div>
+        </div>
+    </header> -->
+    <header>
+        <div class="sub-header">
+            <div class="ample-logo">
+                <img src="Ample.png" alt="" onclick="window.location.href='https://www.ample1686.space/'">
+            </div>
+            <div class="box">
+                <div class="img">
+                    <img src="ebook-svgrepo-com.svg" alt="">
+                </div>
+                <div class="text">
+                    <p>LibAMPLE</p>
+                </div>
+            </div>
+            <div class="Explorar">
+                <div class="folder-header gradient-button">
+                    <img src="Expo.png" alt="">
+                </div>
+                <div class="folder-container" id="folder-container"></div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="poster">
+                <div class="content">
+                    <p>Amplify</p>
+                    <div class="words">
+                        <span class="word">Books</span>
+                        <span class="word">Finance & Wealth-Building</span>
+                        <span class="word">Self-Improvement</span>
+                        <span class="word">Biography</span>
+                        <span class="word">And More .....</span>
+                        <!-- <span class="word">Can't Hurt Me</span>
+                        <span class="word">Atomic Habits</span>
+                        <span class="word">Rich Dad Poor Dad</span>
+                        <span class="word">And More .....</span>
+                        <span class="word">The Subtle Art of Not Giving a ....</span>
+                        <span class="word">Make Your Bed</span>
+                        <span class="word">Discipline Equals Freedom</span>
+                        <span class="word">Grit</span>
+                        <span class="word"> To Kill a Mockingbird</span>
+                        <span class="word">1984 – George Orwell</span>
+                        <span class="word">The Alchemist</span>
+                        <span class="word">Relentless</span>
+                        <span class="word">The Psychology of Money</span>
+                        <span class="word">Meditations </span>
+                        <span class="word">The War of Art</span>
+                        <span class="word">Sapiens</span>
+                        <span class="word"> The Great Gatsby</span>
+                        <span class="word">Think and Grow Rich</span>
+                        <span class="word">The Art of War </span>
+                        <span class="word">Man’s Search for Meaning </span>
+                        <span class="word">The 4-Hour Workweek</span> -->
+                    </div>
+                </div>
+            </div>
+            <div class="data">
+                <div class="type type1 Fiction">
+                    <p class="header"><img src="arrow-bar-right.svg" alt="">Fiction</p>
+                    <hr>
+                    <div class="content">
+                        <div class="book-box" onclick="window.open('To Kill a Mockingbird.html', '_blank')">
+                            <div class="img">
+                                <img src="To Kill a Mockingbird.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>To Kill a Mockingbird</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.open('1984.html', '_blank')">
+                            <div class="img">
+                                <img src="1984.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>1984</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.open('The Great Gatsby.html', '_blank')">
+                            <div class="img">
+                                <img src="The Great Gatsby.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>The Great Gatsby</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.open('Pride and Prejudice.html', '_blank')">
+                            <div class="img">
+                                <img src="Pride and Prejudice.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Pride and Prejudice</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.open('The Alchemist.html', '_blank')">
+                            <div class="img">
+                                <img src="The Alchemist.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>The Alchemist</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.open('Harry Potter and the Sorcerer’s Stone.html', '_blank')">
+                            <div class="img">
+                                <img src="Harry Potter and the Sorcerer’s Stone.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Harry Potter and the Sorcerer’s Stone</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.open('The Lord of the Rings.html', '_blank')">
+                            <div class="img">
+                                <img src="The Lord of the Rings.gif" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>The Lord of the Rings</p>
+                            </div>
+                        </div>
+
+                        <div class="book-box" onclick="window.open('The Catcher in the Rye.html', '_blank')">
+                            <div class="img">
+                                <img src="The Catcher in the Rye.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>The Catcher in the Rye</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.open('Crime and Punishment.html', '_blank')">
+                            <div class="img">
+                                <img src="Crime and Punishment.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Crime and Punishment</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.open('Brave New World.html', '_blank')">
+                            <div class="img">
+                                <img src="Brave New World.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Brave New World</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="type type2 Non-Fiction">
+                    <p class="header"><img src="arrow-bar-right.svg" alt="">Non-Fiction</p>
+                    <hr>
+                    <div class="content">
+                        <div class="book-box" onclick="window.location.href='Sapien.pdf'">
+                            <div class="img">
+                                <img src="Sapiens.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Sapiens: A Brief History of Humankind</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='Educated.pdf'">
+                            <div class="img">
+                                <img src="Educated.png" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Educated</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='Becoming.pdf'">
+                            <div class="img">
+                                <img src="Becoming.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Becoming</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='Atomic Habits.pdf'">
+                            <div class="img">
+                                <img src="Atomic Habits.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Atomic Habits</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='The Power of Now.pdf'">
+                            <div class="img">
+                                <img src="The Power of Now.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>The Power of Now</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='The Immortal Life of Henrietta Lacks.pdf'">
+                            <div class="img">
+                                <img src="The Immortal Life of Henrietta Lacks.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>The Immortal Life of Henrietta Lacks</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='Outliers The Story of Success.pdf'">
+                            <div class="img">
+                                <img src="Outliers The Story of Success.png" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Outliers: The Story of Success</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="type type3 Business-Finance">
+                    <p class="header"><img src="arrow-bar-right.svg" alt="">Business & Finance</p>
+                    <hr>
+                    <div class="content">
+                        <div class="book-box" onclick="window.location.href='The Lean Startup.pdf'">
+                            <div class="img">
+                                <img src="The Lean Startup.png" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>The Lean Startup</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='Zero to One.pdf'">
+                            <div class="img">
+                                <img src="Zero to One.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Zero to One</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='The $100 Startup.pdf'">
+                            <div class="img">
+                                <img src="The $100 Startup.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>The $100 Startup</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='Good to Great.pdf'">
+                            <div class="img">
+                                <img src="Good to Great.webp" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Good to Great</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='Rich Dad Poor Dad.pdf'">
+                            <div class="img">
+                                <img src="Rich Dad Poor Dad.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Rich Dad Poor Dad</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='The Intelligent Investor.pdf'">
+                            <div class="img">
+                                <img src="The Intelligent Investor.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>The Intelligent Investor</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='Think and Grow Rich.pdf'">
+                            <div class="img">
+                                <img src="Think and Grow Rich.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Think and Grow Rich</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="type type4 Motivation-Self-Help">
+                    <p class="header"><img src="arrow-bar-right.svg" alt="">Motivation & Self-Help</p>
+                    <hr>
+                    <div class="content">
+                        <div class="book-box" onclick="window.location.href='Atomic Habits.pdf'">
+                            <div class="img">
+                                <img src="Atomic Habits.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Atomic Habits</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='The 7 Habits of Highly Effective People.pdf'">
+                            <div class="img">
+                                <img src="The 7 Habits of Highly Effective People.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>The 7 Habits of Highly Effective People</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='Can’t Hurt Me.pdf'">
+                            <div class="img">
+                                <img src="Can’t Hurt Me.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Can’t Hurt Me</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='The Power of Now.pdf'">
+                            <div class="img">
+                                <img src="The Power of Now.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>The Power of Now</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='Think and Grow Rich.pdf'">
+                            <div class="img">
+                                <img src="Think and Grow Rich.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Think and Grow Rich</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="type type5 Biography-Autobiography">
+                    <p class="header"><img src="arrow-bar-right.svg" alt="">Biography & Autobiography</p>
+                    <hr>
+                    <div class="content">
+                        <div class="book-box" onclick="window.location.href='The Diary of a Young Girl.pdf'">
+                            <div class="img">
+                                <img src="The Diary of a Young Girl.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>The Diary of a Young Girl</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='Long Walk to Freedom.pdf'">
+                            <div class="img">
+                                <img src="Long Walk to Freedom.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Long Walk to Freedom</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='The Story of My Experiments with Truth.pdf'">
+                            <div class="img">
+                                <img src="The Story of My Experiments with Truth.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>The Story of My Experiments with Truth</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='Steve Jobs.pdf'">
+                            <div class="img">
+                                <img src="Steve Jobs.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Steve Jobs</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='Elon Musk Tesla, SpaceX, and the Quest for a Fantastic Future.pdf'">
+                            <div class="img">
+                                <img src="Elon Musk Tesla, SpaceX, and the Quest for a Fantastic Future.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Elon Musk: Tesla, SpaceX, and the Quest for a Fantastic Future</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='Becoming.pdf'">
+                            <div class="img">
+                                <img src="Becoming.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Becoming</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="type type6 Science-Technology">
+                    <p class="header"><img src="arrow-bar-right.svg" alt="">Science & Technology</p>
+                    <hr>
+                    <div class="content">
+                        <div class="book-box" onclick="window.location.href='A Brief History of Time.pdf'">
+                            <div class="img">
+                                <img src="A Brief History of Time.jpeg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>A Brief History of Time</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='The Selfish Gene.pdf'">
+                            <div class="img">
+                                <img src="The Selfish Gene.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>The Selfish Gene</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='Sapien.pdf'">
+                            <div class="img">
+                                <img src="Sapiens.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Sapiens: A Brief History of Humankind</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='The Singularity Is Near.pdf'">
+                            <div class="img">
+                                <img src="The Singularity Is Near.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>The Singularity Is Near</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="type type7 History">
+                    <p class="header"><img src="arrow-bar-right.svg" alt="">History</p>
+                    <hr>
+                    <div class="content">
+                        <div class="book-box" onclick="window.location.href='Sapien.pdf'">
+                            <div class="img">
+                                <img src="Sapiens.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Sapiens: A Brief History of Humankind</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='Guns, Germs, and Steel.pdf'">
+                            <div class="img">
+                                <img src="Guns, Germs, and Steel.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Guns, Germs, and Steel</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='The Silk Roads A New History of the World.pdf'">
+                            <div class="img">
+                                <img src="The Silk Roads A New History of the World.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>The Silk Roads: A New History of the World</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='The Rise and Fall of the Third Reich.pdf'">
+                            <div class="img">
+                                <img src="The Rise and Fall of the Third Reich.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>The Rise and Fall of the Third Reich</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='The Diary of a Young Girl.pdf'">
+                            <div class="img">
+                                <img src="The Diary of a Young Girl.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>The Diary of a Young Girl</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='A People History of the United States.pdf'">
+                            <div class="img">
+                                <img src="A People's History of the United States.webp" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>A People's History of the United States</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='The Wright Brothers.pdf'">
+                            <div class="img">
+                                <img src="The Wright Brothers.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>The Wright Brothers</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="type type8 Health-Wellness">
+                    <p class="header"><img src="arrow-bar-right.svg" alt="">Health & Wellness</p>
+                    <hr>
+                    <div class="content">
+                        <div class="book-box" onclick="window.location.href='How Not to Die.pdf'">
+                            <div class="img">
+                                <img src="How Not to Die.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>How Not to Die</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='The Obesity Code.pdf'">
+                            <div class="img">
+                                <img src="The Obesity Code.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>The Obesity Code</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='The Power of Now.pdf'">
+                            <div class="img">
+                                <img src="The Power of Now.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>The Power of Now</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='Atomic Habits.pdf'">
+                            <div class="img">
+                                <img src="Atomic Habits.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Atomic Habits</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='Ikigai The Japanese Secret to a Long and Happy Life.pdf'">
+                            <div class="img">
+                                <img src="Ikigai The Japanese Secret to a Long and Happy Life.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Ikigai: The Japanese Secret to a Long and Happy Life</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="type type9 Philosophy-Spirituality">
+                    <p class="header"><img src="arrow-bar-right.svg" alt="">Philosophy & Spirituality</p>
+                    <hr>
+                    <div class="content">
+                        <div class="book-box" onclick="window.location.href='Meditations.pdf'">
+                            <div class="img">
+                                <img src="Meditations.webp" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Meditations</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='The Republic.pdf'">
+                            <div class="img">
+                                <img src="The Republic.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>The Republic</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='Thus Spoke Zarathustra.pdf'">
+                            <div class="img">
+                                <img src="Thus Spoke Zarathustra.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Thus Spoke Zarathustra</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='Beyond Good and Evil.pdf'">
+                            <div class="img">
+                                <img src="Beyond Good and Evil.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Beyond Good and Evil</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='The Power of Now.pdf'">
+                            <div class="img">
+                                <img src="The Power of Now.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>The Power of Now</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='The Tao Te Ching.pdf'">
+                            <div class="img">
+                                <img src="The Tao Te Ching.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>The Tao Te Ching</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="type type10 Young-Adult-(YA)">
+                    <p class="header"><img src="arrow-bar-right.svg" alt="">Young Adult (YA)</p>
+                    <hr>
+                    <div class="content">
+                        <div class="book-box" onclick="window.location.href='Harry Potter series.pdf'">
+                            <div class="img">
+                                <img src="Harry Potter series.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Harry Potter series</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='The Hunger Games trilogy.pdf'">
+                            <div class="img">
+                                <img src="The Hunger Games trilogy.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>The Hunger Games trilogy</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='Percy Jackson & The Olympians series.pdf'">
+                            <div class="img">
+                                <img src="Percy Jackson & The Olympians series.png" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Percy Jackson & The Olympians series</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='The Fault in Our Stars.pdf'">
+                            <div class="img">
+                                <img src="The Fault in Our Stars.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>The Fault in Our Stars</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='Divergent trilogy.pdf'">
+                            <div class="img">
+                                <img src="Divergent trilogy.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>Divergent trilogy</p>
+                            </div>
+                        </div>
+                        <div class="book-box" onclick="window.location.href='The Maze Runner series.pdf'">
+                            <div class="img">
+                                <img src="The Maze Runner series.jpg" alt="">
+                            </div>
+                            <div class="detail">
+                                <p>The Maze Runner series</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+    
+
+
+
+    <div class="message-alert">
+        <div class="message">
+            <div class="box">
+                <div class="Explorar">
+                    <div class="expo-area">
+                        <img src="Expo.png" alt="Explore Expo Logo" id="Expo_Icon">
+                    </div>
+                </div>
+                <h1>Explore Expo</h1>
+                <p>Try the New "Expo" Feature!</p>
+                <p>Explore Expo – a LibAMPLE Explorer with Directory Path! 🚀 Find your content faster with smooth navigation and organized directories.</p>
+                <p>We’re improving things all the time, so if you spot any glitches, we’re on it. Thanks for being with us! 🙌</p>
+            </div>
+            <img src="x-lg.svg" alt="Close" onclick="cancel()">
+        </div>
+    </div>
+
+
+
+
+    <script src="LibAMPLE.js"></script>
+    <script src="explorar.js"></script>
+</body>
+</html>

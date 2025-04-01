@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading | Ample 1686 Space</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap');
+        
+        :root {
+            --primary: #973BED;
+            --secondary: #007CFF;
+            --accent: #FFC800;
+            --dark: #0a0a14;
+            --light: #f8f8ff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            font-family: 'Montserrat', sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        .background-grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 0;
+        }
+        
+        .loading-container {
+            position: relative;
+            z-index: 10;
+            width: 90%;
+            max-width: 800px;
+            text-align: center;
+            padding: 2rem;
+            background: rgba(10, 10, 20, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 0 30px rgba(151, 59, 237, 0.2);
+        }
+        
+        .logo {
+            width: 120px;
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 0 10px rgba(151, 59, 237, 0.5));
+        }
+        
+        .title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 300% 300%;
+            animation: gradient 5s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+        
+        .loader {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        
+        .orbital-loader {
+            position: relative;
+            width: 120px;
+            height: 120px;
+        }
+        
+        .central-orb {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: var(--primary);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px var(--primary);
+            z-index: 3;
+        }
+        
+        .orbiting-element {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--secondary);
+            box-shadow: 0 0 15px var(--secondary);
+            animation: orbit 4s linear infinite;
+        }
+        
+        .orbiting-element:nth-child(2) {
+            background: var(--accent);
+            box-shadow: 0 0 15px var(--accent);
+            animation-delay: -1s;
+        }
+        
+        .orbiting-element:nth-child(3) {
+            background: #00E0ED;
+            box-shadow: 0 0 15px #00E0ED;
+            animation-delay: -2s;
+        }
+        
+        .orbiting-element:nth-child(4) {
+            background: #00DA72;
+            box-shadow: 0 0 15px #00DA72;
+            animation-delay: -3s;
+        }
+        
+        @keyframes orbit {
+            0% {
+                transform: rotate(0deg) translateX(50px) rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg) translateX(50px) rotate(-360deg);
+            }
+        }
+        
+        .progress-container {
+            width: 100%;
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .service-icon {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .service-icon:hover {
+            background: rgba(151, 59, 237, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .service-icon img {
+            width: 30px;
+            height: 30px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .service-icon span {
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .status-message {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-top: 1rem;
+            font-style: italic;
+        }
+        
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-grid"></div>
+    
+    <div class="loading-container">
+        <img src="https://ample1686.space/logo.png" alt="Ample 1686 Logo" class="logo">
+        
+        <h1 class="title">Ample 1686 Space</h1>
+        <p class="subtitle">Your all-in-one digital universe is loading</p>
+        
+        <div class="loader">
+            <div class="orbital-loader">
+                <div class="central-orb"></div>
+                <div class="orbiting-element"></div>
+                <div class="orbiting-element"></div>
+                <div class="orbiting-element"></div>
+                <div class="orbiting-element"></div>
+            </div>
+        </div>
+        
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Social">
+                <span>Social</span>
+            </div>
+            <div class="service-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/2965/2965878.png" alt="News">
+                <span>News</span>
+            </div>
+            <div class="service-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/2933/2933245.png" alt="Media">
+                <span>Media</span>
+            </div>
+            <div class="service-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/3059/3059518.png" alt="Finance">
+                <span>Finance</span>
+            </div>
+            <div class="service-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/2936/2936886.png" alt="Gaming">
+                <span>Gaming</span>
+            </div>
+        </div>
+        
+        <p class="status-message" id="status-message">Initializing core services...</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const progressBar = document.getElementById('progress-bar');
+            const statusMessage = document.getElementById('status-message');
+            const messages = [
+                "Initializing core services...",
+                "Connecting to social networks...",
+                "Loading news aggregator...",
+                "Preparing media streams...",
+                "Establishing secure connections...",
+                "Optimizing performance...",
+                "Almost ready...",
+                "Welcome to Ample 1686 Space!"
+            ];
+            
+            let progress = 0;
+            let messageIndex = 0;
+            
+            const interval = setInterval(() => {
+                progress += 1 + Math.random() * 4;
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(interval);
+                    
+                    // Redirect when complete (remove this in production)
+                    setTimeout(() => {
+                        window.location.href = "https://ample1686.space";
+                    }, 1000);
+                }
+                
+                progressBar.style.width = progress + '%';
+                
+                // Update message every 15% progress
+                if (progress >= (messageIndex * (100 / (messages.length - 1)))) {
+                    statusMessage.textContent = messages[messageIndex];
+                    if (messageIndex < messages.length - 1) messageIndex++;
+                }
+            }, 100);
+        });
+    </script>
+</body>
+</html>

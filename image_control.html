@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Controls</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        
+        .container {
+            position: relative;
+            display: inline-block;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .controls {
+            margin-top: 10px;
+            text-align: center;
+        }
+        
+        button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 14px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <img id="image" src="elo_musk_new.jpg" alt="Image" />
+    <div class="controls">
+        <button onclick="zoomIn()">Zoom In</button>
+        <button onclick="zoomOut()">Zoom Out</button>
+        <button onclick="rotateClockwise()">Rotate Clockwise</button>
+        <button onclick="rotateAntiClockwise()">Rotate AntiClockwise</button>
+        <button onclick="rotate180()">Rotate 180°</button>
+        <button onclick="toggleFullscreen()">Fullscreen</button>
+        <button onclick="togglePiP()">Picture in Picture</button>
+        <button onclick="downloadImage()">Download</button>
+    </div>
+</div>
+
+<!-- <script src="script.js"></script> -->
+ <script>
+    let currentZoom = 1;
+let currentRotation = 0;
+let isFullscreen = false;
+let isPiP = false;
+
+const imgElement = document.getElementById('image');
+
+// Zoom In Function
+function zoomIn() {
+    currentZoom += 0.1;
+    imgElement.style.transform = `scale(${currentZoom}) rotate(${currentRotation}deg)`;
+}
+
+// Zoom Out Function
+function zoomOut() {
+    if (currentZoom > 0.2) {
+        currentZoom -= 0.1;
+        imgElement.style.transform = `scale(${currentZoom}) rotate(${currentRotation}deg)`;
+    }
+}
+
+// Rotate Clockwise Function
+function rotateClockwise() {
+    currentRotation += 90;
+    imgElement.style.transform = `scale(${currentZoom}) rotate(${currentRotation}deg)`;
+}
+
+// Rotate Anti-Clockwise Function
+function rotateAntiClockwise() {
+    currentRotation -= 90;
+    imgElement.style.transform = `scale(${currentZoom}) rotate(${currentRotation}deg)`;
+}
+
+// Rotate 180 Degrees Function
+function rotate180() {
+    currentRotation += 180;
+    imgElement.style.transform = `scale(${currentZoom}) rotate(${currentRotation}deg)`;
+}
+
+// Toggle Fullscreen Function
+function toggleFullscreen() {
+    if (!isFullscreen) {
+        if (imgElement.requestFullscreen) {
+            imgElement.requestFullscreen();
+        } else if (imgElement.mozRequestFullScreen) { // Firefox
+            imgElement.mozRequestFullScreen();
+        } else if (imgElement.webkitRequestFullscreen) { // Chrome, Safari and Opera
+            imgElement.webkitRequestFullscreen();
+        } else if (imgElement.msRequestFullscreen) { // IE/Edge
+            imgElement.msRequestFullscreen();
+        }
+        isFullscreen = true;
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) { // Firefox
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { // IE/Edge
+            document.msExitFullscreen();
+        }
+        isFullscreen = false;
+    }
+}
+
+// Picture-in-Picture Function
+function togglePiP() {
+    if (isPiP) {
+        document.exitPictureInPicture();
+    } else {
+        imgElement.requestPictureInPicture();
+    }
+    isPiP = !isPiP;
+}
+
+// Download Image Function
+function downloadImage() {
+    const link = document.createElement('a');
+    link.href = imgElement.src;
+    link.download = 'image.jpg'; // Change the filename as needed
+    link.click();
+}
+
+ </script>
+</body>
+</html>

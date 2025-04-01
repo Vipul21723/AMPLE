@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Video Quality Control</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        video { width: 80%; max-width: 800px; transition: filter 0.3s ease; }
+        button, select { margin-top: 10px; padding: 10px; font-size: 16px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Advanced Video Player</h2>
+    <video id="videoPlayer" controls>
+        <source src="Elon_Musk_delivers_speech_after_Trump_Inauguration(720p).mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <br>
+    <select id="qualitySelect" onchange="changeQuality()">
+        <option value="auto">Auto</option>
+        <option value="144">144p</option>
+        <option value="240">240p</option>
+        <option value="360">360p</option>
+        <option value="480">480p</option>
+        <option value="576">576p</option>
+        <option value="600">600p</option>
+        <option value="720">720p</option>
+        <option value="1080">1080p</option>
+        <option value="1440">1440p</option>
+        <option value="1536">1536p</option>
+        <option value="2160">2160p (4K)</option>
+        <option value="2880">2880p (5K)</option>
+        <option value="4320">4320p (8K)</option>
+        <option value="HDR10">HDR10</option>
+        <option value="HDR10+">HDR10+</option>
+        <option value="DolbyVision">Dolby Vision</option>
+    </select>
+    
+    <script>
+        function changeQuality() {
+            const video = document.getElementById("videoPlayer");
+            const quality = document.getElementById("qualitySelect").value;
+            
+            switch (quality) {
+                case "144": video.style.filter = "blur(5px) grayscale(100%)"; break;
+                case "240": video.style.filter = "blur(4px) grayscale(80%) contrast(0.9)"; break;
+                case "360": video.style.filter = "blur(3px) grayscale(50%) contrast(0.95)"; break;
+                case "480": video.style.filter = "blur(2px) contrast(1.0)"; break;
+                case "576": video.style.filter = "blur(1px) contrast(1.1)"; break;
+                case "600": video.style.filter = "contrast(1.15) brightness(1.05)"; break;
+                case "720": video.style.filter = "contrast(1.2) brightness(1.1) saturate(1.1)"; break;
+                case "1080": video.style.filter = "contrast(1.3) brightness(1.15) saturate(1.2)"; break;
+                case "1440": video.style.filter = "contrast(1.4) brightness(1.2) saturate(1.3) sharpen(10%)"; break;
+                case "1536": video.style.filter = "contrast(1.5) brightness(1.25) saturate(1.35) sharpen(15%)"; break;
+                case "2160": video.style.filter = "contrast(1.6) brightness(1.3) saturate(1.4) sharpen(20%)"; break;
+                case "2880": video.style.filter = "contrast(1.7) brightness(1.35) saturate(1.5) sharpen(25%)"; break;
+                case "4320": video.style.filter = "contrast(1.8) brightness(1.4) saturate(1.6) sharpen(30%)"; break;
+                case "HDR10": video.style.filter = "contrast(2.0) brightness(1.5) saturate(1.7) hue-rotate(10deg)"; break;
+                case "HDR10+": video.style.filter = "contrast(2.2) brightness(1.6) saturate(1.8) hue-rotate(15deg)"; break;
+                case "DolbyVision": video.style.filter = "contrast(2.5) brightness(1.7) saturate(2) hue-rotate(20deg)"; break;
+                default: video.style.filter = "none";
+            }
+        }
+    </script>
+</body>
+</html>

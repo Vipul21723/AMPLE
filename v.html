@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMPLE</title>
+    <link rel="stylesheet" href="v.css">
+    <link rel="shortcut icon" href="ample1686.ico?v=2" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="sub-header">
+            <div class="logo">
+                <div class="logo-img">
+                    <!-- <img src="Ample.png" alt=""> -->
+                </div>
+            </div>
+            <div class="search" id="search" onclick="openMessage()">
+                <input placeholder="Explore the Future with AMPLE..." class="input-style" type="search" onclick="openMessage()">
+            </div>
+            <div class="list">
+                <label class="hamburger">
+                    <input type="checkbox" class="checkbox">
+                    <svg viewBox="0 0 32 32">
+                      <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+                      <path class="line" d="M7 16 27 16"></path>
+                    </svg>
+                  </label>
+            </div>
+        </div>
+    </header>
+    <div class="side-bar">
+        <div class="head">
+            <p>The AMPLE Universe</p>
+        </div>
+        <div class="services"  onclick="openMessage()">
+            <div class="service-box">
+                <div class="serviceNo service1">
+                    <div class="icon">
+                        <img src="verified.png" alt="">
+                    </div>
+                    <div class="name">
+                        <p class="service-name">AMPLE Persona</p>
+                        <p class="service-meaning">Profile & Identity</p>
+                    </div>
+                </div>
+            </div>
+            <div class="service-box">
+                <div class="serviceNo service2">
+                    <div class="icon">
+                        <img src="friends.png" alt="">
+                    </div>
+                    <div class="name">
+                        <p class="service-name">AMPLE Network</p>
+                        <p class="service-meaning">Connecting with People</p>
+                    </div>
+                </div>
+            </div>
+            <div class="service-box">
+                <div class="serviceNo service3">
+                    <div class="icon">
+                        <img src="schedule.png" alt="">
+                    </div>
+                    <div class="name">
+                        <p class="service-name">AMPLE Timeline</p>
+                        <p class="service-meaning">Event Calendar</p>
+                    </div>
+                </div>
+            </div>
+            <div class="service-box">
+                <div class="serviceNo service4">
+                    <div class="icon">
+                        <img src="newspaper.png" alt="">
+                    </div>
+                    <div class="name">
+                        <p class="service-name">AMPLE Pulse</p>
+                        <p class="service-meaning">News & Updates</p>
+                    </div>
+                </div>
+            </div>
+            <div class="service-box">
+                <div class="serviceNo service5">
+                    <div class="icon">
+                        <img src="books.png" alt="">
+                    </div>
+                    <div class="name">
+                        <p class="service-name">AMPLE Academy</p>
+                        <p class="service-meaning">Study & Learning</p>
+                    </div>
+                </div>
+            </div>
+            <div class="service-box">
+                <div class="serviceNo service6">
+                    <div class="icon">
+                        <img src="trending.png" alt="">
+                    </div>
+                    <div class="name">
+                        <p class="service-name">AMPLE Trends</p>
+                        <p class="service-meaning">Trending Topics</p>
+                    </div>
+                </div>
+            </div>
+            <div class="service-box">
+                <div class="serviceNo service7">
+                    <div class="icon">
+                        <img src="meeting.png" alt="">
+                    </div>
+                    <div class="name">
+                        <p class="service-name">AMPLITUDE 1686</p>
+                        <p class="service-meaning">AMPLE Magazine</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main class="main-page">
+
+        <!-- New Work -->
+        <div class="update">
+            <div class="header">
+                <div class="img-box">
+                    <div class="img"  onclick="VIPUL_PATEL_1686()">
+                        <img src="vipulpatel.jpeg" alt="">
+                    </div>
+                </div>
+                <div class="name" onclick="VIPUL_PATEL_1686()">
+                    <p class="updater-name">VIPUL PATEL</p>
+                    <p class="updater-name"><tag>~VIPUL_PATEL_1686</tag></p>
+                </div>
+            </div>
+            <div class="main">
+                <div class="update-post">
+                   <div class="time">
+                        <img src="clock-history.svg" alt="">
+                        <p>05:25 PM , 16 February 2025</p>
+                    </div>
+                    <div class="post">
+                        <div class="post-data">
+                            <p class="data">Mr. <tag>~ElonMusk</tag></p>
+                            <div class="source">
+                                <img src="elo_musk_new.jpg" alt="" class="post-content" id="image">
+                                <div class="image_control" id="image_control">
+                                    <div class="button zoom_in" id="zoom_in">
+                                        <img src="zoom-in.svg" alt="" id="zoom_in_icon" onclick="zoomIn()">
+                                    </div>
+                                    <div class="button zoom_out" id="zoom_out">
+                                        <img src="zoom-out.svg" alt="" id="zoom_out_icon" onclick="zoomOut()">
+                                    </div>
+                                    <div class="button rotate_left" id="rotate_left">
+                                        <img src="arrow-clockwise.svg" alt="" id="rotate_left_icon" onclick="rotateClockwise()">
+                                    </div>
+                                    <div class="button rotate_circle" id="rotate_circle">
+                                        <img src="arrow-repeat.svg" alt="" id="rotate_circle_icon" onclick="rotate180()">
+                                    </div>
+                                    <div class="button rotate_right" id="rotate_right">
+                                        <img src="arrow-counterclockwise.svg" alt="" id="rotate_right_icon" onclick="rotateAntiClockwise()">
+                                    </div>
+                                    <div class="button fullscreen" id="fullscreen">
+                                        <img src="arrows-fullscreen.svg" alt="" id="fullscreen_icon" onclick="toggleFullscreen()">
+                                    </div>
+                                    <div class="button download" id="download">
+                                        <img src="download.svg" alt="" id="download_icon" onclick="downloadImage()">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="update">
+            <div class="header">
+                <div class="img-box">
+                    <div class="img"  onclick="VIPUL_PATEL_1686()">
+                        <img src="vipulpatel.jpeg" alt="">
+                    </div>
+                </div>
+                <div class="name" onclick="VIPUL_PATEL_1686()">
+                    <p class="updater-name">VIPUL PATEL</p>
+                    <p class="updater-name"><tag>~VIPUL_PATEL_1686</tag></p>
+                    <!-- <p class="updater-proffesion">Member of Ample</p> -->
+                </div>
+                <div class="option" onclick="toggleOptionsMenu()">
+                    <img src="three-dots-vertical.svg" alt="">
+                </div>
+                
+                <div class="options-menu" id="optionsMenu">
+                    <button onclick="downloadContent()"><img src="download.svg" alt="">Save</button>
+                    <button onclick="printPost()"><img src="printer.svg" alt="">Print</button>
+                    <button onclick="viewFullScreen()"><img src="arrows-fullscreen.svg" alt="">Full Screen</button>
+                    <button onclick="hidePost()"><img src="eye-slash.svg" alt="">Hide</button>
+                    <button onclick="sharePost()"><img src="share.svg" alt="">Share</button>
+                </div>
+            </div>
+            <div class="main">
+                <div class="update-post">
+                   <div class="time">
+                        <img src="clock-history.svg" alt="">
+                        <p>04:30 AM , 07 February 2025</p>
+                    </div>
+                    <div class="post">
+                        <div class="post-data">
+                            <p class="data">What a phenomenal moment for <tag>~ElonMusk</tag> ! Truly inspiring! This is incredible achievement—such milestones redefine history. Hoping for the day we too experience such groundbreaking moments in our lives. Absolutely remarkable! 🚀👏</p>
+                            <div class="source">
+                                <video src="Elon_Musk_delivers_speech_after_Trump_Inauguration(720p).mp4" id="video"></video>
+                                <div class="video_control" id="video_control">
+                                    <div class="progress_bar">
+                                        <div class="box" id="box"></div>
+                                        <div class="time">
+                                            <div class="continue_time" id="continue_time"></div>
+                                            <div class="finish_time" id="finish_time"></div>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="video_control_buttons">
+                                        <div class="button play_pause" id="play_pause">
+                                            <img src="play-fill.svg" alt="" id="play_pause_icon">
+                                        </div>
+                                        <div class="button back" id="back">
+                                            <img src="arrow-left-short.svg" alt="">
+                                        </div>
+                                        <div class="button replay" id="replay">
+                                            <img src="arrow-counterclockwise.svg" alt="">
+                                        </div>
+                                        <div class="button forward" id="forward">
+                                            <img src="arrow-right-short.svg" alt="">
+                                        </div>
+                                        <div class="button volume" id="volume">
+                                            <img src="volume-up-fill.svg" alt="" id="volume_icon">
+                                        </div>
+                                        <div class="button caption" id="caption">
+                                            <img src="badge-cc.svg" alt="">
+                                        </div>
+                                        <div class="button screen" id="screen">
+                                            <img src="box-arrow-down-right.svg" alt="">
+                                        </div>
+                                        <div class="button max_screen" id="max_screen">
+                                            <img src="arrows-fullscreen.svg" alt="">
+                                        </div>
+                                        <div class="button download" id="download">
+                                            <img src="download.svg" alt="">
+                                            <a href="Elon_Musk_delivers_speech_after_Trump_Inauguration(720p).mp4"></a>
+                                        </div>
+                                        <div class="button speed" id="speed">
+                                            <div class="speed_box" id="speed_box">1x</div>
+                                        </div>
+                                    </div> -->
+
+                                    <div class="video_control_buttons">
+                                        <div class="left-controls">
+                                            <div class="button play_pause" id="play_pause">
+                                                <img src="play-fill.svg" alt="" id="play_pause_icon">
+                                            </div>
+                                            <div class="button back" id="back">
+                                                <img src="arrow-left-short.svg" alt="">
+                                            </div>
+                                            <div class="button replay" id="replay">
+                                                <img src="arrow-counterclockwise.svg" alt="">
+                                            </div>
+                                            <div class="button forward" id="forward">
+                                                <img src="arrow-right-short.svg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="right-controls">
+                                            <div class="button volume" id="volume">
+                                                <img src="volume-up-fill.svg" alt="" id="volume_icon">
+                                            </div>
+                                            <div class="button settings" id="settings">
+                                                <img src="gear-fill.svg" alt="">
+                                            </div>
+                                            <div class="button max_screen" id="max_screen">
+                                                <img src="arrows-fullscreen.svg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="settings-menu" id="settingsMenu">
+                                            <button onclick="changeSpeed(this)" data-speed="0.5">0.5x</button>
+                                            <button onclick="changeSpeed(this)" data-speed="1">1x</button>
+                                            <button onclick="changeSpeed(this)" data-speed="1.5">1.5x</button>
+                                            <button onclick="changeSpeed(this)" data-speed="2">2x</button>
+                                            <button onclick="downloadVideo(this)">Download</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- New Work -->
+        <div class="update">
+            <div class="header">
+                <div class="img-box">
+                    <div class="img"  onclick="VIPUL_PATEL_1686()">
+                        <img src="vipulpatel.jpeg" alt="">
+                    </div>
+                </div>
+                <div class="name" onclick="VIPUL_PATEL_1686()">
+                    <p class="updater-name">VIPUL PATEL</p>
+                    <p class="updater-name"><tag>~VIPUL_PATEL_1686</tag></p>
+                    <!-- <p class="updater-proffesion">Member of Ample</p> -->
+                </div>
+                <div class="option" onclick="toggleOptionsMenu()">
+                    <img src="three-dots-vertical.svg" alt="">
+                </div>
+                
+                <div class="options-menu" id="optionsMenu">
+                    <button onclick="downloadContent()"><img src="download.svg" alt="">Save</button>
+                    <button onclick="printPost()"><img src="printer.svg" alt="">Print</button>
+                    <button onclick="viewFullScreen()"><img src="arrows-fullscreen.svg" alt="">Full Screen</button>
+                    <button onclick="hidePost()"><img src="eye-slash.svg" alt="">Hide</button>
+                    <button onclick="sharePost()"><img src="share.svg" alt="">Share</button>
+                </div>
+            </div>
+            <div class="main">
+                <div class="update-post">
+                   <div class="time">
+                        <img src="clock-history.svg" alt="">
+                        <p>05:25 PM , 16 February 2025</p>
+                    </div>
+                    <div class="post">
+                        <div class="post-data">
+                            <p class="data"><tag>~SpaceX</tag> ☄️🚀🔥</p>
+                            <div class="source">
+                                <img src="SpaceX.jpeg" alt="" class="post-content">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="update">
+            <div class="header">
+                <div class="img-box">
+                    <div class="img" onclick="Ample1686()">
+                        <img src="AMPLEbg.png" alt="">
+                    </div>
+                </div>
+                <div class="name" onclick="Ample1686()">
+                    <p class="updater-name">AMPLE</p>
+                    <p class="updater-name"><tag>~Ample1686_Space</tag></p>
+                    <p class="updater-proffesion">Official Ample</p>
+                </div>
+                <div class="option" onclick="toggleOptionsMenu()">
+                    <img src="three-dots-vertical.svg" alt="">
+                </div>
+                
+                <div class="options-menu" id="optionsMenu">
+                    <button onclick="downloadContent()"><img src="download.svg" alt="">Save</button>
+                    <button onclick="printPost()"><img src="printer.svg" alt="">Print</button>
+                    <button onclick="viewFullScreen()"><img src="arrows-fullscreen.svg" alt="">Full Screen</button>
+                    <button onclick="hidePost()"><img src="eye-slash.svg" alt="">Hide</button>
+                    <button onclick="sharePost()"><img src="share.svg" alt="">Share</button>
+                </div>
+                
+            </div>
+            <div class="main">
+                <div class="update-post">
+                   <div class="time">
+                        <img src="clock-history.svg" alt="">
+                        <p>01:00 AM , 15 February 2025</p>
+                    </div>
+                    <div class="post">
+                        <div class="post-data">
+                            <p class="data">🌐 💻👨‍💻 : Website Update...</p>
+                            <div class="source">
+                                <img src="15feb.png" alt="" class="post-content">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="update">
+            <div class="header">
+                <div class="img-box">
+                    <div class="img"  onclick="Ample1686()">
+                        <img src="AMPLEbg.png" alt="">
+                    </div>
+                </div>
+                <div class="name" onclick="Ample1686()">
+                    <p class="updater-name">AMPLE</p>
+                    <p class="updater-name"><tag>~Ample1686_Space</tag></p>
+                    <p class="updater-proffesion">Official Ample</p>
+                </div>
+                <div class="option" onclick="toggleOptionsMenu()">
+                    <img src="three-dots-vertical.svg" alt="">
+                </div>
+                
+                <div class="options-menu" id="optionsMenu">
+                    <button onclick="downloadContent()"><img src="download.svg" alt="">Save</button>
+                    <button onclick="printPost()"><img src="printer.svg" alt="">Print</button>
+                    <button onclick="viewFullScreen()"><img src="arrows-fullscreen.svg" alt="">Full Screen</button>
+                    <button onclick="hidePost()"><img src="eye-slash.svg" alt="">Hide</button>
+                    <button onclick="sharePost()"><img src="share.svg" alt="">Share</button>
+                </div>
+            </div>
+            <div class="main">
+                <div class="update-post">
+                   <div class="time">
+                        <img src="clock-history.svg" alt="">
+                        <p>01:30 AM , 11 February 2025</p>
+                    </div>
+                    <div class="post">
+                        <div class="post-data">
+                            <p class="data">🌐💻👨‍💻 : <tag>~</tag> Feature</p>
+                            <div class="source">
+                                <img src="~ feature.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="update">
+            <div class="header">
+                <div class="img-box">
+                    <div class="img" onclick="Ample1686()">
+                        <img src="AMPLEbg.png" alt="">
+                    </div>
+                </div>
+                <div class="name" onclick="Ample1686()">
+                    <p class="updater-name">AMPLE</p>
+                    <p class="updater-name"><tag>~Ample1686_Space</tag></p>
+                    <p class="updater-proffesion">Official Ample</p>
+                </div>
+                <div class="option" onclick="toggleOptionsMenu()">
+                    <img src="three-dots-vertical.svg" alt="">
+                </div>
+                
+                <div class="options-menu" id="optionsMenu">
+                    <button onclick="downloadContent()"><img src="download.svg" alt="">Save</button>
+                    <button onclick="printPost()"><img src="printer.svg" alt="">Print</button>
+                    <button onclick="viewFullScreen()"><img src="arrows-fullscreen.svg" alt="">Full Screen</button>
+                    <button onclick="hidePost()"><img src="eye-slash.svg" alt="">Hide</button>
+                    <button onclick="sharePost()"><img src="share.svg" alt="">Share</button>
+                </div>
+            </div>
+            <div class="main">
+                <div class="update-post">
+                   <div class="time">
+                        <img src="clock-history.svg" alt="">
+                        <p>06:40 PM , 09 February 2025</p>
+                    </div>
+                    <div class="post">
+                        <div class="post-data">
+                            <p class="data">🔔🚨 Major Updates 👨‍💻💻🖥️⌨️🖱️</p>
+                            <div class="source">
+                                <img src="photo-collage.png.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="update">
+            <div class="header">
+                <div class="img-box" onclick="Ample1686()">
+                    <div class="img">
+                        <img src="AMPLEbg.png" alt="">
+                    </div>
+                </div>
+                <div class="name" onclick="Ample1686()">
+                    <p class="updater-name">AMPLE</p>
+                    <p class="updater-name"><tag>~Ample1686_Space</tag></p>
+                    <p class="updater-proffesion">Official Ample</p>
+                </div>
+                <div class="option" onclick="toggleOptionsMenu()">
+                    <img src="three-dots-vertical.svg" alt="">
+                </div>
+                
+                <div class="options-menu" id="optionsMenu">
+                    <button onclick="downloadContent()"><img src="download.svg" alt="">Save</button>
+                    <button onclick="printPost()"><img src="printer.svg" alt="">Print</button>
+                    <button onclick="viewFullScreen()"><img src="arrows-fullscreen.svg" alt="">Full Screen</button>
+                    <button onclick="hidePost()"><img src="eye-slash.svg" alt="">Hide</button>
+                    <button onclick="sharePost()"><img src="share.svg" alt="">Share</button>
+                </div>
+            </div>
+            <div class="main">
+                <div class="update-post">
+                   <div class="time">
+                        <img src="clock-history.svg" alt="">
+                        <p>01:34 PM , 09 February 2025</p>
+                    </div>
+                    <div class="post">
+                        <div class="post-data">
+                            <p class="data">💯 -> 1⃣ Day(🌞) Dreams Comes(🫴) True(✅)</p>
+                            <div class="source">
+                                <img src="DALL·E 2025-02-09 01.34.26 - A symbolic representation of struggle and ambition. A lone figure standing at the base of a towering mountain, with the word 'AMPLE' glowing at the pe.webp" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="update">
+            <div class="header">
+                <div class="img-box">
+                    <div class="img"  onclick="VIPUL_PATEL_1686()">
+                        <img src="vipulpatel.jpeg" alt="">
+                    </div>
+                </div>
+                <div class="name" onclick="VIPUL_PATEL_1686()">
+                    <p class="updater-name">VIPUL PATEL</p>
+                    <p class="updater-name"><tag>~VIPUL_PATEL_1686</tag></p>
+                    <!-- <p class="updater-proffesion">Member of Ample</p> -->
+                </div>
+                <div class="option" onclick="toggleOptionsMenu()">
+                    <img src="three-dots-vertical.svg" alt="">
+                </div>
+                
+                <div class="options-menu" id="optionsMenu">
+                    <button onclick="downloadContent()"><img src="download.svg" alt="">Save</button>
+                    <button onclick="printPost()"><img src="printer.svg" alt="">Print</button>
+                    <button onclick="viewFullScreen()"><img src="arrows-fullscreen.svg" alt="">Full Screen</button>
+                    <button onclick="hidePost()"><img src="eye-slash.svg" alt="">Hide</button>
+                    <button onclick="sharePost()"><img src="share.svg" alt="">Share</button>
+                </div>
+            </div>
+            <div class="main">
+                <div class="update-post">
+                   <div class="time">
+                        <img src="clock-history.svg" alt="">
+                        <p>04:30 AM , 07 February 2025</p>
+                    </div>
+                    <div class="post">
+                        <div class="post-data">
+                            <p class="data">What a phenomenal moment for <tag>~ElonMusk</tag> ! Truly inspiring! This is incredible achievement—such milestones redefine history. Hoping for the day we too experience such groundbreaking moments in our lives. Absolutely remarkable! 🚀👏</p>
+                            <div class="source">
+                                <video src="Elon_Musk_delivers_speech_after_Trump_Inauguration(720p).mp4" controls muted></video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="update">
+            <div class="header">
+                <div class="img-box" onclick="Ample1686()">
+                    <div class="img">
+                        <img src="AMPLEbg.png" alt="">
+                    </div>
+                </div>
+                <div class="name" onclick="Ample1686()">
+                    <p class="updater-name">AMPLE</p>
+                    <p class="updater-name"><tag>~Ample1686_Space</tag></p>
+                    <p class="updater-proffesion">Official Ample</p>
+                </div>
+                <div class="option" onclick="toggleOptionsMenu('optionsMenu1')">
+                    <img src="three-dots-vertical.svg" alt="">
+                </div>
+                
+                <!-- <div class="options-menu" id="optionsMenu1">
+                    <button onclick="downloadContent()"><img src="download.svg" alt="">Save</button>
+                    <button onclick="printPost()"><img src="printer.svg" alt="">Print</button>
+                    <button onclick="viewFullScreen()"><img src="arrows-fullscreen.svg" alt="">Full Screen</button>
+                    <button onclick="hidePost()"><img src="eye-slash.svg" alt="">Hide</button>
+                    <button onclick="sharePost()"><img src="share.svg" alt="">Share</button>
+                </div> -->
+            </div>
+            <div class="main">
+                <div class="update-post">
+                   <div class="time">
+                        <img src="clock-history.svg" alt="">
+                        <p>02:48 AM , 07 February 2025</p>
+                    </div>
+                    <div class="post">
+                        <div class="post-data">
+                            <p class="data"><tag>~Ample1686_Space</tag>&nbsp:  Security more.</p>
+                            <p class="data">🔖 Moral Of The Story [ http to https ]</p>
+                            <div class="source">
+                                <img src="https.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="message-alert">
+        <div class="message">
+            <div class="box">
+                <h1>🚧 Feature Under Development! 🚧</h1>
+                <p>We sincerely apologize for the inconvenience. This feature is currently in development and will be available soon.</p>
+                <!-- <p class="coming_soon">📅 Coming soon... In the meantime, explore other sections of AMPLE! 🚀</p> -->
+                <div class="tags">
+                    <tag>~StayTuned</tag>
+                    <tag>~BuildingTheFuture</tag>
+                    <tag>~AMPLE</tag>
+                </div>
+            </div>
+        <img src="x-lg.svg" alt="" onclick="cancle()">
+    </div>
+    <script src="v.js"></script>
+    <script src="v_video_controls.js"></script>
+    <script src="v_image_controls.js"></script>
+</body>
+</html>

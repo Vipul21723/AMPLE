@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Video Controls</title>
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        video {
+            max-width: 80%;
+            max-height: 80%;
+        }
+
+        .controls {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 100%;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .progress-container {
+            width: 80%;
+            margin-top: 10px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #ddd;
+        }
+
+        .progress-bar-inner {
+            height: 100%;
+            width: 0%;
+            background-color: #007bff;
+        }
+
+        .time {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <video id="myVideo" width="640" controls>
+            <source src="Elon_Musk_delivers_speech_after_Trump_Inauguration(720p).mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Custom Controls -->
+        <div class="controls">
+            <button id="playPauseBtn">Play</button>
+            <button id="backwardBtn">-10s</button>
+            <button id="forwardBtn">+10s</button>
+            <button id="replayBtn">Replay</button>
+            <button id="captionBtn">Captions</button>
+            <button id="pipBtn">Picture in Picture</button>
+            <button id="fullscreenBtn">Max Fullscreen</button>
+            <button id="downloadBtn">Download</button>
+            <button id="speedBtn">Speed</button>
+            <button id="volumeBtn">Volume</button>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-bar-inner" id="progressBar"></div>
+            </div>
+        </div>
+
+        <div class="time">
+            <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+        </div>
+    </div>
+
+    <script>
+        const video = document.getElementById('myVideo');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const backwardBtn = document.getElementById('backwardBtn');
+        const forwardBtn = document.getElementById('forwardBtn');
+        const replayBtn = document.getElementById('replayBtn');
+        const captionBtn = document.getElementById('captionBtn');
+        const pipBtn = document.getElementById('pipBtn');
+        const fullscreenBtn = document.getElementById('fullscreenBtn');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const speedBtn = document.getElementById('speedBtn');
+        const volumeBtn = document.getElementById('volumeBtn');
+        const progressBar = document.getElementById('progressBar');
+        const currentTimeDisplay = document.getElementById('currentTime');
+        const durationDisplay = document.getElementById('duration');
+
+        let captionsEnabled = false;
+        let isPictureInPicture = false;
+
+        // Play/Pause Button Functionality
+        playPauseBtn.addEventListener('click', () => {
+            if (video.paused) {
+                video.play();
+                playPauseBtn.textContent = 'Pause';
+            } else {
+                video.pause();
+                playPauseBtn.textContent = 'Play';
+            }
+        });
+
+        // Backward 10 seconds
+        backwardBtn.addEventListener('click', () => {
+            video.currentTime -= 10;
+        });
+
+        // Forward 10 seconds
+        forwardBtn.addEventListener('click', () => {
+            video.currentTime += 10;
+        });
+
+        // Replay (reset video)
+        replayBtn.addEventListener('click', () => {
+            video.currentTime = 0;
+            video.play();
+        });
+
+        // Toggle Captions
+        captionBtn.addEventListener('click', () => {
+            captionsEnabled = !captionsEnabled;
+            if (captionsEnabled) {
+                video.textTracks[0].mode = 'showing'; // Enable captions if available
+            } else {
+                video.textTracks[0].mode = 'hidden'; // Disable captions
+            }
+            captionBtn.textContent = captionsEnabled ? 'Hide Captions' : 'Show Captions';
+        });
+
+        // Picture in Picture
+        pipBtn.addEventListener('click', async () => {
+            if (document.pictureInPictureElement) {
+                document.exitPictureInPicture();
+            } else {
+                try {
+                    await video.requestPictureInPicture();
+                } catch (error) {
+                    console.error("Error entering Picture-in-Picture", error);
+                }
+            }
+        });
+
+        // Fullscreen
+        fullscreenBtn.addEventListener('click', () => {
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.mozRequestFullScreen) { // Firefox
+                video.mozRequestFullScreen();
+            } else if (video.webkitRequestFullscreen) { // Chrome and Safari
+                video.webkitRequestFullscreen();
+            }
+        });
+
+        // Download Button
+        downloadBtn.addEventListener('click', () => {
+            const link = document.createElement('a');
+            link.href = video.querySelector('source').src;
+            link.download = 'video.mp4'; // Download the video
+            link.click();
+        });
+
+        // Speed Control
+        speedBtn.addEventListener('click', () => {
+            const currentSpeed = video.playbackRate;
+            video.playbackRate = currentSpeed === 1 ? 1.5 : currentSpeed === 1.5 ? 2 : 1;
+            speedBtn.textContent = `Speed: ${video.playbackRate}x`;
+        });
+
+        // Volume Control
+        volumeBtn.addEventListener('click', () => {
+            video.muted = !video.muted;
+            volumeBtn.textContent = video.muted ? 'Unmute' : 'Mute';
+        });
+
+        // Update Time and Progress Bar
+        video.addEventListener('timeupdate', () => {
+            const currentTime = video.currentTime;
+            const duration = video.duration;
+            const progress = (currentTime / duration) * 100;
+            progressBar.style.width = `${progress}%`;
+
+            const currentMinutes = Math.floor(currentTime / 60);
+            const currentSeconds = Math.floor(currentTime % 60);
+            const durationMinutes = Math.floor(duration / 60);
+            const durationSeconds = Math.floor(duration % 60);
+
+            currentTimeDisplay.textContent = `${currentMinutes}:${currentSeconds < 10 ? '0' + currentSeconds : currentSeconds}`;
+            durationDisplay.textContent = `${durationMinutes}:${durationSeconds < 10 ? '0' + durationSeconds : durationSeconds}`;
+        });
+    </script>
+
+</body>
+</html>

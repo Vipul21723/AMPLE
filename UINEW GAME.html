@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRAVITY SHIFT - The Impossible Game</title>
+    <style>
+        :root {
+            --floor-bg: #1a1a2e;
+            --ceiling-bg: #16213e;
+            --player-color: #ff2e63;
+            --gravity-field: #00b4d8;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(to bottom, var(--floor-bg), var(--ceiling-bg));
+            height: 100vh;
+            perspective: 1000px;
+        }
+        
+        #game-world {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            transform-style: preserve-3d;
+            transition: transform 1s ease-in-out;
+        }
+        
+        /* Dual World Rendering */
+        #floor-layer, #ceiling-layer {
+            position: absolute;
+            width: 100%;
+            height: 50%;
+        }
+        
+        #floor-layer {
+            bottom: 0;
+            background: var(--floor-bg);
+            border-top: 2px dashed rgba(255,255,255,0.1);
+        }
+        
+        #ceiling-layer {
+            top: 0;
+            background: var(--ceiling-bg);
+            border-bottom: 2px dashed rgba(255,255,255,0.1);
+            transform: rotateX(180deg);
+        }
+        
+        /* Player Character */
+        #player {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: var(--player-color);
+            border-radius: 50%;
+            z-index: 10;
+            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        
+        /* Gravity Fields */
+        .gravity-field {
+            position: absolute;
+            width: 100px;
+            height: 30px;
+            background: var(--gravity-field);
+            opacity: 0.3;
+            border-radius: 15px;
+            z-index: 5;
+        }
+        
+        /* Interactive Objects */
+        .quantum-object {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: #ff9e00;
+            border-radius: 5px;
+            z-index: 8;
+            transition: all 0.3s ease;
+        }
+        
+        /* UI Elements */
+        #gravity-meter {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 200px;
+            height: 20px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 10px;
+            overflow: hidden;
+            z-index: 100;
+        }
+        
+        #gravity-fill {
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(to right, #00b4d8, #ff2e63);
+            transform-origin: left;
+            transform: scaleX(1);
+        }
+        
+        #instructions {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-align: center;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-world">
+        <div id="ceiling-layer"></div>
+        <div id="floor-layer"></div>
+        <div id="player"></div>
+        
+        <!-- Generated elements will appear here -->
+    </div>
+    
+    <div id="gravity-meter">
+        <div id="gravity-fill"></div>
+    </div>
+    
+    <div id="instructions">
+        <p>SPACE: Flip Gravity | ARROWS: Move | SHIFT: Quantum Shift</p>
+    </div>
+
+    <script>
+        // UNIQUE GAME MECHANICS
+        let gravityReversed = false;
+        let playerX = 100;
+        let playerY = window.innerHeight - 100;
+        let gravityEnergy = 100;
+        let quantumState = false;
+        
+        const player = document.getElementById('player');
+        const gameWorld = document.getElementById('game-world');
+        const gravityFill = document.getElementById('gravity-fill');
+        const floorLayer = document.getElementById('floor-layer');
+        const ceilingLayer = document.getElementById('ceiling-layer');
+        
+        // Generate random level
+        function generateLevel() {
+            // Create gravity fields
+            for (let i = 0; i < 5; i++) {
+                createGravityField(
+                    Math.random() * (window.innerWidth - 100),
+                    Math.random() * (window.innerHeight/2 - 30) + (gravityReversed ? 0 : window.innerHeight/2),
+                    Math.random() > 0.5 ? 'floor' : 'ceiling'
+                );
+            }
+            
+            // Create quantum objects
+            for (let i = 0; i < 3; i++) {
+                createQuantumObject(
+                    Math.random() * (window.innerWidth - 50),
+                    Math.random() * (window.innerHeight/2 - 50) + (gravityReversed ? 0 : window.innerHeight/2)
+                );
+            }
+        }
+        
+        function createGravityField(x, y, type) {
+            const field = document.createElement('div');
+            field.className = 'gravity-field';
+            field.style.left = `${x}px`;
+            field.style.top = `${y}px`;
+            
+            if (type === 'ceiling') {
+                field.style.transform = 'rotate(180deg)';
+                field.dataset.type = 'ceiling';
+            } else {
+                field.dataset.type = 'floor';
+            }
+            
+            gameWorld.appendChild(field);
+        }
+        
+        function createQuantumObject(x, y) {
+            const obj = document.createElement('div');
+            obj.className = 'quantum-object';
+            obj.style.left = `${x}px`;
+            obj.style.top = `${y}px`;
+            obj.dataset.state = 'floor';
+            
+            obj.addEventListener('click', () => {
+                quantumShiftObject(obj);
+            });
+            
+            gameWorld.appendChild(obj);
+        }
+        
+        // REVOLUTIONARY GAMEPLAY MECHANIC
+        function flipGravity() {
+            if (gravityEnergy <= 0) return;
+            
+            gravityReversed = !gravityReversed;
+            gravityEnergy -= 20;
+            
+            // Mind-bending visual effect
+            gameWorld.style.transform = gravityReversed ? 'rotateX(180deg)' : 'rotateX(0)';
+            
+            // Physics update
+            updatePlayerPosition();
+            
+            // Update all objects
+            document.querySelectorAll('.quantum-object').forEach(obj => {
+                if (obj.dataset.state === (gravityReversed ? 'floor' : 'ceiling')) {
+                    obj.style.opacity = '0.2';
+                    obj.style.pointerEvents = 'none';
+                } else {
+                    obj.style.opacity = '1';
+                    obj.style.pointerEvents = 'auto';
+                }
+            });
+        }
+        
+        // NEVER-SEEN-BEFORE MECHANIC
+        function quantumShiftObject(obj) {
+            if (obj.dataset.state === 'floor') {
+                obj.dataset.state = 'ceiling';
+                obj.style.transform = 'rotateX(180deg)';
+                obj.style.top = `${window.innerHeight/2 - parseFloat(obj.style.top) - 50}px`;
+            } else {
+                obj.dataset.state = 'floor';
+                obj.style.transform = 'rotateX(0)';
+                obj.style.top = `${window.innerHeight/2 - parseFloat(obj.style.top) - 50}px`;
+            }
+        }
+        
+        function updatePlayerPosition() {
+            if (gravityReversed) {
+                player.style.top = `${window.innerHeight - playerY - 40}px`;
+                player.style.transform = 'rotate(180deg)';
+            } else {
+                player.style.top = `${playerY}px`;
+                player.style.transform = 'rotate(0)';
+            }
+            player.style.left = `${playerX}px`;
+        }
+        
+        // Game Loop
+        function gameLoop() {
+            // Recharge gravity energy
+            if (gravityEnergy < 100) {
+                gravityEnergy += 0.1;
+                gravityFill.style.transform = `scaleX(${gravityEnergy/100})`;
+            }
+            
+            // Check collisions
+            checkCollisions();
+            
+            requestAnimationFrame(gameLoop);
+        }
+        
+        function checkCollisions() {
+            // Advanced collision detection between player and quantum objects
+            // This is where the magic happens!
+        }
+        
+        // Controls
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space') {
+                flipGravity();
+            }
+            
+            // Movement controls
+            if (e.key === 'ArrowLeft') {
+                playerX = Math.max(0, playerX - 10);
+            }
+            if (e.key === 'ArrowRight') {
+                playerX = Math.min(window.innerWidth - 40, playerX + 10);
+            }
+            if (e.key === 'ArrowUp' && !gravityReversed) {
+                playerY = Math.max(window.innerHeight/2, playerY - 10);
+            }
+            if (e.key === 'ArrowDown' && !gravityReversed) {
+                playerY = Math.min(window.innerHeight - 40, playerY + 10);
+            }
+            
+            // Reverse controls when gravity is flipped
+            if (e.key === 'ArrowUp' && gravityReversed) {
+                playerY = Math.min(window.innerHeight/2 - 40, playerY + 10);
+            }
+            if (e.key === 'ArrowDown' && gravityReversed) {
+                playerY = Math.max(0, playerY - 10);
+            }
+            
+            // Quantum shift
+            if (e.key === 'Shift') {
+                document.querySelectorAll('.quantum-object').forEach(quantumShiftObject);
+            }
+            
+            updatePlayerPosition();
+        });
+        
+        // Initialize game
+        generateLevel();
+        updatePlayerPosition();
+        gameLoop();
+    </script>
+</body>
+</html>

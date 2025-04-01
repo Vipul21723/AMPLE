@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player UI</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: auto;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        .video-gallery {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding: 20px 0;
+            scroll-behavior: smooth;
+        }
+        .video-player {
+            position: relative;
+            width: 800px;
+            max-width: 90vw;
+            background-color: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            margin: 0 10px;
+            flex: 0 0 auto;
+            scroll-snap-align: center;
+        }
+        .video-player video {
+            width: 100%;
+            display: block;
+        }
+        .controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .controls.visible {
+            opacity: 1;
+        }
+        .control-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 5px 10px;
+            transition: color 0.2s;
+        }
+        .control-btn:hover {
+            color: #00ccff;
+        }
+        .progress-container {
+            flex-grow: 1;
+            height: 5px;
+            background: #444;
+            margin: 0 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+            touch-action: none; /* Prevent default touch behavior */
+        }
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: #00ccff;
+            border-radius: 5px;
+            transition: width 0.1s linear;
+        }
+        .time {
+            color: #fff;
+            font-size: 14px;
+            margin: 0 10px;
+        }
+        .volume-container {
+            display: flex;
+            align-items: center;
+            margin: 0 10px;
+        }
+        .volume-bar {
+            width: 80px;
+            height: 5px;
+            background: #444;
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+            touch-action: none;
+        }
+        .volume-level {
+            width: 100%;
+            height: 100%;
+            background: #00ccff;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-gallery" id="video-gallery">
+        <!-- 10 Video Players -->
+        <div class="video-player">
+            <video src="https://www.w3schools.com/html/mov_bbb.mp4" class="video"></video>
+            <div class="controls">
+                <button class="control-btn play-pause">▶</button>
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
+                </div>
+                <span class="time">0:00 / 0:00</span>
+                <div class="volume-container">
+                    <button class="control-btn mute">🔊</button>
+                    <div class="volume-bar">
+                        <div class="volume-level"></div>
+                    </div>
+                </div>
+                <button class="control-btn fullscreen">⛶</button>
+            </div>
+        </div>
+        <!-- Repeat for 9 more videos (using the same sample video for demo) -->
+        <div class="video-player">
+            <video src="https://www.w3schools.com/html/mov_bbb.mp4" class="video"></video>
+            <div class="controls">
+                <button class="control-btn play-pause">▶</button>
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
+                </div>
+                <span class="time">0:00 / 0:00</span>
+                <div class="volume-container">
+                    <button class="control-btn mute">🔊</button>
+                    <div class="volume-bar">
+                        <div class="volume-level"></div>
+                    </div>
+                </div>
+                <button class="control-btn fullscreen">⛶</button>
+            </div>
+        </div>
+        <!-- Add 8 more video players -->
+        <div class="video-player">
+            <video src="https://www.w3schools.com/html/mov_bbb.mp4" class="video"></video>
+            <div class="controls">
+                <button class="control-btn play-pause">▶</button>
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
+                </div>
+                <span class="time">0:00 / 0:00</span>
+                <div class="volume-container">
+                    <button class="control-btn mute">🔊</button>
+                    <div class="volume-bar">
+                        <div class="volume-level"></div>
+                    </div>
+                </div>
+                <button class="control-btn fullscreen">⛶</button>
+            </div>
+        </div>
+        <div class="video-player">
+            <video src="https://www.w3schools.com/html/mov_bbb.mp4" class="video"></video>
+            <div class="controls">
+                <button class="control-btn play-pause">▶</button>
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
+                </div>
+                <span class="time">0:00 / 0:00</span>
+                <div class="volume-container">
+                    <button class="control-btn mute">🔊</button>
+                    <div class="volume-bar">
+                        <div class="volume-level"></div>
+                    </div>
+                </div>
+                <button class="control-btn fullscreen">⛶</button>
+            </div>
+        </div>
+        <div class="video-player">
+            <video src="https://www.w3schools.com/html/mov_bbb.mp4" class="video"></video>
+            <div class="controls">
+                <button class="control-btn play-pause">▶</button>
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
+                </div>
+                <span class="time">0:00 / 0:00</span>
+                <div class="volume-container">
+                    <button class="control-btn mute">🔊</button>
+                    <div class="volume-bar">
+                        <div class="volume-level"></div>
+                    </div>
+                </div>
+                <button class="control-btn fullscreen">⛶</button>
+            </div>
+        </div>
+        <div class="video-player">
+            <video src="https://www.w3schools.com/html/mov_bbb.mp4" class="video"></video>
+            <div class="controls">
+                <button class="control-btn play-pause">▶</button>
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
+                </div>
+                <span class="time">0:00 / 0:00</span>
+                <div class="volume-container">
+                    <button class="control-btn mute">🔊</button>
+                    <div class="volume-bar">
+                        <div class="volume-level"></div>
+                    </div>
+                </div>
+                <button class="control-btn fullscreen">⛶</button>
+            </div>
+        </div>
+        <div class="video-player">
+            <video src="https://www.w3schools.com/html/mov_bbb.mp4" class="video"></video>
+            <div class="controls">
+                <button class="control-btn play-pause">▶</button>
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
+                </div>
+                <span class="time">0:00 / 0:00</span>
+                <div class="volume-container">
+                    <button class="control-btn mute">🔊</button>
+                    <div class="volume-bar">
+                        <div class="volume-level"></div>
+                    </div>
+                </div>
+                <button class="control-btn fullscreen">⛶</button>
+            </div>
+        </div>
+        <div class="video-player">
+            <video src="https://www.w3schools.com/html/mov_bbb.mp4" class="video"></video>
+            <div class="controls">
+                <button class="control-btn play-pause">▶</button>
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
+                </div>
+                <span class="time">0:00 / 0:00</span>
+                <div class="volume-container">
+                    <button class="control-btn mute">🔊</button>
+                    <div class="volume-bar">
+                        <div class="volume-level"></div>
+                    </div>
+                </div>
+                <button class="control-btn fullscreen">⛶</button>
+            </div>
+        </div>
+        <div class="video-player">
+            <video src="https://www.w3schools.com/html/mov_bbb.mp4" class="video"></video>
+            <div class="controls">
+                <button class="control-btn play-pause">▶</button>
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
+                </div>
+                <span class="time">0:00 / 0:00</span>
+                <div class="volume-container">
+                    <button class="control-btn mute">🔊</button>
+                    <div class="volume-bar">
+                        <div class="volume-level"></div>
+                    </div>
+                </div>
+                <button class="control-btn fullscreen">⛶</button>
+            </div>
+        </div>
+        <div class="video-player">
+            <video src="https://www.w3schools.com/html/mov_bbb.mp4" class="video"></video>
+            <div class="controls">
+                <button class="control-btn play-pause">▶</button>
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
+                </div>
+                <span class="time">0:00 / 0:00</span>
+                <div class="volume-container">
+                    <button class="control-btn mute">🔊</button>
+                    <div class="volume-bar">
+                        <div class="volume-level"></div>
+                    </div>
+                </div>
+                <button class="control-btn fullscreen">⛶</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const gallery = document.getElementById('video-gallery');
+        const videoPlayers = document.querySelectorAll('.video-player');
+
+        videoPlayers.forEach(player => {
+            const video = player.querySelector('.video');
+            const playPause = player.querySelector('.play-pause');
+            const progressContainer = player.querySelector('.progress-container');
+            const progressBar = player.querySelector('.progress-bar');
+            const time = player.querySelector('.time');
+            const mute = player.querySelector('.mute');
+            const volumeBar = player.querySelector('.volume-bar');
+            const volumeLevel = player.querySelector('.volume-level');
+            const fullscreen = player.querySelector('.fullscreen');
+            const controls = player.querySelector('.controls');
+
+            let lastTap = 0;
+            let tapTimeout;
+
+            // Tap to show/hide controls
+            video.addEventListener('click', (e) => {
+                const now = new Date().getTime();
+                const timeSinceLastTap = now - lastTap;
+
+                if (timeSinceLastTap < 300 && timeSinceLastTap > 0) {
+                    // Double tap
+                    const rect = video.getBoundingClientRect();
+                    const clickX = e.clientX - rect.left;
+                    const third = rect.width / 3;
+
+                    if (clickX < third) {
+                        // Left third: Rewind 10s
+                        video.currentTime = Math.max(0, video.currentTime - 10);
+                    } else if (clickX > 2 * third) {
+                        // Right third: Forward 10s
+                        video.currentTime = Math.min(video.duration, video.currentTime + 10);
+                    } else {
+                        // Center: Play/Pause
+                        if (video.paused) {
+                            video.play();
+                            playPause.textContent = '⏸';
+                        } else {
+                            video.pause();
+                            playPause.textContent = '▶';
+                        }
+                    }
+                } else {
+                    // Single tap: Toggle controls
+                    controls.classList.toggle('visible');
+                }
+
+                lastTap = now;
+            });
+
+            // Play/Pause
+            playPause.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent triggering video click
+                if (video.paused) {
+                    video.play();
+                    playPause.textContent = '⏸';
+                } else {
+                    video.pause();
+                    playPause.textContent = '▶';
+                }
+            });
+
+            // Update Progress
+            video.addEventListener('timeupdate', () => {
+                const percent = (video.currentTime / video.duration) * 100;
+                progressBar.style.width = `${percent}%`;
+                const current = formatTime(video.currentTime);
+                const duration = formatTime(video.duration);
+                time.textContent = `${current} / ${duration}`;
+            });
+
+            // Seek (Mouse)
+            progressContainer.addEventListener('mousedown', (e) => {
+                const seek = (event) => {
+                    const rect = progressContainer.getBoundingClientRect();
+                    const pos = (event.clientX - rect.left) / rect.width;
+                    video.currentTime = pos * video.duration;
+                };
+                seek(e);
+                document.addEventListener('mousemove', seek);
+                document.addEventListener('mouseup', () => {
+                    document.removeEventListener('mousemove', seek);
+                }, { once: true });
+            });
+
+            // Seek (Touch)
+            progressContainer.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                const seek = (event) => {
+                    const rect = progressContainer.getBoundingClientRect();
+                    const pos = (event.touches[0].clientX - rect.left) / rect.width;
+                    video.currentTime = pos * video.duration;
+                };
+                seek(e);
+                progressContainer.addEventListener('touchmove', seek);
+                progressContainer.addEventListener('touchend', () => {
+                    progressContainer.removeEventListener('touchmove', seek);
+                }, { once: true });
+            });
+
+            // Volume
+            mute.addEventListener('click', (e) => {
+                e.stopPropagation();
+                video.muted = !video.muted;
+                mute.textContent = video.muted ? '🔇' : '🔊';
+            });
+
+            volumeBar.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const rect = volumeBar.getBoundingClientRect();
+                const pos = (e.clientX - rect.left) / rect.width;
+                video.volume = pos;
+                volumeLevel.style.width = `${pos * 100}%`;
+            });
+
+            // Volume (Touch)
+            volumeBar.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                const adjustVolume = (event) => {
+                    const rect = volumeBar.getBoundingClientRect();
+                    const pos = (event.touches[0].clientX - rect.left) / rect.width;
+                    video.volume = Math.max(0, Math.min(1, pos));
+                    volumeLevel.style.width = `${video.volume * 100}%`;
+                };
+                adjustVolume(e);
+                volumeBar.addEventListener('touchmove', adjustVolume);
+                volumeBar.addEventListener('touchend', () => {
+                    volumeBar.removeEventListener('touchmove', adjustVolume);
+                }, { once: true });
+            });
+
+            // Fullscreen
+            fullscreen.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (!document.fullscreenElement) {
+                    player.requestFullscreen();
+                } else {
+                    document.exitFullscreen();
+                }
+            });
+        });
+
+        // Play only the centered video
+        gallery.addEventListener('scroll', () => {
+            videoPlayers.forEach(player => {
+                const video = player.querySelector('.video');
+                const playPause = player.querySelector('.play-pause');
+                const rect = player.getBoundingClientRect();
+                const viewportCenter = window.innerWidth / 2;
+
+                // Check if the video is in the center
+                if (rect.left <= viewportCenter && rect.right >= viewportCenter) {
+                    if (video.paused) {
+                        video.play();
+                        playPause.textContent = '⏸';
+                    }
+                } else {
+                    if (!video.paused) {
+                        video.pause();
+                        playPause.textContent = '▶';
+                    }
+                }
+            });
+        });
+
+        // Format Time
+        function formatTime(seconds) {
+            if (isNaN(seconds)) return '0:00';
+            const min = Math.floor(seconds / 60);
+            const sec = Math.floor(seconds % 60);
+            return `${min}:${sec < 10 ? '0' + sec : sec}`;
+        }
+    </script>
+</body>
+</html>

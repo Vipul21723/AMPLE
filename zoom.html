@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer with Footer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        #pdf-container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        canvas {
+            display: block;
+            margin-bottom: 20px;
+            width: 100%;
+            height: auto;
+            transition: transform 0.1s ease-in-out;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .footer-content {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .page-navigation,
+        .zoom-controls,
+        .additional-options {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        span {
+            font-size: 16px;
+        }
+
+        #zoom-level,
+        #page-number {
+            font-weight: bold;
+            font-size: 16px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+</head>
+<body>
+
+    <div id="pdf-container">
+        <div id="pdf-viewer"></div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <!-- Page Navigation -->
+            <div class="page-navigation">
+                <button id="prev-page">Prev</button>
+                <span id="page-number">Page: 1</span>
+                <button id="next-page">Next</button>
+            </div>
+
+            <!-- Zoom Controls -->
+            <div class="zoom-controls">
+                <button id="zoom-in">+</button>
+                <span id="zoom-level">Zoom: 100%</span>
+                <button id="zoom-out">-</button>
+            </div>
+
+            <!-- Additional Options (Print, Download) -->
+            <div class="additional-options">
+                <button id="print-pdf">Print</button>
+                <button id="download-pdf">Download</button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const url = '26March2025.pdf'; // Path to your PDF
+        let currentPage = 1;
+        const totalPages = 5; // Replace with actual total number of pages from the PDF
+        let scaleFactor = 1;
+        const pdfContainer = document.getElementById('pdf-viewer');
+
+        // Asynchronously download the PDF
+        pdfjsLib.getDocument(url).promise.then(function(pdf) {
+            const totalPages = pdf.numPages;
+            // Render each page of the PDF
+            for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
+                pdf.getPage(pageNum).then(function(page) {
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    const viewport = page.getViewport({ scale: scaleFactor });
+
+                    // Set canvas size to match the PDF page
+                    canvas.width = viewport.width;
+                    canvas.height = viewport.height;
+
+                    // Render the PDF page to the canvas
+                    page.render({ canvasContext: context, viewport: viewport }).promise.then(function() {
+                        pdfContainer.appendChild(canvas);
+                    });
+                });
+            }
+        }).catch(function(error) {
+            console.error('Error loading PDF: ' + error);
+        });
+
+        // Update page number and zoom level in the footer
+        function updateFooter() {
+            document.getElementById('page-number').textContent = `Page: ${currentPage} / ${totalPages}`;
+            document.getElementById('zoom-level').textContent = `Zoom: ${Math.round(scaleFactor * 100)}%`;
+        }
+
+        // Page navigation buttons
+        document.getElementById('prev-page').addEventListener('click', function() {
+            if (currentPage > 1) {
+                currentPage--;
+                updateFooter();
+                // Add your code to change the PDF page here
+            }
+        });
+
+        document.getElementById('next-page').addEventListener('click', function() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                updateFooter();
+                // Add your code to change the PDF page here
+            }
+        });
+
+        // Zoom buttons
+        document.getElementById('zoom-in').addEventListener('click', function() {
+            if (scaleFactor < 2) {
+                scaleFactor += 0.1;
+                updateFooter();
+                // Add your code to zoom the PDF here
+            }
+        });
+
+        document.getElementById('zoom-out').addEventListener('click', function() {
+            if (scaleFactor > 0.5) {
+                scaleFactor -= 0.1;
+                updateFooter();
+                // Add your code to zoom the PDF here
+            }
+        });
+
+        // Print button
+        document.getElementById('print-pdf').addEventListener('click', function() {
+            window.print(); // This will open the print dialog
+        });
+
+        // Download button
+        document.getElementById('download-pdf').addEventListener('click', function() {
+            const link = document.createElement('a');
+            link.href = url; // Path to your PDF
+            link.download = '26March2025.pdf'; // File name
+            link.click();
+        });
+    </script>
+
+</body>
+</html>

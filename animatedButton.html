@@ -1,0 +1,109 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flow-button {
+            /* Basic button styling */
+            padding: 15px 30px;
+            font-family: "Merriweather", serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden; /* Keeps the gradient inside */
+            z-index: 1;
+        
+            /* Gradient background with seamless repetition */
+            background: linear-gradient(
+                to bottom right, /* Top-left to bottom-right */
+                red,      /* Color 1 */
+                orange,   /* Color 2 */
+                yellow,   /* Color 3 */
+                green,    /* Color 4 */
+                blue,     /* Color 5 */
+                indigo,   /* Color 6 */
+                violet,   /* Color 7 */
+                red       /* Repeat first color for seamless flow */
+            );
+            background-size: 200% 200%; /* Larger size for smooth flow */
+            animation: colorFlow 5s infinite linear; /* Continuous, seamless flow */
+        }
+        
+        /* Animation keyframes for ultra-smooth, continuous flow */
+        @keyframes colorFlow {
+            0% {
+                background-position: 0% 0%; /* Start at top-left */
+            }
+            100% {
+                background-position: 200% 200%; /* Double size ensures seamless loop */
+            }
+        }
+        
+        /* Optional hover effect */
+        .flow-button:hover {
+            filter: brightness(1.2); /* Slightly brighten on hover */
+        }
+    </style>
+</head>
+<body>
+    <button class="flow-button">Click Me</button>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seamless Gradient Button</title>
+    <style>
+        /* Button styling */
+        .gradient-button {
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: linear-gradient(
+                135deg, /* Top-left to bottom-right */
+                #ff0000, /* Red */
+                #ff7f00, /* Orange */
+                #ffff00, /* Yellow */
+                #00ff00, /* Green */
+                #0000ff, /* Blue */
+                #4b0082, /* Indigo */
+                #9400d3
+            );
+            background-size: 400% 400%; /* Large size for seamless looping */
+            animation: gradientFlow 7s linear infinite alternate-reverse; /* Continuous animation */
+        }
+
+        /* Animation keyframes */
+        @keyframes gradientFlow {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 100% 100%;
+            }
+        }
+
+        /* Optional: Hover effect */
+        .gradient-button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <button class="gradient-button">Click Me</button>
+</body>
+</html>

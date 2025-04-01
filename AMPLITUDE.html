@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="AMPLITUDE.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="AMPLITUDE.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    </head>
+</head>
+
+<body>
+    <header>
+        <div class="sub-header">
+            <div class="logo">
+                <img src="Ample.png" alt="">
+            </div>
+            <div class="service">
+                <div class="service_box">
+                    <div class="icon">
+                        <img src="meeting.png" alt="">
+                    </div>
+                    <div class="name">
+                        <p class="service-name">AMPLITUDE 1686</p>
+                        <p class="service-meaning">AMPLE Magazine</p>
+                    </div>
+                </div>
+            </div>
+            <div class="magazine_collection">
+                <img src="Magazine_Collection.png" alt="" class="open-btn" onclick="openPdfBox()">
+            </div>
+        </div>
+    </header>
+
+    <div class="pdf-box" id="pdfBox">
+        <div class="pdf-content">
+            <div class="pdf-header">
+                Magazine Collections
+            </div>
+            <div class="pdf-list" id="pdfList">
+                <!-- <div class="pdf-item">Document1.pdf</div>
+                <div class="pdf-item">Document2.pdf</div>
+                <div class="pdf-item">Document3.pdf</div>
+                <div class="pdf-item">Document4.pdf</div>
+                <div class="pdf-item">Document5.pdf</div>
+                <div class="pdf-item">Document6.pdf</div>
+                <div class="pdf-item">Document7.pdf</div>
+                <div class="pdf-item">Document8.pdf</div>
+                <div class="pdf-item">Document9.pdf</div>
+                <div class="pdf-item">Document10.pdf</div> -->
+
+                <div class="section bronze-section">
+                    <div class="type">Bronze Edition Times</div>
+                    <div class="pdf-collection">
+                        <!-- <div class="pdf" data-pdf="Bronze Edition.pdf">
+                            <div class="pdf-thumbnail">
+                                <img src="BronzeEditionThumbnail.png" alt="">
+                            </div>
+                            <div class="pdf-date">
+                                22 & 28-03-2025
+                            </div>
+                        </div>
+                        <div class="pdf" data-pdf="Bronze Edition.pdf">
+                            <div class="pdf-thumbnail">
+                                <img src="BronzeEditionThumbnail.png" alt="">
+                            </div>
+                            <div class="pdf-date">
+                                22 & 28-03-2025
+                            </div>
+                        </div>
+                        <div class="pdf" data-pdf="Bronze Edition.pdf">
+                            <div class="pdf-thumbnail">
+                                <img src="BronzeEditionThumbnail.png" alt="">
+                            </div>
+                            <div class="pdf-date">
+                                22 & 28-03-2025
+                            </div>
+                        </div>
+                        <div class="pdf" data-pdf="Bronze Edition.pdf">
+                            <div class="pdf-thumbnail">
+                                <img src="BronzeEditionThumbnail.png" alt="">
+                            </div>
+                            <div class="pdf-date">
+                                22 & 28-03-2025
+                            </div>
+                        </div>
+                        <div class="pdf" data-pdf="Bronze Edition.pdf">
+                            <div class="pdf-thumbnail">
+                                <img src="BronzeEditionThumbnail.png" alt="">
+                            </div>
+                            <div class="pdf-date">
+                                22 & 28-03-2025
+                            </div>
+                        </div>
+                        <div class="pdf" data-pdf="Bronze Edition.pdf">
+                            <div class="pdf-thumbnail">
+                                <img src="BronzeEditionThumbnail.png" alt="">
+                            </div>
+                            <div class="pdf-date">
+                                22 & 28-03-2025
+                            </div>
+                        </div>
+                        <div class="pdf" data-pdf="Bronze Edition.pdf">
+                            <div class="pdf-thumbnail">
+                                <img src="BronzeEditionThumbnail.png" alt="">
+                            </div>
+                            <div class="pdf-date">
+                                22 & 28-03-2025
+                            </div>
+                        </div> -->
+                        <p style="color: white;padding-left: 10px;">&nbspData is not available</p>
+                    </div>
+                </div>
+                <div class="section silver-section">
+                    <div class="type">Silver Edition Times</div>
+                    <div class="pdf-collection">
+                        <!-- <div class="pdf" data-pdf="Bronze Edition.pdf">
+                            <div class="pdf-thumbnail">
+                                <img src="BronzeEditionThumbnail.png" alt="">
+                            </div>
+                            <div class="pdf-date">
+                                22 & 28-03-2025
+                            </div>
+                        </div>
+                        <div class="pdf" data-pdf="Bronze Edition.pdf">
+                            <div class="pdf-thumbnail">
+                                <img src="BronzeEditionThumbnail.png" alt="">
+                            </div>
+                            <div class="pdf-date">
+                                22 & 28-03-2025
+                            </div>
+                        </div>
+                        <div class="pdf" data-pdf="Bronze Edition.pdf">
+                            <div class="pdf-thumbnail">
+                                <img src="BronzeEditionThumbnail.png" alt="">
+                            </div>
+                            <div class="pdf-date">
+                                22 & 28-03-2025
+                            </div>
+                        </div>
+                        <div class="pdf" data-pdf="Bronze Edition.pdf">
+                            <div class="pdf-thumbnail">
+                                <img src="BronzeEditionThumbnail.png" alt="">
+                            </div>
+                            <div class="pdf-date">
+                                22 & 28-03-2025
+                            </div>
+                        </div>
+                        <div class="pdf" data-pdf="Bronze Edition.pdf">
+                            <div class="pdf-thumbnail">
+                                <img src="BronzeEditionThumbnail.png" alt="">
+                            </div>
+                            <div class="pdf-date">
+                                22 & 28-03-2025
+                            </div>
+                        </div>
+                        <div class="pdf" data-pdf="Bronze Edition.pdf">
+                            <div class="pdf-thumbnail">
+                                <img src="BronzeEditionThumbnail.png" alt="">
+                            </div>
+                            <div class="pdf-date">
+                                22 & 28-03-2025
+                            </div>
+                        </div>
+                        <div class="pdf" data-pdf="Bronze Edition.pdf">
+                            <div class="pdf-thumbnail">
+                                <img src="BronzeEditionThumbnail.png" alt="">
+                            </div>
+                            <div class="pdf-date">
+                                22 & 28-03-2025
+                            </div>
+                        </div> -->
+                        <p style="color: white;padding-left: 10px;">&nbspData is not available</p>
+                        
+                    </div>
+                </div>
+                <div class="section gold-section">
+                    <div class="type">Gold Edition Times</div>
+                    <div class="pdf-collection">
+                        <!-- <div class="pdf" data-pdf="Bronze Edition.pdf">
+                            <div class="pdf-thumbnail">
+                                <img src="BronzeEditionThumbnail.png" alt="">
+                            </div>
+                            <div class="pdf-date">
+                                22 & 28-03-2025
+                            </div>
+                        </div>
+                        <div class="pdf" data-pdf="Bronze Edition.pdf">
+                            <div class="pdf-thumbnail">
+                                <img src="BronzeEditionThumbnail.png" alt="">
+                            </div>
+                            <div class="pdf-date">
+                                22 & 28-03-2025
+                            </div>
+                        </div>
+                        <div class="pdf" data-pdf="Bronze Edition.pdf">
+                            <div class="pdf-thumbnail">
+                                <img src="BronzeEditionThumbnail.png" alt="">
+                            </div>
+                            <div class="pdf-date">
+                                22 & 28-03-2025
+                            </div>
+                        </div>
+                        <div class="pdf" data-pdf="Bronze Edition.pdf">
+                            <div class="pdf-thumbnail">
+                                <img src="BronzeEditionThumbnail.png" alt="">
+                            </div>
+                            <div class="pdf-date">
+                                22 & 28-03-2025
+                            </div>
+                        </div>
+                        <div class="pdf" data-pdf="Bronze Edition.pdf">
+                            <div class="pdf-thumbnail">
+                                <img src="BronzeEditionThumbnail.png" alt="">
+                            </div>
+                            <div class="pdf-date">
+                                22 & 28-03-2025
+                            </div>
+                        </div>
+                        <div class="pdf" data-pdf="Bronze Edition.pdf">
+                            <div class="pdf-thumbnail">
+                                <img src="BronzeEditionThumbnail.png" alt="">
+                            </div>
+                            <div class="pdf-date">
+                                22 & 28-03-2025
+                            </div>
+                        </div>
+                        <div class="pdf" data-pdf="Bronze Edition.pdf">
+                            <div class="pdf-thumbnail">
+                                <img src="BronzeEditionThumbnail.png" alt="">
+                            </div>
+                            <div class="pdf-date">
+                                22 & 28-03-2025
+                            </div>
+                        </div> -->
+                        <p style="color: white;padding-left: 10px;">&nbspData is not available</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="pdf-control-box" style="display: none;">
+        <button id="backBtn">Back</button>
+        <span id="pdf-name"></span>
+    </div>
+    <main>
+        <div class="loader" id="loading-spinner"></div>
+        <div id="pdf-container"></div>
+
+
+        <div class="slider-container" id="slider-container">
+            <div class="slides">
+                <div class="slide">
+                    <div class="display_box">
+                        <div class="img_box">
+                            <img src="BronzeEditionThumbnail.png" alt="">
+                        </div>
+                        <div class="content">
+                            <p class="p">Who bends the curve this week? Witness the luminaries and forces shifting the now. Updated on 8th.</p>
+                        </div>
+                        <!-- Hey Vipul , Edit here -->
+                        <button class="edition_button bronze_edition pdf-item" data-pdf="Bronze Edition.pdf" onclick="alert('Coming On 08 April 2025')">Meet the Catalysts</button>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="display_box">
+                        <div class="img_box">
+                            <img src="BronzeEditionThumbnail.png" alt="">
+                        </div>
+                        <div class="content">
+                            <p class="p">Who shaped the narrative this month? Explore the minds and machines weaving tomorrow’s tapestry. New reflections on the 1st.</p>
+                        </div>
+                        <!-- Hey Vipul , Edit here -->
+                        <button class="edition_button silver_edition pdf-item" data-pdf="Bronze Edition.pdf" onclick="alert('Coming On 01 May 2025')">See the Visionaries</button>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="display_box">
+                        <div class="img_box">
+                            <img src="BronzeEditionThumbnail.png" alt="">
+                        </div>
+                        <div class="content">
+                            <p class="p">Who transcends time? Celebrate the beings and algorithms that etched themselves into the year. Unveiled every January 1st.</p>
+                        </div>
+                        <!-- Hey Vipul , Edit here -->
+                        <button class="edition_button gold_edition pdf-item" data-pdf="Bronze Edition.pdf" onclick="alert('Coming On 01 January 2026')">Enter the Pantheon</button>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="display_box">
+                        <div class="img_box">
+                            <img src="BronzeEditionThumbnail.png" alt="">
+                        </div>
+                        <div class="content">
+                            <p class="p">Who bends the curve this week? Witness the luminaries and forces shifting the now. Updated on 8th.</p>
+                        </div>
+                        <button class="edition_button bronze_edition pdf-item" data-pdf="Bronze Edition.pdf" onclick="alert('Coming On 01 January 2026')">Meet the Catalysts</button>
+                    </div>
+                </div>
+                <div class="slide"></div>
+            </div>
+            <button class="prev" onclick="moveSlide(-1)">
+                <img src="caret-left-fill.svg" alt="">
+            </button>
+            <button class="next" onclick="moveSlide(1)">
+                <img src="caret-right-fill.svg" alt="">
+            </button>
+        </div>
+        <hr>
+        <div class="new update">
+            <div class="new-head update-head">
+                <span><img src="lightning-fill.svg" alt=""><p>What's New</p><img src="arrow-bar-down (1).svg" alt=""></span>
+            </div>
+            <div class="new-area update-area">
+                <div class="feature">
+                    <div class="feature-logo">
+                        <div class="logo">
+                            <img src="Expo.png" alt="">
+                        </div>
+                        <p>Expo</p>
+                    </div>
+                    <div class="feature-video">
+                        <div class="frame">
+                            <img src="Expo.gif" alt="">
+                        </div>
+                    </div>
+                    <div class="feature-description">
+                        <p>A structured file manager-style explorer that allows users to navigate content effortlessly. Users can browse through categorized sections, making it easy to find specific materials step by step.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-logo">
+                        <div class="logo">
+                            <img src="feature.png" alt="">
+                        </div>
+                        <p>AMPLE ID</p>
+                    </div>
+                    <div class="feature-video">
+                        <div class="frame">
+                            <img src="AMPLE_ID.gif" alt="">
+                        </div>
+                    </div>
+                    <div class="feature-description">
+                        <p>A unique identification system where users create their own digital presence using ~. This feature allows seamless tagging and referencing of profiles, making interactions and connections more intuitive across the platform.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-logo">
+                        <div class="logo">
+                            <img src="BronzeEditionThumbnail.png" alt="">
+                        </div>
+                        <p>AMPLITUDE 1686</p>
+                    </div>
+                    <div class="feature-video">
+                        <div class="frame">
+                            <img src="AMPLITUDE1686.gif" alt="">
+                        </div>
+                    </div>
+                    <div class="feature-description">
+                        <p>A magazine platform covering trending and successful figures, innovations, and events. Published in three editions:<br>Bronze (Weekly) <br>Silver (Monthly) <br>Gold (Yearly)</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-logo">
+                        <div class="logo">
+                            <img src="readmore.png" alt="">
+                        </div>
+                        <p>Read More or Less</p>
+                    </div>
+                    <div class="feature-video">
+                        <div class="frame">
+                            <img src="FeadMoreLess.gif" alt="">
+                        </div>
+                    </div>
+                    <div class="feature-description">
+                        <p>A dynamic text expansion feature that enhances user experience. Lengthy posts are automatically shortened with a Read More option. Clicking expands the content with smooth transitions, and a Read Less button collapses it back seamlessly.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-logo">
+                        <div class="logo">
+                            <img src="libAMPLE.png" alt="">
+                        </div>
+                        <p>LibAMPLE</p>
+                    </div>
+                    <div class="feature-video">
+                        <div class="frame">
+                            <img src="LibAMPLE.gif" alt="">
+                        </div>
+                    </div>
+                    <div class="feature-description">
+                        <p>A vast online library where users can access a diverse collection of PDFs. From educational resources to business insights, it serves as a knowledge hub for learners and professionals alike.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-logo">
+                        <div class="logo">
+                            <img src="pulse.png" alt="">
+                        </div>
+                        <p>Pulse</p>
+                    </div>
+                    <div class="feature-video">
+                        <div class="frame">
+                            <img src="pulse.gif" alt="">
+                        </div>
+                    </div>
+                    <div class="feature-description">
+                        <p>A real-time news hub that delivers the top daily updates, alongside a calendar view to explore historical events and past news with just a click.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <hr>
+        <div class="upcoming update">
+            <div class="upcoming-head update-head">
+                <span><img src="lightning-fill.svg" alt=""><p>What's New</p><img src="arrow-bar-down (1).svg" alt=""></span>
+            </div>
+            <div class="upcoming-area update-area">
+                <div class="feature">
+                    <div class="feature-logo">
+                        <div class="logo"></div>
+                        <p>Pulse</p>
+                    </div>
+                    <div class="feature-video">
+                        <div class="frame">
+                            <img src="pulse.gif" alt="">
+                        </div>
+                    </div>
+                    <div class="feature-description">
+                        <p>Explore Expo revolutionizes content navigation with its intuitive LibAMPLE Explorer, offering seamless directory browsing through clear path tracking. Quickly discover files with smart search and toggle between grid/list views for optimal visibility. Its organized interface ensures effortless content management, saving you valuable time. Designed for efficiency, it eliminates frustrating folder digging with logical exploration. Perfect for developers and content managers, it brings clarity to complex directory structures.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-logo">
+                        <div class="logo"></div>
+                        <p>Expo</p>
+                    </div>
+                    <div class="feature-video">
+                        <div class="frame">
+                            <img src="Expo.gif" alt="">
+                        </div>
+                    </div>
+                    <div class="feature-description">
+                        <p>Explore Expo revolutionizes content navigation with its intuitive LibAMPLE Explorer, offering seamless directory browsing through clear path tracking. Quickly discover files with smart search and toggle between grid/list views for optimal visibility. Its organized interface ensures effortless content management, saving you valuable time. Designed for efficiency, it eliminates frustrating folder digging with logical exploration. Perfect for developers and content managers, it brings clarity to complex directory structures.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-logo">
+                        <div class="logo"></div>
+                        <p>Expo</p>
+                    </div>
+                    <div class="feature-video">
+                        <div class="frame">
+                            <img src="Expo.gif" alt="">
+                        </div>
+                    </div>
+                    <div class="feature-description">
+                        <p>Explore Expo revolutionizes content navigation with its intuitive LibAMPLE Explorer, offering seamless directory browsing through clear path tracking. Quickly discover files with smart search and toggle between grid/list views for optimal visibility. Its organized interface ensures effortless content management, saving you valuable time. Designed for efficiency, it eliminates frustrating folder digging with logical exploration. Perfect for developers and content managers, it brings clarity to complex directory structures.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-logo">
+                        <div class="logo"></div>
+                        <p>Expo</p>
+                    </div>
+                    <div class="feature-video">
+                        <div class="frame">
+                            <img src="Expo.gif" alt="">
+                        </div>
+                    </div>
+                    <div class="feature-description">
+                        <p>Explore Expo revolutionizes content navigation with its intuitive LibAMPLE Explorer, offering seamless directory browsing through clear path tracking. Quickly discover files with smart search and toggle between grid/list views for optimal visibility. Its organized interface ensures effortless content management, saving you valuable time. Designed for efficiency, it eliminates frustrating folder digging with logical exploration. Perfect for developers and content managers, it brings clarity to complex directory structures.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-logo">
+                        <div class="logo"></div>
+                        <p>Expo</p>
+                    </div>
+                    <div class="feature-video">
+                        <div class="frame">
+                            <img src="Expo.gif" alt="">
+                        </div>
+                    </div>
+                    <div class="feature-description">
+                        <p>Explore Expo revolutionizes content navigation with its intuitive LibAMPLE Explorer, offering seamless directory browsing through clear path tracking. Quickly discover files with smart search and toggle between grid/list views for optimal visibility. Its organized interface ensures effortless content management, saving you valuable time. Designed for efficiency, it eliminates frustrating folder digging with logical exploration. Perfect for developers and content managers, it brings clarity to complex directory structures.</p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- <hr>
+        <div class="versions update">
+            <div class="versions-head update-head">
+                <span><img src="lightning-fill.svg" alt=""><p>What's New</p><img src="arrow-bar-down (1).svg" alt=""></span>
+            </div>
+            <div class="versions-area update-area">
+                <div class="feature">
+                    <div class="feature-logo">
+                        <div class="logo"></div>
+                        <p>Expo</p>
+                    </div>
+                    <div class="feature-video">
+                        <div class="frame">
+                            <img src="Expo.gif" alt="">
+                        </div>
+                    </div>
+                    <div class="feature-description">
+                        <p>Explore Expo revolutionizes content navigation with its intuitive LibAMPLE Explorer, offering seamless directory browsing through clear path tracking. Quickly discover files with smart search and toggle between grid/list views for optimal visibility. Its organized interface ensures effortless content management, saving you valuable time. Designed for efficiency, it eliminates frustrating folder digging with logical exploration. Perfect for developers and content managers, it brings clarity to complex directory structures.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-logo">
+                        <div class="logo"></div>
+                        <p>Expo</p>
+                    </div>
+                    <div class="feature-video">
+                        <div class="frame">
+                            <img src="Expo.gif" alt="">
+                        </div>
+                    </div>
+                    <div class="feature-description">
+                        <p>Explore Expo revolutionizes content navigation with its intuitive LibAMPLE Explorer, offering seamless directory browsing through clear path tracking. Quickly discover files with smart search and toggle between grid/list views for optimal visibility. Its organized interface ensures effortless content management, saving you valuable time. Designed for efficiency, it eliminates frustrating folder digging with logical exploration. Perfect for developers and content managers, it brings clarity to complex directory structures.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-logo">
+                        <div class="logo"></div>
+                        <p>Expo</p>
+                    </div>
+                    <div class="feature-video">
+                        <div class="frame">
+                            <img src="Expo.gif" alt="">
+                        </div>
+                    </div>
+                    <div class="feature-description">
+                        <p>Explore Expo revolutionizes content navigation with its intuitive LibAMPLE Explorer, offering seamless directory browsing through clear path tracking. Quickly discover files with smart search and toggle between grid/list views for optimal visibility. Its organized interface ensures effortless content management, saving you valuable time. Designed for efficiency, it eliminates frustrating folder digging with logical exploration. Perfect for developers and content managers, it brings clarity to complex directory structures.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-logo">
+                        <div class="logo"></div>
+                        <p>Expo</p>
+                    </div>
+                    <div class="feature-video">
+                        <div class="frame">
+                            <img src="Expo.gif" alt="">
+                        </div>
+                    </div>
+                    <div class="feature-description">
+                        <p>Explore Expo revolutionizes content navigation with its intuitive LibAMPLE Explorer, offering seamless directory browsing through clear path tracking. Quickly discover files with smart search and toggle between grid/list views for optimal visibility. Its organized interface ensures effortless content management, saving you valuable time. Designed for efficiency, it eliminates frustrating folder digging with logical exploration. Perfect for developers and content managers, it brings clarity to complex directory structures.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-logo">
+                        <div class="logo"></div>
+                        <p>Expo</p>
+                    </div>
+                    <div class="feature-video">
+                        <div class="frame">
+                            <img src="Expo.gif" alt="">
+                        </div>
+                    </div>
+                    <div class="feature-description">
+                        <p>Explore Expo revolutionizes content navigation with its intuitive LibAMPLE Explorer, offering seamless directory browsing through clear path tracking. Quickly discover files with smart search and toggle between grid/list views for optimal visibility. Its organized interface ensures effortless content management, saving you valuable time. Designed for efficiency, it eliminates frustrating folder digging with logical exploration. Perfect for developers and content managers, it brings clarity to complex directory structures.</p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </main>
+    <script src="AMPLITUDE.js"></script>
+    <script src="Slide.js"></script>
+</body>
+</html>
